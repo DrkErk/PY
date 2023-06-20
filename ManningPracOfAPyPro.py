@@ -104,10 +104,99 @@ def print_receipt():
 
 
 
+## CLASSESS
+# -you can use classes to create objects, or instances of of the class that have the data and behaviors defined in the 
+#  class
+# -The data becomes the state of the object
+# -The data composes the attributes of the object because the data is attributed to the object in question
+# -The behaviors become methods (they receive the object instance as an additional argument, self)
+#  Allowing the methods to change the instances state or just plain old access it.
+
+# Constructor is used to create an instance of the class (__init__) (accepts 1 arg of self min)
+#***********
+# GOING THROUGH ROCK PAPER SCISSORS BEING REFACTORED AND DECONSTRUCTED. need to add for pointers
+import random
+
+options = [ 'rock', 'paper', 'scissors']
+
+class RPSSim:
+    def __init__(self):
+        self.computerChoice = None
+        self.playerChoice = None
+    
+    def getComputerChoice(self):
+        self.computerChoice = random.choice(options)
+    
+    def getPlayersChoice(self):
+        numberChoice = int(input('Enter the number of your choice: '))
+        self.playerChoice = options[numberChoice -1]
+    
+    def printOptions(self):
+        print('\n'.join(f'({i}) {options.title()}' for i, option in enumerate(options)))
+    
+    def printChoices(self):
+        print(f'You chose {self.playerChoice}')
+        print(f'Bot chose {self.computerChoice}')
+        
+    def printWinLose(self, humanWinsTo, humanLosesTo):
+        if self.computerChoice == humanLosesTo:
+            print(f'Sorry, {self.computerChoice} beats {self.playerChoice}')
+        elif self.computerChoice == humanWinsTo:
+            print(f'{self.computerChoice} does not beat your {self.playerChoice}')
+    
+    def printResult(self):
+        if self.playerChoice == self.computerChoice:
+            print('TIE')
+        
+        if self.playerChoice == 'rock':
+            self.printWinLose('scissors', 'paper')
+        elif self.playerChoice == 'paper':
+            self.printWinLose('rock', 'scissors')
+        elif self.playerChoice == 'scissors':
+            self.printWinLose('paper', 'rock')
+
+    def simulate(self):
+        self.printOptions()
+        self.getPlayersChoice()
+        self.getComputerChoice()
+        self.printChoices()
+        self.printResult()
+    
+#***********
+#High Cohension of methods and attributes means they are closely related
+# A class is cohesive when if its contents make sense together as a whole.
+
+#A coupled class is when it depends on another class
+# Tightly Coupled is when it relies on many details from the other class (expensive for technical debt)
 
 
 
+#***Packages***
+#good practice would be to break up the the modules into 2 packages. an example would be if you have database_query and
+# search_query modules. Seperate them into unique packages and so that the structure would become database.query and
+# search.query. (easier to import/ cuts redundancy while keeping them unique/ becomes easier to read and navigate 
+# the hierarchy
 
+
+################## ***CHAP 3 ABSTRACTION AND ENCAPSULATION*** ##################################################
+#Abstraction: process of taking something concrete and stripping it of its specifics
+#Complex code will often benefit from layers of abstraction where as low level utilities will support small behaviors
+# which in turn supports more involved behaviors
+
+#an example would be left to right, Functionality grows more complex while becoming less reusable
+#"String manipulation/ database operations", "http calls", "credit card processing", "ecom system"
+#                  >                             >                  >                      >
+
+#Code example used a monolith of code for sentance parsing and the updated is making a class for matching for a pattern
+# This is done so that sentance pattern and word pattern doesnt need 2 versions of the same code, pass to a class
+# then its done
+
+#PY TIP:
+#adding additional context to a module/class/method/func using "docstrings"
+
+#ENCAPSULATION
+# modules are a form of encapsulation. They group multiple related classes and functions together.
+# The largest encapsulation available in py is package
 
 
 
