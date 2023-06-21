@@ -198,6 +198,74 @@ class RPSSim:
 # modules are a form of encapsulation. They group multiple related classes and functions together.
 # The largest encapsulation available in py is package
 
+#for psuedo privacy: if you want methods/variables to be class only, prefix the class with an underscore.
+# ex: _internalFunction
+
+#get the date time hour of an object
+import datetime
+datetime.now().hour
+
+# Current day of the week
+datetime.now()strftime('%A')
+
+#internal only functions may benefit as being standalone and serving more than one purpose
+
+###Programming style are abstraction too###
+
+#Procedural Programming: use procedural calls (functions) which aren't encapsulated into classes,so they only rely on
+# their inputs and occasionally on some global state
+
+#Functional Programming: (relies heavily on functions as the form of abstraction, yet the mental model is different)
+# requires more thought about your programs as composition of functions. (for loops are replaced by functions that 
+# operate on lists)
+# NOW AN EXAMPLE: we might write
+numbers = [1,2,3,4,5]
+for i in numbers:
+    print(i*i)
+
+# vs in functional it would look like
+(map((i) => i * i, [1,2,3,4,5]))
+
+# functional programming usually can accept other functions as args or return as results
+
+#PY RELATED FUNCTIONAL TOOLS
+#Map, tools under Functools and Itertools, reduce (thats under functools)
+
+#functional python would look like this
+from functools import reduce
+
+squares = map(lambda x: x * x, [1,2,3,4,5])
+should  = reduce(lambda x, y: x and y, [True, True, False])
+evens = filter(lambda x: x % 2 == 0, [1,2,3,4,5])
+
+# vs the pythion prefered
+squares = [x * x for x in [1,2,3,4,5]]
+should = all([True, True, False])
+evens = [x for x in [1,2,3,4,5] if x % 2 == 0]
+
+#functools.partial allows you to create an new function from an existing functionwith some of the original functions
+# argument set (can make things clearer than writing a function that calls the orignal function)
+#EX: 
+from functools import partial
+
+def pow(x, power=1):
+    return x ** power
+
+square = partial(pow, power=2)
+cube = partial(pow, power=3)
+
+#end 3.4.3
+
+
+
+
+
+
+
+
+
+
+
 
 
 
