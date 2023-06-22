@@ -254,7 +254,48 @@ def pow(x, power=1):
 square = partial(pow, power=2)
 cube = partial(pow, power=3)
 
-#end 3.4.3
+#3.4.3 Declarative programming
+#Declarative programming: focuses on declaring the parameters of a task without specifying how to accomplish it
+# and the details on how to accomplish the task are abstracted from the developer. (useful when you need to repeat
+# highly parametric task with only slightly varations in the parameters)
+
+#This style is often used with (DSL) Domain specific languages such as HTML/SQL/etc. Where as python and c are 
+# general purpose languages
+
+#EXAMPLE TOOL FOR PY: is graphs creation from data by describing a graph. (https://plot.ly/python/)
+
+#A languages typing or type system is how it chooses to manage data type of variables. (some are complied and check
+# data types at compliation and others at run time./ some languages know x = 1 is an int while others need that 
+# int call out like int x = 1)
+
+#Py is a dynamically typed language which means that it determines its data types at runtime.
+#it also uses DUCK TYPING which is will always attempt to make the method call during execution and raising an
+# attributeError if the method doesnt exist on the instances class. vs other langauges which fail to compile if there
+# are unknown references to a method on a class instance.
+
+#Composition is the converse to decomposition; pieces are brought together to realize a complete concept.
+# It is often done through interfaces, which are formal definitions of a method/data that a particular class must
+# implement.
+
+#Only way to get inheritance in PY is through the duck typing system and multiple inheritance.
+
+#Something like an interface can be built using a MIXIN mechanism that would just be a suffix at the end. this allows 
+# users to know that the class is composable. EX:
+class classNameMixin:
+    def classNameFind(self)
+        thisName = self.__class__.__name__.lower()
+        print =(f'The class name is: {thisName}')
+        
+class computer(classNameMixin):
+    pass
+    
+# computer has inherited classnamefind now even though the class does nothing when instantiated
+
+#key notes: abstraction should only be used to reduce friction.
+# Adapter: when you need an abstract an interface of a 3rd party software.
+
+
+###########################################################(***Chapter 4***)####################################
 
 
 
