@@ -297,7 +297,56 @@ class computer(classNameMixin):
 
 ###########################################################(***Chapter 4***)####################################
 
+#asymptotic analysis: observing and determining the bounds of its worst case
+# big o notation, (worst case)
 
+#the base comparision for time complexity is y=n at a 1:1 scale. so similar base case is y= mx + b
+
+#an example of a o(n^2) case is:
+def hasDuplicates(sequence):
+    for index1, item1 in enumerate(sequence):
+        for index2, item2 in enumerate(sequence):
+            if item1 == item2 and index1 != index2:
+                return True
+    return False
+
+#O(n^2) us the worst case because even if the last items are duplicates or if no duplicates exist, the code has to
+# iterate over all the inputs before it finishes.
+
+#best case is big omega and average is big theta
+
+#py has garbage collector
+
+#Common way programs use too much memory is reading in large data files fully into mem when they dont have too.
+#regEx out the data you need or read 1 line at a time
+
+#reduce loops over input and have less space to do things, (1 line at a time)
+#ideal performance is constant time
+
+#******************************************
+#data types for aiming for constant time:
+#           dict and set
+# They both share the behaviors of effciency when adding, removing, or accessing items. They where also similar under the
+# hood, but they dicts map keys and values and sets represent set of unique and individual terms
+#*********************************************
+#*********************************************
+#Data types for aiming for linear time:
+#LISTs are mainly O(n) operations. (such as adding new to location or if it exists in a list)
+#Lists are usefully when items being stored aren't uniquely identifiable
+#Tuples are similar but they can't be changed after they are created
+#***********************************************
+#iterables or objects that support iteration are almost always going to be 0(n) time complexity,
+
+
+
+#SPACE COMPLEXITY
+# 
+#USEFUL TOOL: GENERATORS: they are constructors that produce a single value at a time. They pause until the next value 
+# is requested. (they avoid storing all the values in memory at once)
+# 
+#
+        
+#stop at sec 4.2 and fig 4.5
 
 
 
