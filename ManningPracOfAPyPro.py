@@ -341,12 +341,73 @@ def hasDuplicates(sequence):
 
 #SPACE COMPLEXITY
 # 
-#USEFUL TOOL: GENERATORS: they are constructors that produce a single value at a time. They pause until the next value 
-# is requested. (they avoid storing all the values in memory at once)
+#USEFUL TOOL: GENERATORS: they are constructors that produce a single value at a time. 
+# -They pause until the next value is requested. (they avoid storing all the values in memory at once)
+# -(range function is a generator)
 # 
+#Generators make use of the (yield) keyword. Which after producing a value, they yield execution back to the calling 
+# code. So (yield) yields a value then yields execution.
 #
+#Yield works alot like pythons return statement except you can perform operations after you yield the value. Which means
+# you can use it to set up for the next value you want to produce.
+#
+#Approximation of how range works under the hood
+def range(*args):
+    if len(args) == 1:
+        start = 0
+        end = args[0]
+    else:
+        start = args[0]
+        end = args[1]
+    
+    current = start
+    
+    while current < stop:
+        yield current
+        current += 1
+
+#end sample
+
+#The repeated pattern of generators:
+#1. Perform the main setup required for producing all values
+#2. Create the loop
+#3. Yield a value on each iteration of the loop
+#4. Update the state for the next iteration of the loop
+
+#from an example
+def squares(items):
+    for item in items:
+        yield item ** 2
+#end
+#This function gets to be very compact and doesnt have to worry about state management
+#
+# You can even pass a generator to the squares, like the range from above and it will only store one item at a time from
+# the range and one squared result at a time. (big space savings)
+#
+#Though, it is considered to be a LAZY EVALUATION. Which is the idea of producing one value at a time, and that consuming 
+# code may not need all the values you can produce (as little work as possible when explicitly asked)
+
+
+#Now, a small 3 rule as step system to get performant systems (make it work, make it right, make it fast)
+
+###MAKING IT WORK###
+#mvp
+
+###MAKING IT RIGHT###
+#after getting to "does it work?"  it is time to refactor.
+# refactoring seeks to re implement existing code in a clearer or more well adapted way while providing the same 
+# consistent outcome.
+#
+#Refactoring has no clear done moment, so avoid iteration hell
+#Martin fowlers rule of 3 states: if you have implemented a thing 3 times, you should refactor your code to provide an
+# abstraction.
+#
+#Use built in functions (defaultdict is the example)
+
+#pause at highlighted point
+
+###MAKING IT FAST###
         
-#stop at sec 4.2 and fig 4.5
 
 
 
