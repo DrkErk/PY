@@ -19,12 +19,13 @@ out = phoneNumRegex.search('The phone number is: 901-213-5917')
 '''
 When you called "out" it will return: 901-213-5917
 
-But, if you area code or the base of the number you can call the group function. In this case:
+But, if you area code or the base of the number you can call the group method. In this case:
 out.group() will return "901-213-5917"
 out.group(0) will return "901-213-5917"
 out.group(1) will return "901"
 out.group(2) will return "213-5917"
 
+<<<<<<< HEAD
 
 Now, if you wanted to find something OR something. use a pipe: |
 
@@ -40,4 +41,20 @@ HINT FOR SELF: you can use the findall() method to find all matching occurences
 
 '''
 
+=======
+
+Now, if you wanted to find something OR something. use a pipe: |
+
+ex:
+"AAA is not BBB"
+AAA | BBB would return AAA
+and 
+"BBB is not AAA"
+AAA | BBB would return BBB
+Because it is what ever is the first hit.
+
+HINT FOR SELF: you can use the findall() method to find all matching occurences
+
+'''
+>>>>>>> a433115e9d8b34cde9baebbeb033fb84340e1d44
 
