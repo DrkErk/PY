@@ -401,10 +401,76 @@ def squares(items):
 #Refactoring has no clear done moment, so avoid iteration hell
 #Martin fowlers rule of 3 states: if you have implemented a thing 3 times, you should refactor your code to provide an
 # abstraction.
-#
-#Use built in functions (defaultdict is the example)
 
-#pause at highlighted point
+#now working with a code example
+
+def getNumberWithHighestCount(counts):
+    maxCount = 0
+    for number, count in count.items():
+        if count > maxCount:
+            maxCount = count
+            numberWithHighestCount = number
+    return numberWithHighestCount
+
+def mostFrequent(numbers):
+    counts = {}
+    for number in numbers:
+        if number in counts:
+            counts[number] += 1
+        else:
+            counts[number] = 1
+    return getNumberWithHighestCount(counts)
+
+# LETS LOOK MAKING THE MOST FREQUENT FUNCTION RIGHT
+
+#Use built in functions (defaultdict is the example) (counts = defaultdict(int) )
+# you can tell defaultdict types of values to store
+#
+
+from collections import defaultdict
+#
+#...
+#
+def mostFrequent(numbers):
+    counts = defaultdict(int)
+    for number in numbers:
+        counts[number] += 1
+    return getNumberWithHighestCount(counts)
+
+# and again with Counters (from collections import counter) (counts = Counter(numbers) )
+# (helps with counting things in a sequence)
+#
+
+from collections import Counter
+#
+#...
+#
+def mostFrequent(numbers):
+    counts = Counter(numbers)
+    return getNumberWithHighestCount(counts)
+
+#############################
+## end of focusing on most frequent
+#
+## now, lets take a look at the get number with highest count
+#############################
+# LAMBDAS are what we are looking at (Inline function that accepts arguments and return values.
+# has no name and you can't call them directly )
+#
+#though process for the new version:
+# we know we can use a max function to get the number with the highest count BUT,
+# since we are putting in a dictionary max will return the maximum value of the keys by default.
+# 
+
+#...
+def getNumberWithHighestCount(counts):
+    return max(
+        counts,
+        key = lambda number: counts[number]
+    )
+#
+#...
+#
 
 ###MAKING IT FAST###
         
