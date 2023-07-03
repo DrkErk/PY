@@ -473,11 +473,18 @@ def getNumberWithHighestCount(counts):
 #
 
 ###MAKING IT FAST###
-        
+#
+# THING TO REMEMBER!!!!!!!!
+# Perfection Is The Enemy of Good Enough!!!!
+#
+#YOU CANT GET MVP IF YOU CANT GET GOOD ENOUGH (also scope creep)
 
 
 
+# TOOOOOOOLLSSSSSSSSSSSSSSS ##################
 
+# TIMEIT:
+# 
 
 
 
