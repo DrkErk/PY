@@ -484,9 +484,35 @@ def getNumberWithHighestCount(counts):
 # TOOOOOOOLLSSSSSSSSSSSSSSS ##################
 
 # TIMEIT:
-# 
+# is a module/ tool in python for testing execution time of the code snippets
+# (can be used in cli or in code directly) 
+
+# cli
+# python -m timeit "<code>"
+
+# code
+#SAMPLE
+from timeit import timeit
+setup = 'from datetime import datetime'
+statement = 'datetime.now()'
+result = timeit(setup=setup, stmt = statement)
+print(f'Took an average of {result}ms')
+#END SAMPLE
 
 
+### CPU PROFILER ###
+
+# Trying to find which code is the most taxing on the CPU
+
+# cProfile
+# (prints a couple things out):
+#
+#(ncalls) number of times the call occurred
+#(tottime) the time spent in that call alone not inlc things it calls in turn
+#(percall) avg time spent in the call alone, across the "ncalls" times it was called
+#(cumtime) Cumulative time spent on that call, including sub calls
+
+#
 
 
 
