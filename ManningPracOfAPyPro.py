@@ -557,8 +557,16 @@ if __name__ == '__main__':
 # 3 is determined by executing the real code
 # 4 if the are same test passes. If not, the test fails
 
-
-
+#Types of testing
+# Manual
+# Automated
+# Acceptance (verifies the high level requirements of a system)(Answers questions like: can the user successfully go through the
+#             purchasing workflow and buy the product that they want?)(usually done manually by stakeholder)(can be automated to a
+#             degree with end to end testing: makes sure a set of actions can be carried out)
+# Unit Testing (most granular) (Test little bits of software to see if they are working) (encapsulation, seperation of concerns,
+#               loose coupling allow for easier to test code)
+#              -so when doing a function that finds the mean, write code to test if it can take a negative, or empty and such
+# Integration testing
 
 
 
