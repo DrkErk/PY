@@ -512,19 +512,50 @@ print(f'Took an average of {result}ms')
 #(percall) avg time spent in the call alone, across the "ncalls" times it was called
 #(cumtime) Cumulative time spent on that call, including sub calls
 
+#example function#################
+# it calls the function 1000 times and takes a random time up to 10milliseconds to complete
+import random
+import time
+
+def expensiveFunction():
+    executionTime = random.random() / 100
+    time.sleep(executionTime)
+
+if __name__ == '__main__':
+    for _ in range(1000):
+        expensiveFunction()
+
+##### END CODE #########################################
+#
+#### CLI of cProfiler
+# python -m cProfile --sort cumtime <someProject>.py
+
+################################################################################################
+### CHAPTER 5 CHAPTER 5 CHAPTER 5 CHAPTER 5 CHAPTER 5 CHAPTER 5 CHAPTER 5 CHAPTER 5 CHAPTER 5 ##
+################################################################################################
+############################                      ##############################################
+############################ ###################################################################
+############################ ###################################################################
+############################ ###################################################################
+############################                    ################################################
+###############################################  ###############################################
+################################################ ###############################################
+###############################################  ###############################################
+############################                     ###############################################
+################################################################################################
+# TESTING#
 #
 
+# Anatomy of a functional test
+# Basic anatomy:
+# 1. Prepare inputs to the software
+# 2. identify the expected output of the software
+# 3. obtain actual output
+# 4. compare the actual and expected to see if they match
 
-
-
-
-
-
-
-
-
-
-
+# 1,2 are determined by you
+# 3 is determined by executing the real code
+# 4 if the are same test passes. If not, the test fails
 
 
 
