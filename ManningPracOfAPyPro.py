@@ -566,7 +566,12 @@ if __name__ == '__main__':
 # Unit Testing (most granular) (Test little bits of software to see if they are working) (encapsulation, seperation of concerns,
 #               loose coupling allow for easier to test code)
 #              -so when doing a function that finds the mean, write code to test if it can take a negative, or empty and such
-# Integration testing
+# Integration testing (making sure all the individual units work in tandem to produce the right behavior) (NEEDS TO THREAD MULTIPLE
+#                      pieces of code together) (It leads to tight coupling) (changes in the code that produce the same outcome
+#                      might still cause the tests to break because are too concerned with how the outcome is achieved)
+#                      (Take longer to execute than unit tests because the test needs more to be done)
+# Testing pyramid ()
+
 
 
 
