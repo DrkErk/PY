@@ -570,7 +570,11 @@ if __name__ == '__main__':
 #                      pieces of code together) (It leads to tight coupling) (changes in the code that produce the same outcome
 #                      might still cause the tests to break because are too concerned with how the outcome is achieved)
 #                      (Take longer to execute than unit tests because the test needs more to be done)
-# Testing pyramid ()
+# Testing pyramid (the basis and should be done the most is unit testing, then integration, then manual) (as you go from unit to manual
+#                  you should avoid keeping as the basis of your testing strats)
+# The testing pyramid is first described ^^^^
+#
+# Regression Testing (Less of an approach to testing and more of a process to follow as you develop your applications)
 
 
 
