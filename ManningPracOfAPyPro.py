@@ -575,10 +575,27 @@ if __name__ == '__main__':
 # The testing pyramid is first described ^^^^
 #
 # Regression Testing (Less of an approach to testing and more of a process to follow as you develop your applications)
+#                    (When you write a test, the assumption is that you're saying, "i want to make sure the code keeps working this way")
+#                    ("Is the practice of running your existing suite of tests after each code change before shipping your code to 
+#                     production") the use of CI for RE testing("https://docs.travis-ci.com/user/for-beginners/") and
+#                    ("https://circleci.com/docs/about-circleci/")
+#
+# Version Control hooks (One practice for automation unit tests in source control systems is a precommit hook) (each time you commit
+#                        your code, the hook triggers the tests to run. If failures occur, the commit fails)
 
 
+########################
+######################## Statements of facts and unit testing
+########################
+########################
 
+#the use of assertion which is that a particulatr comparision hold true
+# You can add assert in front of your comparisions, to get an assertion (failing assertions get an AssertionError)
+# If the assertion is true, you get nothing back
+#the code below is ment for CLI but will show it
 
+assert 10.0 == calcMean([0,10,20])
+assert 1.0 == calcMean([1000])
 
 
 
