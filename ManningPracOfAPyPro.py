@@ -585,7 +585,7 @@ if __name__ == '__main__':
 
 
 ########################
-######################## Statements of facts and unit testing
+######################## Statements of facts (WITH ASSERTIONS) and unit testing
 ########################
 ########################
 
@@ -594,11 +594,32 @@ if __name__ == '__main__':
 # If the assertion is true, you get nothing back
 #the code below is ment for CLI but will show it
 
-assert 10.0 == calcMean([0,10,20])
-assert 1.0 == calcMean([1000])
+assert 10.0 == calcMean([0,10,20])\
+#nothing back
+assert 1.0 == calcMean([1000,3500,7000000])
+#assertionError
 
+#end
+#
 
+##########
+######### Unit testing with unittest
+##########
 
+#Unittest allows for assertions and a tool for running the tests
+# it also allows for "TestCase" class with custom assertion methods for more understandable testing outputs.
+# (You tests will need to ""inherit"" from the class and use methods to make assertions)
+# 
+
+#How to run the tests with unittest
+# It comes with the test runner (in cli) which is "python -m unittest"
+# when you run the above it will look for tests by:
+# 1. looking in the current directory (and any subdirectories) for modules named "test_*" or "*_test"
+# 2. looking in those modules for classes that inherit from unittest.TestCase
+# 3. looking in classes for methods that start with test_
+
+# (some people like to have the tests close to hte modules of interest. Others like to put all their tests in a tests/directory that
+# lives at the root of their project to keep them separate from the code)
 
 
 
