@@ -621,6 +621,68 @@ assert 1.0 == calcMean([1000,3500,7000000])
 # (some people like to have the tests close to hte modules of interest. Others like to put all their tests in a tests/directory that
 # lives at the root of their project to keep them separate from the code)
 
+##########
+######### Writing example test with unittest
+##########
+#
+#Based on the example code below
+class Product:
+    def __init__(self, name,size,color):
+        self.name = name
+        self.size = size
+        self.color = color
+    
+    def transformNameForSku(self):
+        return self.name.upper()
+
+    def transformColorForSku(self):
+        return self.color.upper()
+
+    def generateSku(self):
+        """
+        generates sku for this product
+
+        example:
+        >>> smallBlackShoes = product('shoes','S','black')
+        >>> smallBlackShoes.generateSku()
+        'SHOES-S-BLACK'
+        """
+        name = self.transformNameForSku()
+        color = self.transformColorForSku()
+        return f'{name}-{self.size}-{color}'
+#END EXAMPLE
+#
+
+#now, we would need to make a test (based on the anatomy of a functional test):
+# 1. set up inputs 
+# 2. identify the expected outputs
+# 3. obtain the actual output
+# 4. compare the expected and actual outputs
+
+# and, we want to test the "transform name for sku" method from the product class, and the above anatomy becomes:
+# 1. Create an instance of Product with name/size/color
+# 2. observe that transformNameForSku returns name.upper(); expected result is the name in uppercase
+# 3. call the product instance's TransformNameForSku method and save it in a variable
+# 4. compare the expected result to the saved actual result
+
+# The test would look like
+#
+#SAMPLE CODE
+import unittest
+from product import Product
+
+class ProductTestCase(unittest.TestCase):
+    def testTransformNameForSku(self):
+        smallBlackShoes = Product('shoes','S','black')
+        expectedValue = 'SHOES'
+        actualValue = smallBlackShoes.transformNameForSku()
+        self.assertEqual(expectedValue, actualValue)
+#end sample
+#and now if the product expected value SHOEZ is placed instead of SHOES, and you will get an assertionError
+
+##########
+######### Writing your first integration test with unittest
+##########
 
 
 
