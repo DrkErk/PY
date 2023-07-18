@@ -684,10 +684,43 @@ class ProductTestCase(unittest.TestCase):
 ######### Writing your first integration test with unittest
 ##########
 
+#for this example we have a shopping cart class with the ability to add and remove products would be needed (stores products in a
+# dictionary like below):
+"""
+{
+    'SHOES-S-BLACK': {
+        'quantity': 2,
+        ...
+    }
+    'SHOES-M-BLUE': {
+        'quantity': 1,
+        ...
+    }
+}
+"""
+# and the shopping cart would look like this
+###CODE SAMPLE
+from collections import defaultdict
 
+class ShoppingCart:
+    def __init__(self):
+        self.products = defaultdict(lambda: defaultdict(int)) # using default dict simplifies the logic for checking if a product is in
+                                                              #already in the cart dictionary
+    def addProducts(self,product,quantity=1):
+        self.products[product.generateSku()]['quantity'] += quantity
+    
+    def removeProducts(self,product,quantity=1):
+        sku= products.generateSku()
+        self.products[sku]['quantity'] -= quantity
+        if self.products[sku]['quantity'] ==0;
+            del self.products[sku]
+###END SAMPLE
 
+# and from the code sample, there are a couple points of integration that could be tested
+#  -the cart's integration with the products instance of generateSku
+#  -adding and removing product must work in tandem; a product that's been added also must be removed
 
-
+#
 
 
 
