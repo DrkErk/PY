@@ -626,6 +626,7 @@ assert 1.0 == calcMean([1000,3500,7000000])
 ##########
 #
 #Based on the example code below
+# name 'product'
 class Product:
     def __init__(self, name,size,color):
         self.name = name
@@ -700,6 +701,7 @@ class ProductTestCase(unittest.TestCase):
 """
 # and the shopping cart would look like this
 ###CODE SAMPLE
+# called 'cart'
 from collections import defaultdict
 
 class ShoppingCart:
@@ -720,7 +722,85 @@ class ShoppingCart:
 #  -the cart's integration with the products instance of generateSku
 #  -adding and removing product must work in tandem; a product that's been added also must be removed
 
-#
+# they look alot like unit tests, except the difference is that they execute different amounts
+#  (unit test is usually 1 method)
+#  (integration test is usually many methods)
+
+# An integration test for a shoppingcart class (test: intialization of the cart, add product, remove it, and make sure the cart is 
+#  empty)
+### BEGIN SAMPLE
+import unittest
+
+from cart import ShoppingCart
+from product import Product
+
+class shoppingCartTestCase(unittest.TestCase):
+    def testAddAndRemoveProduct(self):
+        cart = ShoppingCart()
+        product = Product('shoes','S','blue')
+
+        cart.addProducts(product)
+        cart.removeProducts(product)
+
+        self.assertDictEqual({}, cart.products)
+
+### END SAMPLE
+
+##########
+######### Test Doubles
+##########
+
+#for when you have to write code that interacts with other systems/databases/apis and you don't want to risk destruction to real data/
+# avoid slow run times...
+
+#you can imitate the systems with test doubles which can be done in different ways:
+# -Faking   (using a system that behaves a lot like the real one, but avoids the expensive/destructive actions)
+# -Stubbing (using predetermined value as a response instead of getting one from a live system)
+# -Mocking  (using a system with the same interface as the real one, but that also records interactions for later inspection/assertions)
+
+# FAKING and STUBBING involves writing your own imitations as functions or classes to tell your code to use them during the test exe
+# MOCKING is most commonly done using the "unittest.mock" module
+
+#Compare an assertion test vs a mocking
+# It will be based on adding the tax
+
+# assertion
+### sample code
+from urllib.request import urlopen
+
+def addSalesTax(orignalAmount, country, region):
+    salesTaxRate = urlopen(f'https://tax-api.com/{country}/{region}').read().decode()
+    return orignalAmount * float(salesTaxRate) 
+### end sample
+
+# mocking
+### sample code
+import io
+import unittest
+from unittest import mock
+
+from tax import addSalesTax
+
+class SalesTaxTestCase(unittest.TestCase):
+    @mock.patch('tax.urlopen')
+    def testGetSalesTaxReturnsProperValueFromApi(self, mock_urlopen):
+        test_tax_rate(1.06)
+        mock_urlopen.return_value = io.BytesIO(str(test_tax_rate).encode('utf-8'))
+        self.assertEqual(5 * test_tax_rate, addSalesTax(5, 'USA', 'MI'))
+### end sample
+
+#Testing in this way allows for "your code that you control to behave in a way given these assumptions"
+# (where the assumptions are created using test doubles)
+
+#If you have fair confidence of what the requests library does. you can use test doubles to avoid coupling yourself to it.
+# in the future, you might need to change or use a diff http client library. But the test will not have to change.
+
+
+
+
+
+
+
 
 
 
