@@ -795,6 +795,110 @@ class SalesTaxTestCase(unittest.TestCase):
 #If you have fair confidence of what the requests library does. you can use test doubles to avoid coupling yourself to it.
 # in the future, you might need to change or use a diff http client library. But the test will not have to change.
 
+#HINT: usually pick test doubles wheni want to avoid the slow/expensive/destructive behaviors. 
+
+#Don't mock your own code, because it can lead to brittle tests that break when the code changes.
+# if you change the implementation, you have to change your tests
+
+#When the values that need to be tested are dictionaries, unittest has a method for it. (assertDictEqual). It provides useful
+# output specfic to dictionaries when the test fails
+
+#You can even skip saving the expected and actual values as variables. (using assertEqual)
+#code redone below for the assertequal
+### CODE SAMPLE
+def testTransformNameForSku(self):
+    smallBlackShoes = Product('shoes','S','black')
+    self.assertEqual('SHOES', smallBlackShoes.transformNameForSku(),)
+### END SAMPLE
+
+# now redo the product and shopping cart
+#
+# product
+### CODE SAMPLE
+class ProductTestCase(unittest.TestCase):
+    def testTransformNameForSku(self):
+        smallBlackShoes = product('shoes','S','black')
+        self.assertEqual('SHOES',smallBlackShoes.transformNameForSku(),)
+    
+    def testTransformColorForSku(self):
+        smallBlackShoes = product('shoes','S','black')
+        self.assertEqual('BLACK',smallBlackShoes.transformColorForSku,)
+    
+    def testGenerateSku(self):
+        smallBlackShoes = product('shoes','S','black')
+        self.assertEqual('SHOES-S-BLACK', smallBlackShoes.generateSku(),)
+
+### END SAMPLE
+
+#shopping cart
+### CODE SAMPLE
+
+class ShoppingCartTestCase(unittest.TestCase):
+    def testCartIntiallyEmpty(self):
+        cart = ShoppingCart()
+        self.assertDictEqual({}, cart.products)
+    
+    def testAddProduct(self):
+        cart = ShoppingCart()
+        product = Product('shoes','S','blue')
+        cart.addProducts(product)
+        self.assertDictEqual({'SHOES-S-BLUE':{'quantity':1}}, cart.products)
+
+    def testAddTwoOfAProduct(self):
+        cart = ShoppingCart()
+        product = Product('shoes','S','blue')
+        cart.addProducts(product, quantity=2)
+        self.assertDictEqual({'SHOES-S-BLUE': {'quantity':2}}, cart.products)
+    
+    def testAddTwoDifferentProducts(self):
+        cart = ShoppingCart()
+        productOne = Product('shoes','S','blue')
+        productTwo = Product('shirt','M','gray')
+        cart.addProducts(productOne, quantity=1)
+        cart.addProducts(productTwo, quantity=1)
+
+        self.assertDictEqual({'SHOES-S-BLUE': {'quantity':1}, 'SHIRT-M-GRAY': {'quantity': 1}}, cart.products)
+    
+    def testAddAndRemoveProduct(self):
+        cart = ShoppingCart()
+        product = Product('shoes','S','blue')
+        cart.addProducts(product, quantity=1)
+        cart.removeProducts(product)
+
+        self.assertDictEqual({}, cart.products)
+
+    def testRemoveTooManyProducts(self):
+        cart = ShoppingCart()
+        product = Product('shoes','S','blue')
+        cart.addProducts(product, quantity=1)  
+        cart.removeProducts(product, quantity = 2)
+
+        self.assertDictEqual({}, cart.products)
+### END SAMPLE
+#
+# A big had arrisen with the removeProducts. the fix was to delete the product from the cart if the quantity is <= 0
+#
+### code sample
+if self.products[sku]['quantity'] <= 0:
+    del self.products[sku]
+### end sample
+
+#"think about the code when testing. what code be the possible product name formats we might need to support"
+
+########################
+######################## TESTING WITH
+######################## PYTEST
+########################
+
+# PYTEST DOCS
+# https:// docs.pytest.org/en/latest/getting-started.html
+
+#Camelcase (aNameLikeThis) is considered to by unpythonic. snake case (a_name_like_this) is pythonic.
+
+
+
+
+
 
 
 
