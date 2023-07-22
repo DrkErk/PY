@@ -895,16 +895,49 @@ if self.products[sku]['quantity'] <= 0:
 
 #Camelcase (aNameLikeThis) is considered to by unpythonic. snake case (a_name_like_this) is pythonic.
 
+#pytest does automatic discovery of tests like unit test. The only difference is that pytest classes are named test* ...AND...
+# don't need to inherit from a base class like unittest.TestCase to work
+
+#to change over from unittest to pytest on the product test case:
+# -Remove the unittest import from test_product.py
+# -Rename the ProductTestcase class to TestProduct and remove the inheritance from unittest.TestCase
+# -Replace any self.assertEqual(expected, actual) with assert actual == expected.
+
+# now test product being updated to pytest would look like
+#
+### CODE SAMPLE
+class TestProduct:
+    def test_TransformNameForSku(self):
+        smallBlackShoes = Product('shoes','S','black')
+        assert smallBlackShoes.transformNameForSku() == 'SHOES'
+    
+    def test_TransformColorForSku(self):
+        smallBlackShoes = Product('shoes','S','black')
+        assert smallBlackShoes.transformColorForSku() == 'BLACK'
+    
+    def test_generate_sku(self):
+        smallBlackShoes = Product('shoes','S','black')
+        assert smallBlackShoes.generateSku() == 'SHOES-S-BLACK'
+### END SAMPLE
+
+# A book on pytest
+"""
+Brian Okken’s, Python Testing with pytest: Simple, Rapid, Effective, and Scalable (Pragmatic Bookshelf, 2017).
+"""
+
+########################
+######################## Performance testing
+######################## 
+########################
+
+# in practice, performance testing looks a lot like regression testing
+
+# "Load testing" (how far you can push the application before it falls over)
 
 
-
-
-
-
-
-
-
-
+###############
+##########     TEST DRIVEN DEVELOPMENT
+###############
 
 
 
