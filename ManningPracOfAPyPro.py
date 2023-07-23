@@ -939,5 +939,59 @@ Brian Okken’s, Python Testing with pytest: Simple, Rapid, Effective, and Scala
 ##########     TEST DRIVEN DEVELOPMENT
 ###############
 
+# "Based on the stereotype of a quality assurance engineer that always finds something in the code to break"
+
+# "Netflix chaos engineering"
+# Which then becomes, write tests under the idea of being a chaos engineer. Actually and fully try and think of the extremes that the
+#code can endure. (With the limit being that it doesnt make sense for all the code to respond predictably to all inputs)
+#(But using the exception system can help the developer's code to respond in a predictable way to rare/unexpected situations)
+
+
+# What gives more insight to better testing methods, is to see how every team handles the testing aspects of their process. It will
+#help with identification/incorporation of the good pieces into the my testing flow.
+
+# (Testing EVERY line of code has diminishing returns)
+
+# If there is ever any code that testing some aspect of a function's behavior is awk/difficult. Then maybe the codes concerns aren't
+#well separated or if it's inherently an awk test to do.
+# If awkwardness must be incorparted, it's better for it to be in the tests code than the real code.
+
+# Don't refactor code to only make testing easier or coverage stronger, do it to make testing easier and the code more coherent.
+
+################################################################################################
+### CHAPTER 6 CHAPTER 6 CHAPTER 6 CHAPTER 6 CHAPTER 6 CHAPTER 6 CHAPTER 6 CHAPTER 6 CHAPTER 6 ##
+################################################################################################
+############################    ################################################################
+############################   #################################################################
+############################  ##################################################################
+############################  ##################################################################
+############################                    ################################################
+############################    ###############  ###############################################
+############################   ################# ###############################################
+############################    ###############  ###############################################
+############################                     ###############################################
+################################################################################################
+# Separation of concerns in practice
+#
+
+#
+# Note: An insight to cli bookmarking as a practice of separation of concerns.
+#
+
+#(Bookmarks are an example of CRUD)
+
+# The cli bookmarking app would need the following information:
+# -ID -unique alphanumeric identifier 
+# -TITLE
+# -URL
+# -NOTES - optional
+# -DATE ADDED
+
+
+
+
+
+
+
 
 
