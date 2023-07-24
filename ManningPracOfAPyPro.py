@@ -1004,6 +1004,14 @@ Brian Okken’s, Python Testing with pytest: Simple, Rapid, Effective, and Scala
 ######     intial code structure, by concern
 #########
 
+# A good way to sculpt intial architecture would be figuring out a concise explanation of how it does what it does.
+
+# For this example, "Using a cli, a user options for adding, removing, listing bookmarks stored in a database"
+#this can be broken down to:
+# -CLI interface: a way to present the user with options and help the user understand what the options do
+# -Chooing options: once an option is choosen, some action or business logic happens as a result
+# -Stored in a database: for data persistance
+
 
 
 
