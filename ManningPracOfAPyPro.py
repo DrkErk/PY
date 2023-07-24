@@ -987,8 +987,22 @@ Brian Okken’s, Python Testing with pytest: Simple, Rapid, Effective, and Scala
 # -NOTES - optional
 # -DATE ADDED
 
+#the logic would be that the it is managed through the cli
+#On startup (it should present a menu of options, and each option will trigger an action that will read or modify a database)
+
+##########
+#######     Benefits of separation: Reprise
+##########
+
+# the benefits of separtion of concern:
+# -Reduced duplication: (na)
+# -improved maintainability: (na)
+# -ease of generalization and extension: (na)
 
 
+#########
+######     intial code structure, by concern
+#########
 
 
 
