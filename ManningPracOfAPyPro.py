@@ -1011,9 +1011,21 @@ Brian Okken’s, Python Testing with pytest: Simple, Rapid, Effective, and Scala
 # -CLI interface: a way to present the user with options and help the user understand what the options do
 # -Chooing options: once an option is choosen, some action or business logic happens as a result
 # -Stored in a database: for data persistance
+#
+# It is a CRUD style project where (A person sees the CLI which is the presentation layer, leads to the business logic layer
+# which leads to the persistance layer) (user/ cli/ options/ databases)<- modules 
 
+#########
+######     Application architecture patterns
+#########
 
-
-
+# Common way to separte an app is into layers of Presentation/Persistance/ Actions or rules
+# MVC(model view controller): models persistance/ providing users with a view into that data, allowing them to control changes to data
+# MVVM (model view viewmodel): puts emphasis on allowing the view and data model to comm freely.
+#
+# (sqlLite is persistance) and py has a sqlite3 module
+#
+# The bookmark data you need to manage:
+# -Creating a table( for intializing a database)
 
 
