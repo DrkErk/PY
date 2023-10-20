@@ -1,4 +1,6 @@
+from multiprocessing import connection
 import re
+import sqlite3
 
 # Thoughts on thinking: going over who might be using your software allows you to 
 # to identify the qualitites of the software you want to build out.
@@ -58,7 +60,7 @@ def add_sales_tax(total, tax_rate):
 #sales_tax.py
 tax_rates_by_states = { 'MI': 1.06} #assuming its filled to the max with data. This is global
 
-def add_sales_tax(total, state)
+def add_sales_tax(total, state):
     return total * tax_rates_by_states[state] #uses the global
 
 #end snippet
@@ -69,7 +71,7 @@ def add_sales_tax(total, state)
 #sales_tax.py
 tax_rates_by_states = { 'MI': 1.06} #assuming its filled to the max with data. This is global
 
-def add_sales_tax(total, state)
+def add_sales_tax(total, state):
     tax_rate =  tax_rates_by_states[state] #uses the global and makes it private
     return total * tax_rate 
     
@@ -84,7 +86,7 @@ def print_receipt():
     total = ...
     state = ...
     print(f'TOTAL: {total}')
-    print(f'AFTER TAX:  {add_sales_tax(total, state)})
+    print(f'AFTER TAX:  {add_sales_tax(total, state)}' )
 #end snippet:
 
 #Conflicting names start local and move up to namespace
@@ -206,7 +208,7 @@ import datetime
 datetime.now().hour
 
 # Current day of the week
-datetime.now()strftime('%A')
+datetime.now().strftime('%A')
 
 #internal only functions may benefit as being standalone and serving more than one purpose
 
@@ -224,7 +226,7 @@ for i in numbers:
     print(i*i)
 
 # vs in functional it would look like
-(map((i) => i * i, [1,2,3,4,5]))
+#(map((i) => i * i, [1,2,3,4,5]))
 
 # functional programming usually can accept other functions as args or return as results
 
@@ -282,7 +284,7 @@ cube = partial(pow, power=3)
 #Something like an interface can be built using a MIXIN mechanism that would just be a suffix at the end. this allows 
 # users to know that the class is composable. EX:
 class classNameMixin:
-    def classNameFind(self)
+    def classNameFind(self):
         thisName = self.__class__.__name__.lower()
         print =(f'The class name is: {thisName}')
         
@@ -714,7 +716,7 @@ class ShoppingCart:
     def removeProducts(self,product,quantity=1):
         sku= products.generateSku()
         self.products[sku]['quantity'] -= quantity
-        if self.products[sku]['quantity'] ==0;
+        if self.products[sku]['quantity'] ==0:
             del self.products[sku]
 ###END SAMPLE
 
@@ -1032,7 +1034,199 @@ Brian Okken’s, Python Testing with pytest: Simple, Rapid, Effective, and Scala
 # -Selecting and sorting records from a table based on some criteria
 # -Counting the number of records in a table 
 
+#########
+######     Working with Databases
+#########
+
+# A robust package for working with databases in python is (SQLALCHEMY) www.sqlalchemy.org
+# (ORM) Object-relational mapping: (interacting with databases, but abstracting data models) (allows you to treat records as objects in languages like py)
 #
+# {DATABASE INTERACTION CODE}
+#
+#
+
+#########
+######     Creating and Closing the Database Connection
+#########
+
+# Bark only needs one connection to the database and will be able to reuse it for all its operations.
+# (to make it work, sqlite3 .connect . it accepts the path of the database file which it should connect to. If it doesn't exist, create it.)
+# 
+# The __init__ for the "DatabaseManager" should
+# -accept arguements containing the path to the database file (using sepration of concerns earlier, it will not be hardcoded)
+# -use the database file path to create a sqlite connection using sqlite3.connect(path) and store it as an instance attribute
+#
+# ALSO need to close the connnection when we are done. So, for symmetry purposes, we will add ***sqlite3.close() to the __del__ of the DatabaseManager****
+#
+# It would look like this
+import sqlite3
+
+class DatabaseManager:
+    def __init__(self, database_filename):
+        self.connection = sqlite3.connect(database_filename)
+
+    def __del__(self):
+        self.connection.close()
+
+### END
+
+
+#########
+######     Executing Statements
+#########
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
