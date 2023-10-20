@@ -1027,5 +1027,18 @@ Brian Okken’s, Python Testing with pytest: Simple, Rapid, Effective, and Scala
 #
 # The bookmark data you need to manage:
 # -Creating a table( for intializing a database)
+# -Adding or deleting record
+# -Listing the records in a table
+# -Selecting and sorting records from a table based on some criteria
+# -Counting the number of records in a table 
+
+#
+
+
+
+
+
+
+
 
 
