@@ -1075,7 +1075,11 @@ class DatabaseManager:
 ######     Executing Statements
 #########
 
-
+#SQL Statements that return data are called queries. (SQLITE3 Manages query results with a cursor)
+# ^(Using a cursor to execute over a statement allows for me to iterate over the results it returns)
+# (insert and delete aren't queries and are statements)
+# 
+#
 
 
 
