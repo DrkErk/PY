@@ -1077,10 +1077,53 @@ class DatabaseManager:
 
 #SQL Statements that return data are called queries. (SQLITE3 Manages query results with a cursor)
 # ^(Using a cursor to execute over a statement allows for me to iterate over the results it returns)
-# (insert and delete aren't queries and are statements)
+# (insert and delete aren't queries and are statements) (the cursor manages this by returning an empty list)
 # 
+
+# The _execute method should:
+# 1. Accept a statement as a string arg
+# 2. Get a cursor from the database connection
+# 3. Execute a statement using a cursor
+# 4. Return the cursor, which has stored the result of the executed statement (if any)
+
+# AND IT WOULD LOOK LIKE THIS
+def _execute(self, statement):
+    cursor = self.connection.cursor()
+    cursor.execute(statement)
+    return cursor
+### END
+
+# Transaction is a feature that is a database safe guard against data becoming corrupted
+#
+# SQLite3 lets you use the connection object to create a transaction via a (CONTEXT MANAGER)
+#
+# And so: a Python Block using the "with" keyword alllows for special behavior to happen when the code enters and exits the block ****
+
+# UPDATED CODE FROM ABOVE WITH THE 'WITH'
+def _execute(self, statement):
+    with self.connection:
+        cursor = self.connection.cursor()
+        cursor.execute(statement)
+        return cursor
+### END
+
+# It's good security practice to use placeholders for real sql statements, to prvent sql inj and such.
+# ^
+# So we need to update the _execute to accept 2 things:
+# - A sql statemnet tas a string, possibly containing placeholders
+# - a list of values to fill in the placeholders in the statement.
 #
 
+# Updated code again
+def _execute(self, statement, values = None):
+    with self.connection:
+        cursor = self.connection.cursor()
+        cursor.execute(statement, values or [])
+        return cursor
+### END
+
+#
+#
 
 
 
