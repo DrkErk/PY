@@ -1122,14 +1122,61 @@ def _execute(self, statement, values = None):
         return cursor
 ### END
 
+
+
+#########
+######     Creating Tables
+#########
+
+
+# we now need to create a table using a sql statement. 
+#   (Because of the concerns of connecting to the database and executing statement, the statements are now abstracted.)
 #
+# Creating a table includes the following:
+#   1. Determine the column names for the table
+#   2. Determine the data type of each column.
+#   3. Construct the right sql statement to create a table with those columns
 #
+# Also to keep in mind: Each bookmark has an ID, title, URL, Optional Notes, and date added: explained below
+# -ID: (primary key of the table/ main identifier) (should auto increment using autoincrement keyword, Column is an INT) (Rest are text)
+# -Title: (url title) (give to sqlite the column can't be empty (using NOT NULL))
+# -URL: (url) (NOT NULL)
+# -Notes: (optional so only TEXT specifier is needed)
+# -Date: (date added) (NOT NULL)
 
 
+# CREATING THE TABLE WOULD LOOK LIKE THIS IN SQL
 
+# CREATE TABLE IF NOT EXISTS bookmarks
+# (
+#     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#     title TEXT NOT NULL,
+#     url TEXT NOT NULL,
+#     notes TEXT,
+#     date_added TEXT NOT NULL
+# );
 
+### END CODE
 
+# create_table
+# Now with this, we can create a method for creating tables. (this method will need to include)
+# 1. Accept 2 args, name of the table created and a dict of col names mapped to their data types and constraints
+# 2. construct a CREATE TABLE SQL statement like the one shown earlier
+# 3. Execute the statement using DatabaseManager._execute
 
+# The code would like like as follows
+def create_table(self, table_name, columns):
+    columns_with_types = [
+        f'{column_name} {data_type}'
+        for column_name, data_type in columns.items()
+    ]
+    self._execute(
+        f'''
+        CREATE TABLE IF NOT EXISTS {table_name}
+        ({', '.join(columns_with_types)});
+        '''
+    )
+### END
 
 
 
