@@ -1178,11 +1178,36 @@ def create_table(self, table_name, columns):
     )
 ### END
 
+# Although earlier in the book it said early optimization is bad, why do it now?
+#  ^- because it isn't much hard work to parameterize the values with arguments to the method. (ie replacing the string 'bookmarks with
+# table_name isn't much work)
+# 
 
 
 
+#########
+######     Adding Records
+#########
 
+# SQLite now expects an INSERT INTO keyword to add records. The code would be as follows:
 
+# INSERT INTO bookmarks
+# (title, url, notes, date_added)
+# VALUES ('GitHub', 'https://github.com', 'A place to store repos of code', '2023-02-01T18:46:34.125467');
+
+### end 
+
+# Now comes the reminders that it's good practice to use placeholders instead (as in the _execute from earlier)
+# We know that we can use a placeholder on all of the above values
+# (ONLY PLACES WHERE LITERAL VALUES GO CAN USE PLACEHOLDERS IN STATEMENTS )
+#
+# Code with place holders would look like:
+
+# INSERT INTO bookmarks
+# (title, url, notes, date_added)
+# VALUES(?,?,?,?);
+
+### End
 
 
 
