@@ -1209,11 +1209,34 @@ def create_table(self, table_name, columns):
 
 ### End
 
+# But now, we need to add an add method into the databaseManager to do the code above, that means:
+#   1. Accept 2 args: name of table and dict that maps column names with column values
+#   2. Constructs a placeholder string (a ? for each column specified)
+#   3. Constructs the string of column names 
+#   4. Gets the column values as a tuple (a dicts .values() ret a dict_values obj, which works w/ sqlite execute method)
+#   5. use _execute to execute a statement pass the sql statement with placeholders and the col vals as separate args
+
+# With the above said, the code would look like this
+def add(self, table_name, data):
+    placeholders = ', '.join('?' * len(data))
+    column_names = ', '.join(data.keys())
+    column_values = tuple(data.values())
+
+    self._execute(
+        f'''
+        INSERT INTO {table_name}
+        ({column_names})
+        VALUES ({placeholders})
+        ''',
+        column_values
+    )
+### END
 
 
 
-
-
+#########
+######     DELETING RECORDS
+#########
 
 
 
