@@ -1238,8 +1238,26 @@ def add(self, table_name, data):
 ######     DELETING RECORDS
 #########
 
+# Now it is time to "DELETE" "WHERE" to get rid of the record (by ID)
 
+# Now a statement in sqlite would look like:
 
+# DELETE FROM bookmarks
+# WHERE ID = 3;
+
+### END
+
+# Writing the delete method would be simliar to the add method
+#
+# The method would need to:
+# 1. Accept 2 args: the table name to delete records from, and a dict mapping column names to  the value to match on
+#   ^- (there needs to be a required argument so not to delete the whole database)
+# 2. Constructs a string of place holders for the WHERE clause
+# 3. Costructs the full DELETE FROM query and executes it with the _execute.
+
+# This would look like the following
+
+### END
 
 
 
