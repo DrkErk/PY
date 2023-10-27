@@ -1256,20 +1256,100 @@ def add(self, table_name, data):
 # 3. Costructs the full DELETE FROM query and executes it with the _execute.
 
 # This would look like the following
+def delete(self, table_name, criteria):
+    placeholders= [f'{column} = ?' for column in criteria.keys()]
+    delete_critera = ' AND '.join(placeholders)
+    self._execute(
+        f'''
+        DELETE FROM {table_name}
+        WHERE {delete_critera};
+        ''',
+        tuple(criteria.values()),
+    )
+### END
+
+
+
+#########
+######     Selecting and sorting records
+#########
+
+# the sqlite code for get selecting all columns:
+
+# SELECT * FROM bookmarks
+# WHERE ID = 3;
 
 ### END
 
 
 
+# the sqlite code for get selecting all columns and then sort the results:
+
+# SELECT * FROM bookmarks
+# WHERE ID = 3
+# ORDER BY title;
+
+### END
+
+
+# Lastly, do the above but abstract with place holders:
+
+# SELECT * FROM bookmarks
+# WHERE ID = ?
+# ORDER BY title;
+
+### END
+
+# Now, the select is similar to delete we make the select:
+
+def select(self, table_name, criteria=None, order_by=None):
+    criteria = criteria or {}
+
+    query = f'SELECT * FROM {table_name}'
+    if criteria:
+        placeholders = [f'{column} = ?' for column in criteria.keys()]
+        select_criteria = ' AND '.join(placeholders)
+        query += f' WHERE {select_criteria}'
+        
+    if order_by:
+        query += f' ORDER BY {order_by}'
+    
+    return self._execute(query, tuple(criteria.values()))
+
+### END
+
+# and at that point, we are done with the database connection.
+
+# Next, we need to develop the Business logic layer to interact with the persistance layer
 
 
 
+#########
+######     
+#########
+#########
+######     BUSINESS LOGIC LAYER
+#########
+#########
+#######
+#########
 
 
+# To start, it would be very tempting to if and elif spam the commands one by one. But since its a CLI program, that means users
+#   may want more than one flag at once.
+# (In this we to use command patterns to build what we need)
 
 
+#########
+######     Creating the bookmarks table
+#########
 
-
+# So now, we need to create the commands module to hold all the commands. Since most of the commands will need to make use of the 
+#   database manager, we will import it from the database module and create an instance of it (called db)
+#
+# the __init__ for the database manager requires a file path, se we need to get it when calling it in.
+#
+#
 
 
 
