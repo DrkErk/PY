@@ -1347,10 +1347,25 @@ def select(self, table_name, criteria=None, order_by=None):
 # So now, we need to create the commands module to hold all the commands. Since most of the commands will need to make use of the 
 #   database manager, we will import it from the database module and create an instance of it (called db)
 #
-# the __init__ for the database manager requires a file path, se we need to get it when calling it in.
+# the __init__ for the database manager requires a file path, so we need to get it when calling it in.
 #
+# To start, we will need to intialize the bookmarks database table if it doesn't already exist
+#  we will start by writing a CreatingBookmarksTableCommand class whose execute method creates the table for the bookmarks
 #
+# The code would look as follows:
+db = DatabaseManager('bookmarks.db')
 
+class CreateBookmarksTable:
+    def execute(self):
+        db.create_table('bookmarks', {
+        'id':'integer primary key autoincrement',
+        'title':'text not null',
+        'url':'text not null',
+        'notes':'text',
+        'date_added':'text not nulls',
+        })
+        
+### END
 
 
 
