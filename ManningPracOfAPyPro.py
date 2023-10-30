@@ -1367,9 +1367,19 @@ class CreateBookmarksTable:
         
 ### END
 
+# Now above is an example of loose coupling. (the command is only aware of its duties/ persistance layer logic and the interface of
+# ^- its dependency/ DatabaseManager.create_table )
+# ^^- (This is considered loose coupling because persistance logic is seperated from presentation logic
 
 
+#########
+######     Adding Bookmarks
+#########
 
+# logic behind adding bookmarks, we will need to pass data received from the persistance layer. (data will be passed as a 
+# ^- dictionary mapping col names to values
+#
+# As a note for above, 
 
 
 
