@@ -1379,10 +1379,31 @@ class CreateBookmarksTable:
 # logic behind adding bookmarks, we will need to pass data received from the persistance layer. (data will be passed as a 
 # ^- dictionary mapping col names to values
 #
-# As a note for above, 
+# As a note for above, it is a great example of code relying on a shared interface rather than the specfics of an implementation
+# ^-- (If the persistance logic layer and business logic layer agree on a data format, they can do what they need to do, as 
+# ^-- long as they are consistant)
+#
+
+# The AddBookmarkCommand class will need some of this.
+# 1. Expect a dict containing the title, url, (opt) notes
+# 2. Add the current datetime to the dict as date_added to get time in UTC. (Standard format/wide compatibility) (look like datetime.datetime.utcnow().isformat()
+# 3. insert the data into the bookmarks table using the DatabaseManager.add method
+# 4. return a success message that will eventually will be displayed by the presentation layer
+
+# the code would like this
+from datetime import datetime
+
+class AddBookmarkCommand:
+    def execute(self, data):
+        data['date_added'] = datetime.utcnow().isoformat
+        db.add('bookmarks', data)
+	return 'Bookmark added!'
+### END
 
 
-
+#########
+######     Listing Bookmarks
+#########
 
 
 
