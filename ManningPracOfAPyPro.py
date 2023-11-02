@@ -1344,6 +1344,8 @@ def select(self, table_name, criteria=None, order_by=None):
 ######     Creating the bookmarks table
 #########
 
+##################################################### WOULD GO INTO THE "COMMAND" MODULE
+
 # So now, we need to create the commands module to hold all the commands. Since most of the commands will need to make use of the 
 #   database manager, we will import it from the database module and create an instance of it (called db)
 #
@@ -1397,7 +1399,7 @@ class AddBookmarkCommand:
     def execute(self, data):
         data['date_added'] = datetime.utcnow().isoformat
         db.add('bookmarks', data)
-	return 'Bookmark added!'
+        return 'Bookmark added!'
 ### END
 
 
@@ -1405,37 +1407,112 @@ class AddBookmarkCommand:
 ######     Listing Bookmarks
 #########
 
+# Now comes the IDEAS for how to list the bookmarks (ListBookmarksCommand)
+# ^- We will make use of the DatabaseManager.select method. (And running that by default will return them in order that they were create
+# ^-- or by their primary key)
+# But we need to be able to sort by other means also. (ie: date/title)
+#
+# (it is good practice to sort explicitly, by date, instead of primary key)
+
+# With that said, it should 
+# -Accept the column to order by, save it as instance attr. (set default value to date_added)
+# -pass info to db.select in its execute method
+# -return the result (using the cursor's fetchall() method) because select is a query
+
+# the code would look like this
+class ListBookmarksCommand:
+    def __init__(self, order_by='date_added'):
+        self.order_by = order_by
+    def execute(self):
+        return db.select('bookmarks', order_by= self.order_by).fetchall()
+### END
+
+#########
+######     Deleting Bookmarks
+#########
+
+# the idea for this one will be taking data from the presentation layer which will be an integer value which represents the bookmark id to delete
+#
+# it'll need to:
+# - accept data the information in its execute method and pass it to the DatabaseManager.delete method
+# - (delete accepts a dict mapping the col names to vals to match against. we will need to match given value to id column)
+# - perhaps a message to the presentation layer that the task is complete
+
+# The code would look like this
+class DeleteBookmarkCommand:
+    def execute(self, data):
+        db.delete('bookmarks', {'id', data})
+        return 'Bookmark deleted'
+### END
+
+#########
+######     Quitting
+#########
+
+# we can either leave the user to "ctrl + c" but its better to make a nicer way to exit
+#  sys.exit from python would be the way
+
+# The code would look like
+import sys
+#...
+class QuitCommand:
+    def execute(self):
+        sys.exit()
+### END
 
 
+#########
+######     
+#########
+#########
+######     PRESENTATION LAYER
+#########
+#########
+#######
+#########
 
 
+# Since this is a CLI program and we have a quitcommand method, we will make the app an infinite loop that:
+# 1. Clears screen
+# 2. print menu objects
+# 3. gets the user's choice
+# 4. clear the screen and executes the command relating to user choice
+# 5. waits for the user to review the result, pressing enter when done
+
+# it is good practice to put cli code for cli apps into (if __name__ == '__main__') block.
+# ^-- this will make sure that the code doesn't unintentionally execute in the module by importing the app module somewhere.
+
+# The code that will start
+if __name__ == '__main__':
+    print('This app has started!')
+### END
+
+# Now, we need to intialize the database!
+
+# The code that will start
+import commands #where the sql 
+
+if __name__ == '__main__':
+    commands.CreateBookmarksTableCommand().execute
+### END
+
+#A note about above: It is a representation of a full pass through all the layers. (multitier architecture)
+#  (presentation layer triggered business logic, which set the table up in persistant)
 
 
+#########
+######     Menu Options
+#########
 
+'''
+The plan is to get the following to appear
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+(A) Add a bookmark
+(B) List bookmarks by date
+(T) List bookmarks by title
+(D) Delete a bookmark
+(Q) Quit
+'''
 
 
 
