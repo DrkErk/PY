@@ -1513,11 +1513,15 @@ The plan is to get the following to appear
 (D) Delete a bookmark
 (Q) Quit
 '''
+# Since we have command pattern each command is triggered the same way as the others, the execute method.
 
+# Two ways we can hook up presentation layer with business logic layer:
+# 1. Use conditional logic to call the right command class's execute method based on users input
+# 2. make a class that pairs the text to be displayed to the users and command it triggers
 
-
-
-
+# In this case the second is the best choice. (I will hook each menu option up to the command it should trigger (perhaps create an
+# ^-- option class)) ( the __init__ method can accept the name to display to the user in the menu. Next, an instance of the command to
+# ^--- execute when chosen by the user )
 
 
 
