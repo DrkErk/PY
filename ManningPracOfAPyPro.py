@@ -1521,73 +1521,195 @@ The plan is to get the following to appear
 
 # In this case the second is the best choice. (I will hook each menu option up to the command it should trigger (perhaps create an
 # ^-- option class)) ( the __init__ method can accept the name to display to the user in the menu. Next, an instance of the command to
-# ^--- execute when chosen by the user )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# ^--- execute when chosen by the user AND an optional preparation step (if we need addtional input) )
+# ^---- All of which can be stored as instance attributes
+
+# The Option instance needs to do the following:
+# 1. Run the specified prep step
+# 2. Pass the return val from the prep step, if any, to specific command's execute method.
+# 3. print result of execution. These are the success messages or bookmark results returned from the business logic
+
+# The option code would look like this:
+class Option:
+    def __init__ (self, name, command, prep_call = None):
+        self.name = name
+        self.command = command
+        self.prep_call = prep_call
+    
+    def choose(self):
+        data = self.prep_call() if self.prep_call else None
+        message = self.command.execute(data) if data else self.command.execute()
+        print(message)
+    
+    def __str__(self):
+        return self.name
+### END
+
+# with this code in place, now is the time to hook up more business logic from earlier.
+# Each option should:
+# 1. print keyboard key for user to enter to choose the option
+# 2. print the option text
+# 3. check if the users input matches an option, if so, choose it.
+
+# The plan is to to store the options in a dict. (we can iterate over the key/option pair with dicts .items() method)
+# ^- more specifically, collections.ordereddict will allow us to have our menu options printed in the order I set.
+
+# So, it now comes down to printing options class that need to be made and adding the options in the createBookmarksTableCommand
+
+#The code would look like
+#in createBookmarksTableCommand
+def print_options(options):
+    for shortcut, option in options.item():
+        print(f'({shortcut}) {option}')
+    print()
+
+...
+
+if __name__ == '__main__':
+    ...
+    options={
+        'A': Option('Add a bookmark'), commands.AddBookmarkCommand()),
+        'B': Option('List bookmarks by date'), commands.ListBookmarkCommand()),
+        'T': Option('List bookmarks by title'), commands.ListBookmarksCommand(order_by='title')),
+        'D': Option('Delete a bookmark'), commands.DeleteBookmarkCommand()),
+        'Q': Option('Quit'), commands.QuitCommand())
+    }
+    print_options(options)
+### END
+
+
+
+#########
+######     User Input
+#########
+
+# As a refresher, the desired walk through of the app would be
+# 1. Prompt the user to enter a choice, using python built in input function
+# 2. if the users choice matches the one listed, call that options choose method.
+# 3. Otherwise, repeat
+
+# Now, id make a get_option_choice function/ and use it after printing the options to get the users choice. (then call that options choose method)
+
+# The following code would look like
+def option_choice_is_valid(choice, options):
+    return choice in options or choice.upper() in options
+
+def get_option_choice(options):
+    choice = input('Choose an option: ')
+    while not option_choice_is_valid(choice, options):
+        print('invalid choice')
+        choice = input('Choose an option: ')
+    return options[choice.upper()]
+
+if __name__ == '__main__':
+    ...
+    choose_option = get_option_choice(options)
+    choose_option.choose()
+### END
+
+# Now we need to be able to encapsulate some behavior for needing to add some more prepared data, ie: title, desc, notes.
+
+# for each piece of information, we need to:
+# 1. prompt a user with a label, (like title or description)
+# 2. if the information is required and the user presses enter w/o entering any info, keep prompting.
+
+# That means we will need 3 functions:
+# 1. to provide repeat prompt behavior 
+# 2. that use it to get info for adding/ deleting bookmark
+# 3. add each info- fetching function as the prep_call to the appropriate Option instance 
+
+# The code would look like this
+def get_user_input(label, required=True):
+    value = input(f'{label}: ') or None
+    while required and not value:
+        value = input(f'{label}: ') or None
+    return value
+
+def get_new_bookmark_data():
+    return{
+        'title': get_user_input('Title'),
+        'url': get_user_input('URL'),
+        'notes': get_user_input('Notes', required=False),
+    }
+
+def get_bookmark_id_for_deletion():
+    return get_user_input('Enter a bookmark ID to delete')
+
+if __name__ == '__main__':
+    options={
+        'A': Option('Add a bookmark'), commands.AddBookmarkCommand(), prep_call=get_new_bookmark_data),
+    ...
+        'D': Option('Delete a bookmark'), commands.DeleteBookmarkCommand(), prep_call=get_bookmark_id_for_deletion),
+    ...
+### END
+
+'''
+If I wanted to add new functionality, it is now very easy:
+
+1. Add any new database manipulation methods you may need to database.py.
+2. Add a command class that performs the business logic you need in commands.py.
+3. Hook up the new command to a new menu option in bark.py.
+'''
+
+#########
+######     Clearing the screen
+#########
+
+# A little something that should be done before printing the menu or executing a command 
+# Keeping in mind that different operating systems have different names for clear, we can write:
+import os
+
+def clear_screen():
+    clear = 'cls' if os.name == 'nt' else 'clear'
+    os.system(clear)
+### END
+
+# and the code will look like this after we clear before print_options, .choose():
+if __name__ == '__main__':
+    ...
+
+    clear_screen()
+    print_options(options)
+    chosen_option = get_option_choice(options)
+    clear_screen()
+    chosen_option.choose()
+### END
+
+
+#########
+######    Application loop
+#########
+
+# FINALLY, we move all of the code to the loop except the database initialization.
+# So, from the if __name__.... to the loop:
+def loop():
+    # All the steps for showing/selecting options
+    ...
+    _ = input('Press ENTER to return to menu')
+
+if __name__ == '__main__':
+    commands.CreateBookmarksTableCommand().execute()
+
+    while True:
+        loop()
+### END
+
+
+################################################################################################
+### CHAPTER 7 CHAPTER 7 CHAPTER 7 CHAPTER 7 CHAPTER 7 CHAPTER 7 CHAPTER 7 CHAPTER 7 CHAPTER 7 ##
+################################################################################################
+###################################                      #######################################
+######################################################  #######################################
+####################################################  ##########################################
+##################################################  ############################################
+################################################  ##############################################
+##############################################  ################################################
+############################################  ##################################################
+##########################################  ####################################################
+########################################  ######################################################
+################################################################################################
+
+# Extensibility and Flexibility
 
 
 
