@@ -1711,12 +1711,40 @@ if __name__ == '__main__':
 
 # Extensibility and Flexibility
 
+# Code is Extensible if you can add new behaviors to the app and it has little or no impact on existing behaviors.
+
+# Shotgun surgery: having to pepper changes all through out the code to add some feature
+
+# NOTE: duplicating code is a valid approach to extension. By creating a duplicate version, altering it, and seeing how the 
+# ^- two versions differ,  it'll become easier to refactor the duplicated code back into a single/ multipurpose one later.
+#   (DUPLICATION IS BETTER THAN THE WRONG ABSTRACTION)
+
+# Kent Beck - "For each desired change, make the change easy (warning, this may be hard), then make the easy change"
+# ^- breaking down the codes resistance because it is rigid will make the program easier to change (through methods like decomp/encapulation/etc)
+
+# A rigid mapping vs flexible mapping example
+# Rigid
+
+if choice == 'A':
+    print("A")
+elif choice == 'B':
+    print("B")
+... # and so on
+
+### END
+# Flexible
+choices = {
+    'A': 'apples',
+    'B': 'bats',
+    ...
+}
+print(f'{choice} is {choices[choice]}')
+### END
 
 
-
-
-
-
+#########
+######    Loose Coupling
+#########
 
 
 
