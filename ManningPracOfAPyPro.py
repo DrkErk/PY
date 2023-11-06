@@ -1746,6 +1746,113 @@ print(f'{choice} is {choices[choice]}')
 ######    Loose Coupling
 #########
 
+# extensibility comes from loosely coupled systems. without loose coupling, most changes in a system will
+# ^ - require the shotgun surgery variety of development
+
+# the goal with the app that was just walked with was that is was loose coupled enough to:
+# - Add new database functionality to the DatabaseManager
+# - Add/encapsulate new business logic in the Command Class
+# - Adding to the menu is just adding to the dict in options
+
+#########
+######    Letting go: Inversion of control
+#########
+
+# (Refresh: composition provides benefits over inheritance by allowing objects to reuse behaviors without confining them 
+#  ^  - to a particular inheritance hierarchy)
+#
+# A common practice in OOP codebases is to separate concerns into smaller classes and then recompose them into a new class that 
+# ^ - uses instances of those smaller classes.
+
+# How a composite class would look for and example of a bike/ its parts:
+class Tire:
+        def __repr__(self):
+            return 'tire'
+
+class Frame:
+        def __repr__(self):
+            return 'frame'
+
+class Bicycle:
+    def __init__(self):
+        self.front_tire = Tire()
+        self.back_tire = Tire()
+        self.frame = Frame()
+    
+    def print_specs(self):
+        print(f'Frame: {self.frame}')
+        print(f'Front Tire:{self.front_tire}, back tire: {self.back_tire}')
+
+if __name__ == '__main__':
+    bike = Bicycle()
+    bike.print_specs()
+### END
+
+# THE GOOD:
+# - Encapsulation looks good; each part of the bicycle lives in its own class
+# - The levels of abstraction look good too; Bicycle at the top and each of its parts is accessible as level down
+# - Adding new parts is easy
+
+# THE BAD:
+# - Very difficult to change the parts because they are hard coded into the initialization
+#
+# if I wanted to change what the frame was, Id need to crack open the bicycle class code to update. Therefore tire is rigid dependacy for bicycle
+
+# *** - Inversion of control: instead of creating instances of dependencies in the class, pass in existing instances for the class
+#       ^ -  to make use of
+# In this case: The control of the dependency creation is inverted by giving control to whatever code is creating the bicycle
+# ^ - 
+
+# the code using inversion of code would look like this
+class Tire:
+    def __repr__(self):
+        return 'A rubber tire'
+
+
+class Frame:
+    def __repr__(self):
+        return 'An aluminum frame'
+
+
+class Bicycle:
+    def __init__(self, front_tire, back_tire, frame):
+        self.front_tire = front_tire
+        self.back_tire = back_tire
+        self.frame = frame
+
+    def print_specs(self):
+        print(f'Frame: {self.frame}')
+        print(f'Front tire: {self.front_tire}, back tire: {self.back_tire}')
+
+
+if __name__ == '__main__':
+    bike = Bicycle(Tire(), Tire(), Frame())
+    bike.print_specs()
+### END
+
+# And now adding a new change would be as simple as
+class NewFrame:
+    def __repr__(self):
+        return 'new frame'
+
+...
+if __name__ == '__main__':
+    bike = Bicycle(Tire(), Tire(), NewFrame())
+    bike.print_specs()
+### END
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
