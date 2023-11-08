@@ -1843,13 +1843,12 @@ if __name__ == '__main__':
 
 # the goal is to be able to swap dependancies with minimal effort.
 
-#
+#########
+######    The devil's in the details: relying on interfaces
+#########
 
-
-
-
-
-
+# another issue way rigid code can appear is if High level code relies to much on the details of lower level dependencies
+# ^ - Thus, switching something like the tires would be 
 
 
 
