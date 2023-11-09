@@ -2,6 +2,8 @@ from multiprocessing import connection
 import re
 import sqlite3
 
+# https://github.com/daneah/practices-of-the-python-pro
+
 # Thoughts on thinking: going over who might be using your software allows you to 
 # to identify the qualitites of the software you want to build out.
 # (with common aspects like, speed, integrity, resources, security/ emphasis on CIA Triad probably)
@@ -1699,7 +1701,7 @@ if __name__ == '__main__':
 ### CHAPTER 7 CHAPTER 7 CHAPTER 7 CHAPTER 7 CHAPTER 7 CHAPTER 7 CHAPTER 7 CHAPTER 7 CHAPTER 7 ##
 ################################################################################################
 ###################################                      #######################################
-######################################################  #######################################
+######################################################  ########################################
 ####################################################  ##########################################
 ##################################################  ############################################
 ################################################  ##############################################
@@ -1848,7 +1850,155 @@ if __name__ == '__main__':
 #########
 
 # another issue way rigid code can appear is if High level code relies to much on the details of lower level dependencies
-# ^ - Thus, switching something like the tires would be 
+# ^ - Thus, switching something like the tires would be able to be a part of the bicycle as long as the tire as the same method/attributes
+#     as the other tire
+
+# The easiest way to swap implementations (between high and low level code), will be using agreed upon interfaces
+# ^ - (duck typing means that strict interfaces aren't required) (we decide what methods/attributes comprise a particular interface)
+
+# Some of the interfaces in this example would be:
+# - Command classes in the business logic provide an execute method. (The presentation layer uses this interface when the user selects an
+#   option )
+# ^ - The implementation of a particular command can change as much as it needs to, no change is required in the presentation layer...
+#     AS LONG AS THE INTERFACE STAYS THE SAME
+# ^ - you would need to change the presentation layer if for example, the Command classes' execute methods required an additional args
+
+#########
+######    Fighting Entropy: the robustness principle
+#########
+
+# Robustness principle: Be conservative in what you do, liberal with what you accept from others
+# ^ - ( be open to imperfect or unexpected inputs) IE: if accepting numbers use int() to force all to ints
+
+#########
+######    An exercise in extension
+#########
+
+# If I wanted to add a "GitHub Stars importer" id have to do the following
+# Presentation Layer:
+# 1. Prompt the user for the github username to import stars from
+# 2. ask the user whether to preserve timestamps for the original stars
+# 3. trigger the command 
+
+# A use for the corresponding github api fetch will be (https://github.com/psf/requests)
+# the related doc for the github library. (https://docs.github.com/en/rest/activity/starring?apiVersion=2022-11-28#list-repositories-being-starred)
+
+# The process would look like:
+# 1. Get initial page of star results the endpoint is the same as above: (https://docs.github.com/en/rest/activity/starring?apiVersion=2022-11-28#list-repositories-being-starred)
+# 2. parse data from response, using it to execute an 'AddBookmarkCommand' for each starred repos
+# 3. get the 'Link: <...>; rel=next' header is present
+# 4. repeat for the next page if there is one; otherwise, stop
+
+#
+# And it will probably look like this: 
+'''
+$ ./bark.py
+(A) Add a bookmark
+(B) List bookmarks by date
+(T) List bookmarks by title
+(D) Delete a bookmark
+(G) Import GitHub stars
+(Q) Quit
+
+Choose an option: G
+GitHub username: user
+Preserve timestamps [Y/n]: Y
+Imported 205 bookmarks from starred repos!
+'''
+
+# In order to work around the timestamp being forced we should use inversion of control
+# the code will look like this:
+class AddBookmarkCommand:
+
+    def execute(self, data, timestamp=None):
+        data['date_added'] = timestamp or datetime.utcnow().isoformat()
+        db.add('bookmarks', data)
+        return 'Bookmark added!'
+### END
+
+# now, we dont need any new functionality at the persistance layer, which means we need to work on the presentation layer and business layer
+
+# The import command code would look like this (business layer):
+class ImportGitHubStarsCommand:
+    def _extract_bookmark_info(self, repo):
+        return {
+            'title': repo['name'],
+            'url': repo['html_url'],
+            'notes': repo['description'],
+        }
+
+    def execute(self, data):
+        bookmarks_imported = 0
+
+        github_username = data['github_username']
+        next_page_of_results = f'https://api.github.com/users/{github_username}/starred'
+
+        while next_page_of_results:
+            stars_response = requests.get(
+                next_page_of_results,
+                headers={'Accept': 'application/vnd.github.v3.star+json'},
+            )
+            next_page_of_results = stars_response.links.get('next', {}).get('url')
+
+            for repo_info in stars_response.json():
+                repo = repo_info['repo']
+
+                if data['preserve_timestamps']:
+                    timestamp = datetime.strptime(
+                        repo_info['starred_at'],
+                        '%Y-%m-%dT%H:%M:%SZ'
+                    )
+                else:
+                    timestamp = None
+
+                bookmarks_imported += 1
+                AddBookmarkCommand().execute(
+                    self._extract_bookmark_info(repo),
+                    timestamp=timestamp,
+                )
+
+        return f'Imported {bookmarks_imported} bookmarks from starred repos!'
+### END
+
+# The import command option would look like this (presentation layer):
+...
+def get_github_import_options():
+    return {
+        'github_username': get_user_input('GitHub username'),
+        'preserve_timestamps':
+            get_user_input(
+                'Preserve timestamps [Y/n]',
+                required=False
+            ) in {'Y', 'y', None},
+    }
+
+def loop():
+    ...
+    options = OrderedDict({
+        ...
+        'G': Option(
+            'Import GitHub stars',
+            commands.ImportGitHubStarsCommand(),
+            prep_call=get_github_import_options
+        ),
+    })
+### END
+
+
+################################################################################################
+### CHAPTER 8 CHAPTER 8 CHAPTER 8 CHAPTER 8 CHAPTER 8 CHAPTER 8 CHAPTER 8 CHAPTER 8 CHAPTER 8 ##
+################################################################################################
+#################################                         ######################################
+################################   #####################   #####################################
+################################  #######################  #####################################
+################################  #######################  #####################################
+##################################  ###################  #######################################
+####################################                   #########################################
+##################################  ###################  #######################################
+################################   #####################   #####################################
+#################################                         ######################################
+################################################################################################
+
 
 
 
