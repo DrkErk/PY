@@ -2001,6 +2001,78 @@ def loop():
 
 
 
+#########
+######    The challanges of hierarchies
+#########
+
+# A class that inherits from it's parent class is fused together. (they are coupled as tight as possible)
+
+#########
+######    What is inheritance for, really?
+#########
+
+# Inheritance is for specialization of behavior: create subclasses to make a method return a different value or work diffently
+# ^ - the natural result is that the instance of the sub class is an instance of the superclass
+
+# (think about how composition and inheritance works. IE: bike is composed of frame and tire, but a different tire and frame inherits )
+
+#########
+######    Substitutability
+#########
+
+# Barba Liskov (Institute professor at MIT) made substitutability
+# ^ - this principle states that in a program, any instance of a class must be replaceable by an instance of one of its subclass
+#     without affecting the correctness of the program
+# ^ - CORRECTNESS in this context means the program remains error free and achieves the same and basic outcome, though the precise
+#     result may be different or achieved in a different manner.
+
+# Since snails and slugs are similiar, you can say a slug is a parent class to a snail (because it has a shell)
+# some classes to demonstrate this would be as follows:
+class Slug:
+    def __init__(self, name):
+        self.name = name
+
+    def crawl(self):
+        print('slime trail!')
+
+class Snail(Slug):
+    def __init__(self, name, shell_size):
+        super().__init__(name)
+        self.name = name
+        self.shell_size = shell_size
+
+def race(gastropod_one, gastropod_two):
+    gastropod_one.crawl()
+    gastropod_two.crawl()
+
+race(Slug('Geoffrey'), Slug('Ramona'))
+race(Snail('Geoffrey'), Snail('Ramona'))
+### END
+
+# the code above breaks substitutability because the snails init requires you to add a shell size.
+# a better version would be a where a snail has a shell, and would be a better case for composition
+
+
+
+#########
+######    The ideal use case for inheritance
+#########
+
+# Sandi Metz, all the little things, Railsconf 2014 http://www.youtube.com/watch?v=8bZh5LMaSmE 
+# - the problem you're solving has a shallow, narrow hierarchy
+# - subclasses are at the leaves of the object graph, they dont make use of other objects
+# - subclasses use/ specialize all the behavior of their superclass
+
+# it can be broken down further:
+
+
+#########
+######    Shallow, narrow hierarchy
+#########
+
+
+
+
 
 
 
