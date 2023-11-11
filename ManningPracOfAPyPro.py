@@ -2,7 +2,17 @@ from multiprocessing import connection
 import re
 import sqlite3
 
+
+#########
+######    
+#########
+
 # https://github.com/daneah/practices-of-the-python-pro
+
+
+#########
+######    
+#########
 
 # Thoughts on thinking: going over who might be using your software allows you to 
 # to identify the qualitites of the software you want to build out.
@@ -2069,6 +2079,73 @@ race(Snail('Geoffrey'), Snail('Ramona'))
 #########
 ######    Shallow, narrow hierarchy
 #########
+
+'''
+-The shallow part of the rule addresses the problem with deep inheritance hierarchies from earlier: deep nested class hierarchies
+can lead to difficult management and the introduction of bugs.
+
+-The Narrow part of this means that no class in the hierarchy should have too many subclasses
+
+-Subclasses generally shouldn't have any further dependencies. They are for specializing behaviors.
+'''
+
+
+#########
+######    Subject at the leaves of the object graph
+#########
+
+'''
+-Subclasses generally shouldn't have any further dependencies. They are for specializing behaviors.
+'''
+
+#########
+######    Subclasses use all the behavior of their superclass
+#########
+
+'''
+A question of about a is-a relationship would be:
+- If the subclass doesn't use all of it's superclass behavior, is it really an instance of the superclass.
+
+Take the following code of birds as an example:
+'''
+
+class Bird:
+    def fly(self):
+        print('flying!')
+
+class Hummingbird(Bird):
+    def fly(self):
+        print('zzzzzooommm!')
+
+class Penguin(Bird):
+    def fly(self):
+        print('no can do.')
+
+'''
+We have 2 birds that can fly and one that can't. We would just override the fly to just pass or raise an exception of some kind
+but, this would go agains the substitutability principle.
+
+In this case, composition would be a better choice.
+'''
+
+'''
+A COMPARITIVE NOTE ON THE BICYCLE CODE:
+
+-Frame and tire both have a narrow and shallow hierarchy; 1 lvl below with the most of 2 subclasses
+-The different types of tires and frames don't depend on any other objects
+-The different types of tires and frames use or specialize all the behaviors of their superclass
+
+'''
+
+
+
+
+
+
+
+
+
+
 
 
 
