@@ -2245,9 +2245,141 @@ from within its own some_method()
 ######    Abstract Base Classes
 #########
 '''
-Abstract base classes: in essence, something that looks like inhertiance, functions like an interface
+Abstract base classes: in essence, something that looks like inhertiance, functions like an interface.
+^- It'll outline which methods and attributes its subclasses must implement.
+
+The base abstract class needs to be made so that other classes know how to behave  (acts as a template)
+
+ABC is used to easily create an abstract base class
+OR
+@abstractmethod decorator can be added to enforce the rule that the methods must be defined in any subclass of the ABC
+
+And with that, it can be modeled below with predators:
+(if any class doesn't define the eat method, an exception will be raised)
+'''
+from abc import ABC, abstractmethod
+
+
+class Predator(ABC):
+    @abstractmethod
+    def eat(self, prey):
+        pass
+
+
+class Bear(Predator):
+    def eat(self, prey):
+        print(f'Mauling {prey}!')
+
+
+class Owl(Predator):
+    def eat(self, prey):
+        print(f'Swooping in on {prey}!')
+
+
+class Chameleon(Predator):
+    def eat(self, prey):
+        print(f'Shooting tongue at {prey}!')
+
+
+if __name__ == '__main__':
+    bear = Bear()
+    bear.eat('deer')
+    owl = Owl()
+    owl.eat('mouse')
+    chameleon = Chameleon()
+    chameleon.eat('fly')
+'''
+
+If I then wanted to add another animal, I need to add the eat method or i'll get a type error 
+
+If I wanted to add another method in the class that has an ABC, it will not affect the raise an error because the ABC only enforces
+that the subclass minimally implements the method it defines. (AS LONG AS THE INTERFACE IS IMPLEMENTED, ITS FINE)
+
+(more commonly will use composition via inversion of control)
+'''
+#########
+######    Inheritance and composition in the bookmark app
+#########
+#########
+######    refactoring to use abstract base case
+#########
+'''
+The one way we can use ABC would be the commands in the command module because each command implements the execute() method
+
+Now we can create a base class as Command that defines execute() method as an abstract method. 
+
+An issue that will effect substitutability is the fact that there are a few different signatures for the execute()
+they are the face that some take in data as an arguement and others take in no arguements.
+
+This would lead to the best choice being having data as an optional keyword arg to the execute method that doesn't already accept it
+(We wouldn't make all execute() methods accept a variable number of pos args, *args, because it's best practice to be explict with the
+arguements you accept until you need the flexibility to handle widely differing numbers of args
+
+The affected code would look like this
+'''
+from abc import ABC, abstractmethod
+
+
+class Command(ABC):
+    @abstractmethod
+    def execute(self, data):
+
+
+class CreateBookmarksTableCommand(Command):
+    def execute(self, data=None):
+        ...
+
+
+class AddBookmarkCommand(Command):
+    ...
 
 '''
+With the execute() giving a consistant signature, we can simplfy the choose() method like so:
+'''
+class Option:
+    ...
+
+    def choose(self):
+        ...
+
+        message = self.command.execute(data)
+
+'''
+'''
+
+################################################################################################
+### CHAPTER 9 CHAPTER 9 CHAPTER 9 CHAPTER 9 CHAPTER 9 CHAPTER 9 CHAPTER 9 CHAPTER 9 CHAPTER 9 ##
+################################################################################################
+#################################################            ###################################
+################################################ ############ ##################################
+################################################ ############ ##################################
+################################################ ############ ##################################
+################################################ ###########  ##################################
+#################################################             ##################################
+############################################################# ##################################
+############################################################# ##################################
+############################################################# ##################################
+################################################################################################
+
+
+
+#########
+######    Keeping things lightweight
+#########
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
