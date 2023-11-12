@@ -2138,13 +2138,116 @@ A COMPARITIVE NOTE ON THE BICYCLE CODE:
 '''
 
 
+#########
+######    Inheritance in Python
+#########
+
+#########
+######    Type inspection
+#########
+'''
+- type() is the typing tool
+
+- isinstance() used for seeing if an object is an instance of a particular class or any of its subclasses
+
+-issubclass() is used to see if a class is a subclass of another
+
+these tools should mainly be used for inspection of objects from the outside. (because using them to change behavior is precisely what
+sublclasses of the behavior are for)
+'''
+
+#########
+######    Superclass Access
+#########
+
+'''
+-super() function, specialize behavior in a way that depends on its superclass's behavior. 
+
+Example code below
+'''
+class Teller:
+    def deposit(self, amount, account):
+        account.deposit(amount)
+class CorruptTeller(Teller):
+    def __init__(self):
+        self.coffers = 0
+
+    def deposit(self, amount, account):
+        self.coffers += amount * 0.01           # this account takes some money and passes the new amount to the original deposit
+        super().deposit(amount * 0.99, account)
+
+'''
+Code that uses super() will become confusing if substitutability is broken (leading to hard to maintain code)
+'''
+
+#########
+######    Multiple inheritance and method resolution order
+#########
+
+'''
+- You can inherit multiple classes in a subclass by providing more than one in a class definition
+
+An example of multiple inheritance using cats:
+'''
+class BigCat:
+    def eats(self):
+        return ['rodents']
 
 
+class Lion(BigCat):
+    def eats(self):
+        return ['wildebeest']
 
 
+class Tiger(BigCat):
+    def eats(self):
+        return ['water buffalo']
 
 
+class Liger(Lion, Tiger):
+    def eats(self):
+        return super().eats() + ['rabbit', 'cow', 'pig', 'chicken']
 
+
+if __name__ == '__main__':
+    lion = Lion()
+    print('The lion eats', lion.eats())
+    tiger = Tiger()
+    print('The tiger eats', tiger.eats())
+    liger = Liger()
+    print('The liger eats', liger.eats())
+'''
+But, multiple inheritance works differently than expected:
+The liger eats ['wildebeest', 'rabbit', 'cow', 'pig', 'chicken']
+
+That is not the expected behavior. That's because multiple inheritance (esp the super().eats() ) uses a process called
+METHOD RESOLUTION ORDER: this means that python will search in order of the following:
+
+-first/ left most parent and up.
+-next parents and up, and continues until there is no more parents (searchs like: liger, lion, bigcat, object, tiger, bigcat, object)
+-removes duplicates. 
+-final tree search pattern would look like this: (liger, lion, tiger, bigcat, object)
+
+That measn that the super().eats() would grab the first parent, the lion then only do the current classes eat.
+
+__mro__: Method resolution order attribute. lists out the resolution order.
+'''
+>>> Liger.__mro__
+(<class '__main__.Liger'>, <class '__main__.Lion'>,
+ <class '__main__.Tiger'>, <class '__main__.BigCat'>, <class 'object'>)
+'''
+This is the way to make multiple inheritance work, by practicing cooperative multiple inheritance.
+This means that each class commits to having the same method signatures (substitutablity) and to calling super().some_method() 
+from within its own some_method()
+'''
+
+#########
+######    Abstract Base Classes
+#########
+'''
+Abstract base classes: in essence, something that looks like inhertiance, functions like an interface
+
+'''
 
 
 
