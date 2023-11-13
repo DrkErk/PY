@@ -2366,20 +2366,203 @@ class Option:
 #########
 ######    Keeping things lightweight
 #########
+'''
+-Keeping things to x lines or pages can allow for confusing code because of code needed to be squished onto x lines/pages.
+-Keeping things to single responsibility
+
+-A common measure of complexity is `cyclomatic` complexity: this is calculated by determining the number of execution paths through
+a function of method. (Which means the structure/complexity of a function is affected by the number of conditional expressions and loops
+it contains)
+
+-The main goal with this scores is to reduce complexity. As the score stays high, think about refactoring.
+-A way to self measure the complexity of a function is by creating a graph of the control flow/ or the path the code takes as it
+executes. (count the number of nodes/edges in the graph and calculate the cyclomatic complexity)
+-The edges are arrows that follow different execution paths your code can take.
+-The following are considered nodes:
+    -The “start” of the function (where the control flow enters)
+    -if/elif/else conditions (each one is its own node)
+    -for loops
+    -while loops
+    -The “end” of a loop (where you draw the execution path back to the start of the loop)
+    -return statements
+
+-It is calculated as the following
+    - Cyclomatic complexity (M)
+    is equal to
+    -Number of edges MINUS
+    -number of nodes
+    - PLUS 2
+
+With that, we have an example:
+'''
+def has_long_words(sentence):
+    if isinstance(sentence, str):
+        sentence = sentence.split(' ')
+
+    for word in sentence:
+        if len(word) > 10:
+            return True
+
+    return False
+'''
+THE EXPLAINATION IS IN THE SAME FOLDER to count the edges and nodes
+
+most recommended complexity 10 or less.
+(Cyclomatic complexity testing is good for unit testing.)
+
+good code coverage tool
+https://coverage.readthedocs.io/
+
+'''
+
+#########
+######    Halstead Complexity
+#########
+
+'''
+https://en.wikipedia.org/wiki/Halstead_complexity_measures
+https://radon.readthedocs.io/en/latest/ <--- TOOL
+
+-Halstead complexity attempts to measure quantitatively the ideas of level of abstraction,
+maintainability, and defect rate
+^ - This is acheived by inspecting a programs use of programming langs built in operators and how many variables and expressions it 
+    contains.
 
 
+For this example. We will revisit the github stars code from chapters earlier    
+
+'''
+def execute(self, data):
+    bookmarks_imported = 0
+
+    github_username = data['github_username']
+    next_page_of_results = f'https://api.github.com/users/{github_username}/starred'
+
+    while next_page_of_results:
+        stars_response = requests.get(
+            next_page_of_results,
+            headers={'Accept': 'application/vnd.github.v3.star+json'},
+        )
+        next_page_of_results = stars_response.links.get('next', {}).get('url')
+
+        for repo_info in stars_response.json():
+            repo = repo_info['repo']
+
+            if data['preserve_timestamps']:
+                timestamp = datetime.strptime(
+                    repo_info['starred_at'],
+                    '%Y-%m-%dT%H:%M:%SZ'
+                )
+            else:
+                timestamp = None
+
+            bookmarks_imported += 1
+            AddBookmarkCommand().execute(
+                self._extract_bookmark_info(repo),
+                timestamp=timestamp,
+            )
+
+    return f'Imported {bookmarks_imported} bookmarks from starred repos!'
+
+'''
+cyclomatic complexity chart is in the local folder
+
+ANOTHER TOOL TO HELP http://www.sonarqube.org/
+The tools can usually be added to the code editors
+
+'''
 
 
+#########
+######   Breaking Down Complexity 
+#########
 
+#########
+######   Extracting configurations 
+#########
 
+'''
+This part will be about adapting code to new requirements
 
+This will be an example on having an app that will select random food at the /random endpoint
+the code will look like this:
+'''
+import random
 
+FOODS = [
+    'pizza',
+    'burgers',
+    'salad',
+    'soup',
+]
 
+def random_food(request):
+    return random.choice(FOODS)
 
+'''
+-For story sake, the service gets popular, and some users want a full app around it.
+-They ask for a response in JSON format.
+-So if they send a `Accept:application/json` header, they will get a response.
 
+The new code will look like this:
 
+'''
+import json
+import random
 
+...
 
+def random_food(request):
+    food = random.choice(FOODS)
+
+    if request.headers.get('Accept') == 'application/json':
+        return json.dumps({'food': food})
+    else:
+        return food
+'''
+
+-Cyclomatic complexity went from 1 to 2.
+-The issue is that if we need to add more events, we will slowly increase our complexity
+
+like so:
+
+'''
+...
+
+def random_food(request):
+    food = random.choice(FOODS)
+    if request.headers.get('Accept') == 'application/json':
+        return json.dumps({'food': food})
+    elif request.headers.get('Accept') == 'application/xml':
+        return f'<response><food>{food}</food></response>'
+    else:
+        return food
+
+'''
+-Now the complexity is 3.
+
+-A way to solve this will be mapping all the conditionals into a dictionary
+-That will look like this:
+
+'''
+...
+
+def random_food(request):
+    food = random.choice(FOODS)
+
+    formats = {
+        'application/json': json.dumps({'food': food}),
+        'application/xml': f'<response><food>{food}</food></response>',
+    }
+
+    return formats.get(request.headers.get('Accept'), food)
+'''
+And with that, complexity is now back to 1.
+'''
+
+#########
+######   Extracting Functions
+#########
 
 
 
