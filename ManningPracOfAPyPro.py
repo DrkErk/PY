@@ -2728,17 +2728,142 @@ it can have performance impacts for properties that are expensive to calculate)
 previously used)
 
 -We would have to forward. (The same premise of how the mail system does it.)
+- FORWARDING: you can accept calls in one class and pass them along to another class under the hood.
+
+-Now lets say the book class has grown to keep track of the author information.
+
+The code would look like this: (It has authors name/ author for citation)
+'''
+class Book:
+    def __init__(self, data):
+        # ...
+        self.author_data = data['author']         #1
+
+    @property
+    def author_for_display(self):                 #2
+        return f'{self.author_data["first_name"]}
+ {self.author_data["last_name"]}'
+
+    @property
+    def author_for_citation(self):                #3
+        return f'{self.author_data["last_name"]},
+ {self.author_data["first_name"][0]}.'
+
+
+!@%STYLE%@!
+{"css":"{\"css\": \"font-weight: bold;\"}","target":"[[{\"line\":3,\"ch\":50},{\"line\":3,\"ch\":52}],[{\"line\":6,\"ch\":50},{\"line\":6,\"ch\":52}],[{\"line\":11,\"ch\":50},{\"line\":11,\"ch\":52}]]"}
+!@%STYLE%@!
 
 '''
 
+AND THE BOOK CLASS WOULD BE USED LIKE THIS:
+
+'''
+book = Book({
+    'title': 'Brillo-iant',
+    'subtitle': 'The pad that changed everything',
+    'author': {
+        'first_name': 'Rusty',
+        'last_name': 'Potts',
+    }
+})
+
+
+print(book.author_for_display)
+print(book.author_for_citation)
+'''
+-Being able to reference book.author_for_display/ book.author_for_citation has been great, but the author dict in the properties feels
+clunky. Especially if we would want to to more with the authors.
+
+-So, the next move is to extract an `Author`  class to encapsulate author behaviors and information. (it is also a great separtion of
+concerns)
+
+-When several methods in a class share a common prefix/suffix. esp one that doesn't match the name of the class.There might be a new 
+class waiting to be extracted (In this case, we COULD use author_ to justify `Author` class)
+
+-This class will have, (the same information as before and more structured) but also have:
+1. Accept `accept_data` as a dict in the __init__, storing each relevant value (first name/ last name/ so on) from the dict as an attribute
+2. Have 2 properties,`for_display` and `for_citation`, that return the properly formatted author string
+
+- Other notes: Book to keep working for users (keep author_data, author_for_display, and author_for_citation behaviors on book).
+(and forward calls from book.author_for_display to author.for_display and so on)
+
+The code of extracting an Author class from the Book class would look like:
+'''
+class Author:
+    def __init__(self, author_data):
+        self.first_name = author_data['first_name']
+        self.last_name = author_data['last_name']
+
+    @property
+    def for_display(self):
+        return f'{self.first_name} {self.last_name}'
+
+    @property
+    def for_citation(self):
+        return f'{self.last_name}, {self.first_name[0]}.'
+
+
+class Book:
+    def __init__(self, data):
+        # ...
+
+        self.author_data = data['author']
+        self.author = Author(self.author_data)
+
+    @property
+    def author_for_display(self):
+        return self.author.for_display
+
+    @property
+    def author_for_citation(self):
+        return self.author.for_citation
+'''
+-And now we have old code that the users to use as we get the new code in.
+
+-But now that we have new code, we should let the users know the old class is deprecated. We can use `warnings` for that.
+We can use a DeprecationWarning for this. That would look like:
+'''
+import warnings
+
+warnings.warn('Do not use this anymore!', DeprecationWarning)
+
+'''
+https://www.youtube.com/watch?v=D_6ybDcU5gc <-- Has a bunch of deprecation and extraction tricks
+
+-The best practice would be to let the users know to use book.author.for_display so they are properly guided
+
+'''
+
+################################################################################################
+### CHAPTER 10 CHAPTER 10 CHAPTER 10 CHAPTER 10 CHAPTER 10 CHAPTER 10 CHAPTER 10 CHAPTER 10 ####
+################################################################################################
+###########################  ##############      ###############################################
+###########################  ############  ######  #############################################
+###########################  ############  ######  #############################################
+###########################  ############  ######  #############################################
+###########################  ############  ######  #############################################
+###########################  ############  ######  #############################################
+###########################  ############  ######  #############################################
+###########################  ############  ######  #############################################
+###########################  ##############      ###############################################
+################################################################################################
 
 
 
-
-
-
-
-
+#########
+######    Achieving Loose Coupling
+#########
+#########
+######    Defining Coupling
+#########
+#########
+######    The connective tissue
+#########
+'''
+-Where 2 pieces of code have high interdependency, that mesh is tightly woven and taut. (Moving either piece of code around requires the
+other to move around too)
+'''
 
 
 
