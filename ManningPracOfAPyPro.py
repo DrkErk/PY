@@ -2563,6 +2563,179 @@ And with that, complexity is now back to 1.
 #########
 ######   Extracting Functions
 #########
+'''
+-Continuing on the random food from before
+-Two things are growing in tandem with the random_food function:
+    -1. the code knows WHAT TO DO (format response as JSON, XML, so on)
+    -2. the code knows HOW TO DECIDE what to do (based on accept header values)
+
+-With this we can see that we can seperate concerns. (since each item in the formats dict have a value that is a function for the food variable)
+-each of the values can be a function that accepts food argument and returns the formatted response that will go back to the user
+
+-Now, we can have the random_food function to use the separated response-format functions. It would look like this:
+'''
+def to_json(food):
+    return json.dumps({'food': food})
+
+
+def to_xml(food):
+    return f'<response><food>{food}</food></response>'
+
+
+def random_food(request):
+    food = random.choice(FOODS)
+
+    formats = {
+        'application/json': to_json,
+        'application/xml': to_xml,
+    }
+
+    format_function = formats.get(
+        request.headers.get('Accept'),
+        lambda val: val
+    )
+    return format_function(food)
+'''
+-The dict will now map formats to the function that can return the response for that format and random_food will call that func with 
+the food value
+-If no function is available after calling formats.get() it'll fallback to a function that returns the food value unchanged
+
+
+-And now to FULLY separated concerns, we can extract formats and the business of gettingf the right function from it into its own 
+function get_format_function
+'''
+def get_format_function(accept=None):
+    formats = {
+        'application/json': to_json,
+        'application/xml': to_xml,
+    }
+
+    return formats.get(accept, lambda val: val)
+
+
+def random_food(request):
+    food = random.choice(FOODS)
+    format_function = get_format_function(request.headers.get('Accept'))
+    return format_function(food)
+'''
+-With that, all of the functions have a cyclomatic complexity of 1. They are quite readable and also have seperated concerns
+-On top of that, it is very extensible. The proccess is now:
+-1. add a new function to format the response as desired
+-2. add the mapping of the required Accept header value to the new formatting function
+-3. good to go
+
+
+'''
+
+#########
+######   Decomposing Classes
+#########
+
+#########
+######   Intialization complexity 
+#########
+'''
+ The following will be based on this code:
+'''
+class Book:
+    def __init__(self, data):
+        self.title = data['title']
+        self.subtitle = data['subtitle']
+
+        if self.title and self.subtitle:
+            self.display_title = f'{self.title}: {self.subtitle}'
+        elif self.title:
+            self.display_title = self.title
+        else:
+            self.display_title = 'Untitled'
+
+'''
+-While the domain logic is complex, the code is more likely to reflect that. That means its more important for developers to rely on 
+useful abstractions that make sense
+
+-In the case of this code, we can extract the logic for display_title into a set_display_title method that you could call from the __init__
+
+-That would look like this:
+'''
+class Book:
+    def __init__(self, data):
+        self.title = data['title']
+        self.subtitle = data['subtitle']
+        self.set_display_title()
+
+    def set_display_title(self):
+        if self.title and self.subtitle:
+            self.display_title = f'{self.title}: {self.subtitle}'
+        elif self.title:
+            self.display_title = self.title
+        else:
+            self.display_title = 'Untitled'
+'''
+-A second glance we can see that a couple issues arise from this approach:
+- 1. Getters and setters are generally discouraged because they clutter up the class
+- 2. its good practice to set all the necessary attributes to some intial value directly inside __init__, but display_title is set in a
+different method
+
+-The second can be fixed by setting display_title to untitled by default, but it can be confusing. A user might conclude the display title
+is typically untitled
+
+-WE could also extract a method w/o suffering drawbacks. (it would involve creating a function that returns a value for display_title)
+
+-BUT the code would look like this if we were going to do this.
+
+[[[]]]
+book = Book(data)
+return book.display_title
+[[[]]]
+
+-It looks weird and there is a way to update display_title logic without having to update the second line.
+
+-It would be the @property decorator. It is used to signify that a method on a class should be accesible on attribute.
+
+-Note: methods can be used as properties only if self is their only args, because when you access the attributes, YOU CANT PASS ANY
+ARGS TO IT.
+
+-We can now do this instead:
+'''
+class Book:
+    def __init__(self, data):
+        self.title = data['title']
+        self.subtitle = data['subtitle']
+
+    @property
+    def display_title(self):
+        if self.title and self.subtitle:
+            return f'{self.title}: {self.subtitle}'
+        elif self.title:
+            return self.title
+        else:
+            return 'Untitled'
+'''
+- Using the @property, you can still reference book.display_title as an attribute, but all its complexity is abstracted into its own 
+function.
+
+-NOTE: properties are methods, repeatedly accessing them means that the methods are called each time. (this is can be ok, but 
+it can have performance impacts for properties that are expensive to calculate)
+
+'''
+
+#########
+######   Extracting Classes and forwarding calls
+#########
+'''
+-When get_format_function was extracted from random_food, it was still called from it's original location.
+(how would we maintain backwards compatibility)(backwards compatibility: evolve software w/o breaking the implementation that was 
+previously used)
+
+-We would have to forward. (The same premise of how the mail system does it.)
+
+'''
+
+
+
+
+
+
 
 
 
