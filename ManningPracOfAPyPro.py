@@ -2863,7 +2863,437 @@ https://www.youtube.com/watch?v=D_6ybDcU5gc <-- Has a bunch of deprecation and e
 '''
 -Where 2 pieces of code have high interdependency, that mesh is tightly woven and taut. (Moving either piece of code around requires the
 other to move around too)
+-The mesh between areas with little or no interdependence is flexible (like rubberbands). 
+-The code in the looser part of the mesh will have to be changed more drastically to impact the code around it.
+
+-(the less interconnections the better)
+
 '''
+
+#########
+######    Tight Coupling
+#########
+'''
+-These create interconnections:
+    - A class that stores another object as an attribute
+    - A class whose methods call functions from another module 
+    - A function or method that does a lot of pro
+
+
+'''
+class Book:
+    def __init__(self, title, subtitle, author):
+        self.title = title
+        self.subtitle = subtitle
+        self.author = author
+
+def display_book_info(book):
+    print(f'{book.title}: {book.subtitle} by {book.author}')
+'''
+
+
+'''
+class Book:
+    def __init__(self, title, subtitle, author):
+        self.title = title
+        self.subtitle = subtitle
+        self.author = author
+
+    def display_info(self):
+        print(f'{self.title}: {self.subtitle} by {self.author}')
+'''
+
+
+
+'''
+import re
+
+
+def remove_spaces(query):
+    query = query.strip()
+    query = re.sub(r'\s+', ' ', query)
+    return query
+
+
+def normalize(query):
+    query = query.casefold()
+    return query
+
+
+if __name__ == '__main__':
+    search_query = input('Enter your search query: ')
+    search_query = remove_spaces(search_query)
+    search_query = normalize(search_query)
+    print(f'Running a search for "{search_query}"')
+'''
+
+
+
+'''
+def remove_quotes(query):
+    query = re.sub(r'"', '', query)
+    return query
+
+
+if __name__ == '__main__':
+    ...
+    search_query = remove_quotes(search_query)
+    ...
+
+
+#########
+######    Loose Coupling
+#########
+'''
+
+'''
+if __name__ == '__main__':
+    search_query = input('Enter your search query: ')
+    search_query = remove_spaces(search_query)
+    search_query = remove_quotes(search_query)
+    search_query = normalize(search_query)
+    print(f'Running a search for "{search_query}"')
+'''
+
+
+
+'''
+import re
+
+
+def _remove_spaces(query):
+    query = query.strip()
+    query = re.sub(r'\s+', ' ', query)
+    return query
+
+
+def _normalize(query):
+    query = query.casefold()
+    return query
+
+
+def _remove_quotes(query):
+    query = re.sub(r'"', '', query)
+    return query
+
+
+def clean_query(query):
+    query = _remove_spaces(query)
+    query = _remove_quotes(query)
+    query = _normalize(query)
+    return query
+
+
+if __name__ == '__main__':
+    search_query = input('Enter your search query: ')
+    search_query = clean_query(search_query)
+    print(f'Running a search for "{search_query}"')
+
+'''
+
+
+
+
+
+
+'''
+
+
+#########
+######    Recognizing Coupling
+#########
+
+#########
+######    Feature Envy
+#########
+'''
+
+
+'''
+
+#########
+######    Shotgun Surgery
+#########
+'''
+
+
+'''
+
+#########
+######    Leaky Abstractions
+#########
+'''
+
+
+'''
+
+#########
+######    Coupling in the Bookmark app
+#########
+'''
+
+
+'''
+class AddBookmarkCommand(Command):
+    def execute(self, data, timestamp=None):
+        data['date_added'] = timestamp or datetime.utcnow().isoformat()
+        db.add('bookmarks', data)
+        return 'Bookmark added!'
+
+'''
+
+
+'''
+
+#########
+######    Addressing Coupling
+#########
+'''
+
+
+'''
+
+#########
+######    User Messaging
+#########
+'''
+
+
+'''
+class AddBookmarkCommand(Command):
+    def execute(self, data, timestamp=None):
+        data['date_added'] = timestamp or datetime.utcnow().isoformat()
+        db.add('bookmarks', data)
+        return True, None
+
+class ListBookmarksCommand(Command):
+    def __init__(self, order_by='date_added'):
+        self.order_by = order_by
+
+    def execute(self, data=None):
+        return True, db.select('bookmarks', order_by=self.order_by).fetchall()
+'''
+
+'''
+def format_bookmark(bookmark):
+    return '\t'.join(
+        str(field) if field else ''
+        for field in bookmark
+    )
+
+
+class Option:
+    def __init__(self, name, command, prep_call=None,
+ success_message='{result}'):
+        self.name = name
+        self.command = command
+        self.prep_call = prep_call
+        self.success_message = success_message
+
+    def choose(self):
+        data = self.prep_call() if self.prep_call else None
+        success, result = self.command.execute(data)
+
+        formatted_result = ''
+
+        if isinstance(result, list):
+            for bookmark in result:
+                formatted_result += '\n' + format_bookmark(bookmark)
+        else:
+            formatted_result = result
+
+        if success:
+            print(self.success_message.format(result=formatted_result))
+
+    def __str__(self):
+        return self.name
+
+def loop():
+    ...
+
+    options = OrderedDict({
+        'A': Option(
+            'Add a bookmark',
+            commands.AddBookmarkCommand(),
+            prep_call=get_new_bookmark_data,
+            success_message='Bookmark added!',
+        ),
+        'B': Option(
+            'List bookmarks by date',
+            commands.ListBookmarksCommand(),
+        ),
+        'T': Option(
+            'List bookmarks by title',
+            commands.ListBookmarksCommand(order_by='title'),
+        ),
+        'E': Option(
+            'Edit a bookmark',
+            commands.EditBookmarkCommand(),
+            prep_call=get_new_bookmark_info,
+            success_message='Bookmark updated!'
+        ),
+        'D': Option(
+            'Delete a bookmark',
+            commands.DeleteBookmarkCommand(),
+            prep_call=get_bookmark_id_for_deletion,
+            success_message='Bookmark deleted!',
+        ),
+        'G': Option(
+            'Import GitHub stars',
+            commands.ImportGitHubStarsCommand(),
+            prep_call=get_github_import_options,
+            success_message='Imported {result} bookmarks from starred repos!',
+        ),
+        'Q': Option(
+            'Quit',
+            commands.QuitCommand()
+        ),
+    })
+
+'''
+
+
+
+
+'''
+
+#########
+######    Bookmark Persistence
+#########
+'''
+
+
+'''
+
+#########
+######    Trying it out
+#########
+'''
+
+
+'''
+from abc import ABC, abstractmethod
+
+from database import DatabaseManager
+
+
+class PersistenceLayer(ABC):
+    @abstractmethod
+    def create(self, data):
+        raise NotImplementedError('Persistence layers must implement a
+ create method')
+
+    @abstractmethod
+    def list(self, order_by=None):
+        raise NotImplementedError('Persistence layers must implement a
+ list method')
+
+    @abstractmethod
+    def edit(self, bookmark_id, bookmark_data):
+        raise NotImplementedError('Persistence layers must implement an
+ edit method')
+
+    @abstractmethod
+    def delete(self, bookmark_id):
+        raise NotImplementedError('Persistence layers must implement a
+ delete method')
+
+
+class BookmarkDatabase(PersistenceLayer):
+    def __init__(self):
+        self.table_name = 'bookmarks'
+        self.db = DatabaseManager('bookmarks.db')
+
+        self.db.create_table(self.table_name, {
+            'id': 'integer primary key autoincrement',
+            'title': 'text not null',
+            'url': 'text not null',
+            'notes': 'text',
+            'date_added': 'text not null',
+        })
+
+    def create(self, bookmark_data):
+        self.db.add(self.table_name, bookmark_data)
+
+    def list(self, order_by=None):
+        return self.db.select(self.table_name, order_by=order_by).fetchall()
+
+    def edit(self, bookmark_id, bookmark_data):
+        self.db.update(self.table_name, {'id': bookmark_id}, bookmark_data)
+
+    def delete(self, bookmark_id):
+        self.db.delete(self.table_name, {'id': bookmark_id})
+
+'''
+
+
+
+
+'''
+from persistence import BookmarkDatabase
+
+persistence = BookmarkDatabase()
+
+
+class AddBookmarkCommand(Command):
+    def execute(self, data, timestamp=None):
+        data['date_added'] = timestamp or datetime.utcnow().isoformat()
+        persistence.create(data)
+        return True, None
+
+
+class ListBookmarksCommand(Command):
+    def __init__(self, order_by='date_added'):
+        self.order_by = order_by
+
+    def execute(self, data=None):
+        return True, persistence.list(order_by=self.order_by)
+
+
+class DeleteBookmarkCommand(Command):
+    def execute(self, data):
+        persistence.delete(data)
+        return True, None
+class EditBookmarkCommand(Command):
+    def execute(self, data):
+        persistence.edit(data['id'], data['update'])
+        return True, None
+
+'''
+
+
+
+'''
+
+################################################################################################
+### CHAPTER 11 CHAPTER 11 CHAPTER 11 CHAPTER 11 CHAPTER 11 CHAPTER 11 CHAPTER 11 CHAPTER 11 ####
+################################################################################################
+###########################  ############  #####################################################
+###########################  ############  #####################################################
+###########################  ############  #####################################################
+###########################  ############  #####################################################
+###########################  ############  #####################################################
+###########################  ############  #####################################################
+###########################  ############  #####################################################
+###########################  ############  #####################################################
+###########################  ############  #####################################################
+################################################################################################
+
+
+
+#########
+######    Achieving Loose Coupling
+#########
+#########
+######    Defining Coupling
+#########
+
+
+
+
+
+
+
 
 
 
