@@ -3282,26 +3282,159 @@ class EditBookmarkCommand(Command):
 
 
 #########
-######    Achieving Loose Coupling
+######    Onward and Upward
 #########
 #########
-######    Defining Coupling
+######    What Now
 #########
 
+#########
+######    Develop a Plan
+#########
+'''
 
 
 
+'''
+
+#########
+######    Execute the Plan
+#########
+'''
 
 
 
+'''
+
+#########
+######    Track the Progress
+#########
+'''
 
 
 
+'''
+
+
+#########
+######    Design Patterns
+#########
+'''
 
 
 
+'''
 
 
+#########
+######    Ups and Downs of design patterns in python
+#########
+'''
+
+
+
+'''
+
+
+#########
+######    Terms to Start with
+#########
+'''
+Good place to start researching terms:
+    -Creational design patterns
+    -Factories
+    -Behavioral design patterns
+    -Command pattern
+    -Structural design patterns
+    -Adapter pattern
+
+
+'''
+
+
+#########
+######    Distributed Systems
+#########
+'''
+
+
+
+'''
+
+#########
+######    Modes of Failure in Distributed Systems
+#########
+'''
+
+
+
+'''
+
+#########
+######    Addressing Application State
+#########
+'''
+
+
+
+'''
+
+#########
+######    Terms to start with
+#########
+'''
+Distributed Systems:
+    -Fault tolerance
+    -Eventual consistency
+    -Desired state
+    -Concurrency
+    -Message queueing
+
+
+'''
+
+#########
+######    Take A python deep dive
+#########
+#########
+######    Python Code Style
+#########
+'''
+
+
+
+'''
+
+#########
+######    Language Features are patterns
+#########
+'''
+
+
+
+'''
+
+#########
+######    Terms to start with
+#########
+'''
+Pythonic code research term
+    -Pythonic code
+        --Pythonic way to do X
+    -Idiomatic Python
+    -Python anti-patterns
+    -Python linters
+
+'''
+
+#########
+######    REVIEW
+#########
+'''
+
+
+
+'''
 
 
 
