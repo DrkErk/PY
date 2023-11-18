@@ -2867,7 +2867,7 @@ other to move around too)
 -The code in the looser part of the mesh will have to be changed more drastically to impact the code around it.
 
 -(the less interconnections the better)
-
+ 
 '''
 
 #########
@@ -2877,9 +2877,9 @@ other to move around too)
 -These create interconnections:
     - A class that stores another object as an attribute
     - A class whose methods call functions from another module 
-    - A function or method that does a lot of pro
+    - A function or method that does a lot of procedural work using methods from another object
 
-
+Consider the following code: (display_book_info func needs to know all the diff pieces of info that a book instance contains)
 '''
 class Book:
     def __init__(self, title, subtitle, author):
@@ -2890,7 +2890,8 @@ class Book:
 def display_book_info(book):
     print(f'{book.title}: {book.subtitle} by {book.author}')
 '''
-
+-If the book class and the display_book_info function lived in the same module, the code might be tolerable. 
+-They operate on related information
 
 '''
 class Book:
