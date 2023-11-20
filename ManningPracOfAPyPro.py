@@ -2891,8 +2891,13 @@ def display_book_info(book):
     print(f'{book.title}: {book.subtitle} by {book.author}')
 '''
 -If the book class and the display_book_info function lived in the same module, the code might be tolerable. 
--They operate on related information
+-They operate on related information and be together in one place
 
+-Tightly coupling isn't inherently bad. (it could just be a pointer)
+-These 2 have high cohesion because display_book_info operates only on info from book and does something book related.
+(It is so tightly couple to book that it makes sense to be in the class)
+
+-That would look like this:
 '''
 class Book:
     def __init__(self, title, subtitle, author):
@@ -2903,9 +2908,10 @@ class Book:
     def display_info(self):
         print(f'{self.title}: {self.subtitle} by {self.author}')
 '''
+-* TIGHT COUPLING IS AN ISSUE WHEN IT EXISTS BETWEEN 2 SEPARATE CONCERNS.
 
 
-
+-Some code might have been written like below.
 '''
 import re
 
@@ -2927,7 +2933,10 @@ if __name__ == '__main__':
     search_query = normalize(search_query)
     print(f'Running a search for "{search_query}"')
 '''
+-It is easy to see that the prochedure is tightly coupled to the search module. It would have to change if we changed the way
+cleaning querys worked.
 
+-
 
 
 '''
