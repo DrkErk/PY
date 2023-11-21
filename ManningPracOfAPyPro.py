@@ -2933,11 +2933,16 @@ if __name__ == '__main__':
     search_query = normalize(search_query)
     print(f'Running a search for "{search_query}"')
 '''
--It is easy to see that the prochedure is tightly coupled to the search module. It would have to change if we changed the way
+-It is easy to see that the prochedure is tightly coupled to the search module. The code would have to change if we changed the way
 cleaning querys worked.
 
--
+- (You can effectively identify coupling by assessing the likelihood that any given change to a module will require a change to the code
+that uses it)
 
+- Now, lets suppose that users are still not getting consistent result. Upon further investigation, it's because some users are putting
+quotes around the query
+
+-So this is what the quote removing code would look like:
 
 '''
 def remove_quotes(query):
@@ -2955,6 +2960,10 @@ if __name__ == '__main__':
 ######    Loose Coupling
 #########
 '''
+- Loose Coupling is the ability of two pieces of code to accomplish a task without either relying heavily on the details of the other.
+-(This is commonly achieved through abstraction.) (Loosely coupled code implements and uses interfaces; and an exteme end, it uses only
+interfaces for intercommunication.)
+
 
 '''
 if __name__ == '__main__':
