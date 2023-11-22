@@ -2964,7 +2964,13 @@ if __name__ == '__main__':
 -(This is commonly achieved through abstraction.) (Loosely coupled code implements and uses interfaces; and an exteme end, it uses only
 interfaces for intercommunication.)
 
+-If we switch the school of thought over to thinking about the code in terms of messages that are sent to each other.
+(you will be able to identify cleaner abstractions and stronger cohesion)
 
+-(These messages are questions you ask of an object or the things you tell it to do.)
+(in the folder is an image of how it would look in code)
+
+-The next code is looking back at the main prochedure:
 '''
 if __name__ == '__main__':
     search_query = input('Enter your search query: ')
