@@ -2979,9 +2979,12 @@ if __name__ == '__main__':
     search_query = normalize(search_query)
     print(f'Running a search for "{search_query}"')
 '''
+-What is written achieves the task, but the message is very hoopy and jumpy. (users would want a query to clean up, it doesn't matter how)
+-The thought would be that a message would be "here is my query, clean it please."
 
+-This means that we would need a class to encapsulate the logic. (going back to separating concerns)
 
-
+-This is how the code be refactored to reflect the above:
 '''
 import re
 
@@ -3015,12 +3018,12 @@ if __name__ == '__main__':
     print(f'Running a search for "{search_query}"')
 
 '''
+-Whenever ill need to do another technique to clean the queries it will:
+1. Create a function to perform the new transform query
+2. Call the new function inside `clean_query`
+3. Call it a day, confident that users are all cleaning properly
 
-
-
-
-
-
+(this is an example of loose coupling, separation of concerns, and encapsulation)
 '''
 
 
