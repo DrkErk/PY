@@ -3056,7 +3056,22 @@ encapsulation/ abstraction)
 ######    Leaky Abstractions
 #########
 '''
+-Feature envy is a symptom of leaky abstraction. (the goal is to have the user to trigger the behavior and receive the result and
+doesnt care how it happens.)
 
+-Leaky Abstraction: when an abstraction doesnt sufficently hide its details. (claims to provide a simple way to get something done
+but it ultimately requires you to have some knowledge about what lies beneath when using it.)
+
+-An example:
+ http requests, if the goal is purely to make a GET request and then get some url response back, an abstraction on the get behavior
+ would best work.
+-THIS ABSTRACTION WORKS MOST OF THE TIME. When the internet is not available or there is no internet connections requests
+ will generally just raise an exception.
+
+-Although this is good for error handling, it isn't good for abstractions because it requires the calling code to know about possible
+errors that might happen and how to fix them.
+
+-This means requests are now coupled with whatever does the error checking for it.
 
 '''
 
