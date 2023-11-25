@@ -3041,17 +3041,15 @@ module because it uses all of its features explictly)
 -One way feature envy can be fixed: roll it up into a sengle entry point back at the source. 
 (ie when clean_query function was built, the search module is where query cleaning logic goes, so clean query went there.
 the rest of the code is now unaware once we moved it with no more feature envy)
-
-
-
 '''
 
 #########
 ######    Shotgun Surgery
 #########
 '''
-
-
+-The need for Shotgun Surgery goes down when (the coder addresses feature envy, uses separting concerns and good practice of 
+encapsulation/ abstraction)
+-Shotgun surgery is a sign of tight coupling
 '''
 
 #########
