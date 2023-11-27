@@ -3073,12 +3073,21 @@ errors that might happen and how to fix them.
 
 -This means requests are now coupled with whatever does the error checking for it.
 
+-A trade off to consider with abstraction, the further you abstract a concept in code, the less customization you can provide.
+-This is because abtraction is inherently meant to remove access to detail. The fewer the details you can access, the fewer ways you
+have to change the details
+
+-There is probably coupling being introduced if the developer is providing access to a low level detail from a high level layer of 
+abstraction.
+
+-As a reminder: loose coupling relies on interfaces, shared abstractions, rather than specific low level details
 '''
 
 #########
 ######    Coupling in the Bookmark app
 #########
 '''
+
 
 
 '''
