@@ -3087,9 +3087,25 @@ abstraction.
 ######    Coupling in the Bookmark app
 #########
 '''
+-All concerns will at some point need to interact with each other. So practice to keep stuff loosely coupled
 
+-Some of the following can be used to reduce coupling while keeping the code working:
+    -The presentation layer shows information to, and gets information from, the user.
+    -The business logic layer contains the "smarts" of the application - the logic related to the task at hand
+    -The persistance layer stores data for the application to be reused later on
 
+-With the refresher of separating concerns into a multitier architecture:
+____________________________________________________________________________________________________________
+user ->       presentation layer       ->    business logic layer    -> persistance layer
+    ^(user sees and chooses options)    ^(options trigger commands)   ^(commands fetch and manipulate data)
+____________________________________________________________________________________________________________
+-Using the commands execute method in the business logic an abstraction that is a great example of loose coupling
 
+-A second look at the addBookMarkCommand: (it does this)
+    1. receives the data for a bookmark along with an optional timestamp
+    2. generates a timestamp if needed
+    3. tells the persistance layer to store the bookmark
+    4. returns a message stating that the addition was a success
 '''
 class AddBookmarkCommand(Command):
     def execute(self, data, timestamp=None):
@@ -3098,6 +3114,8 @@ class AddBookmarkCommand(Command):
         return 'Bookmark added!'
 
 '''
+-Upon second glance, the last 2 lines of the execute method show signs of tight coupling.
+
 
 
 '''
