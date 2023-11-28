@@ -3116,7 +3116,17 @@ class AddBookmarkCommand(Command):
 '''
 -Upon second glance, the last 2 lines of the execute method show signs of tight coupling.
 
+-The first tightly coupled line `calls db.add` is coupled to the persistance layer/ database itself.
+- If the method in which we want to store the bookmarks, like json for example, it doesnt work.
+- There is also feature envy happening. most of the commands make direct use of one of the operations from database manager
 
+-The second line shows tight coupling in the return statement.
+- (the return message is intended for the user. It is handling presentation level information, in the business logic layer (leaky abstraction))
+
+-(on a side note), `CreateBookmarksTableCommand`, introduce even tighter coupling.
+- the `Table` in the name implies database, a persistance layer feature, and then the command is referenced when the application starts
+  in the presentation layer
+- The command spans all layer of abstraction that was previously built
 
 '''
 
