@@ -3133,16 +3133,28 @@ class AddBookmarkCommand(Command):
 #########
 ######    Addressing Coupling
 #########
-'''
 
+'''
+-(Context is of if I wanted to make a mobile version)
+-( what is the tightly coupled areas?)
+-
 
 '''
 
 #########
 ######    User Messaging
 #########
-'''
 
+'''
+-Mobile builds are icon oriented. (this means the software needs to use icons in addition to the messages for success)
+-BUT from above, the app is coupled to the business logic layer.
+-The fix will be releasing control of messaging fully to the presentation layer. (which raises the question: how can you keep the 
+ interaction between commands and the presentation layer without each command having explict knowledge of the message it shows?)
+
+-A way to handle this can be splitting up the `success` and the `result` on the presentation layer. (where each command returning a 
+ tuple representing both status and result)
+
+- This means that commands should all be true. BUT if they return false and fail with the result of none
 
 '''
 class AddBookmarkCommand(Command):
