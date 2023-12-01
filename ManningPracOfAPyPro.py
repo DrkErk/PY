@@ -3156,6 +3156,12 @@ class AddBookmarkCommand(Command):
 
 - This means that commands should all be true. BUT if they return false and fail with the result of none
 
+- (for the next part, each of the commands are updated to return a status/ result tuple)
+- The best way to do this would be to configure each option instance with specific message to use when a command succeeds. (this is 
+  because it gives the right amount of customization without a lot of extra effort.)
+
+-The changes to the code would look like this:
+(decoupling layers of abstractions with interfaces)
 '''
 class AddBookmarkCommand(Command):
     def execute(self, data, timestamp=None):
@@ -3171,6 +3177,7 @@ class ListBookmarksCommand(Command):
         return True, db.select('bookmarks', order_by=self.order_by).fetchall()
 '''
 
+Below is `using statuses and results in the presentation layer`
 '''
 def format_bookmark(bookmark):
     return '\t'.join(
@@ -3248,8 +3255,8 @@ def loop():
     })
 
 '''
-
-
+- With this, the code is now decoupled on the business logic and the presentation layer. (they now interact using the idea of a status
+  and result instead of hardcoded )
 
 
 '''
