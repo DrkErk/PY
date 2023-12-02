@@ -3265,7 +3265,18 @@ def loop():
 ######    Bookmark Persistence
 #########
 '''
+-(for the mobile user, they would need the data for the bookmarks to live on the cloud)
+-(this would mean that I need to swap out the database module for a new persistance layer that interacts with the new api.)
+-(on that note: it is good to use shared abstractions to reduce coupling)
+-(That means that we will need to set up the api persistance layers to deal with the same set of concerns)
 
+-(as the commands in the execute interface was reduced, the persistance layer needs a more general set of crud operations to decouple
+them from commands)
+
+-the database shares some commonalities:
+    -Data represented as record objects
+    -Crud operations with (sql on database/ http on api) (insert/select/update/delete and  post/get/put/delete)
+    -Config nneeded for the (databases files and table/ apis domains and urls)
 
 '''
 
@@ -3284,23 +3295,19 @@ from database import DatabaseManager
 class PersistenceLayer(ABC):
     @abstractmethod
     def create(self, data):
-        raise NotImplementedError('Persistence layers must implement a
- create method')
+        raise NotImplementedError('Persistence layers must implement a create method')
 
     @abstractmethod
     def list(self, order_by=None):
-        raise NotImplementedError('Persistence layers must implement a
- list method')
+        raise NotImplementedError('Persistence layers must implement a list method')
 
     @abstractmethod
     def edit(self, bookmark_id, bookmark_data):
-        raise NotImplementedError('Persistence layers must implement an
- edit method')
+        raise NotImplementedError('Persistence layers must implement an edit method')
 
     @abstractmethod
     def delete(self, bookmark_id):
-        raise NotImplementedError('Persistence layers must implement a
- delete method')
+        raise NotImplementedError('Persistence layers must implement a delete method')
 
 
 class BookmarkDatabase(PersistenceLayer):
