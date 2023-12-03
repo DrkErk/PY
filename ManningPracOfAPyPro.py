@@ -3284,7 +3284,10 @@ them from commands)
 ######    Trying it out
 #########
 '''
+-In order to decouple: ABC on the perstence layer to define the interface
+Create a BookmarkDatabase persistance layer that sits between commands and database manager class
 
+-
 
 '''
 from abc import ABC, abstractmethod
