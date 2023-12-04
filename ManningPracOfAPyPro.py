@@ -3287,8 +3287,24 @@ them from commands)
 -In order to decouple: ABC on the perstence layer to define the interface
 Create a BookmarkDatabase persistance layer that sits between commands and database manager class
 
--
+- The persistance module will need new classes, that means the code will need the commands to be refactored instead of the databaseManager
+directly. (with that: the interface shouldnt have any database/ api specific methods names.)
 
+-The interface should provide method that would apply to most any persistance layers, which would be:
+    - __init__ for intial config
+    - create(data) to create a new bookmark
+    - list(order_by) to list all bookmarks
+    - edit(bookmark_id, data) to update a bookmark
+    - delete(bookmark_id) to remove a bookmark
+
+- Some thoughts about how this would be done:
+    -The logic in the `CreateBookarksTableCommand` should be an initial config for a bookmark database persistance layer
+    -the instantiation of the databaseManager fits in there too. (this can be done by writing the implementation for each method of 
+    the `PersistanceLayer` abstraction in the `BookmarksDatabase`)
+    -Each database centric method call(db.add, for example) from the original commands can be moved to the appropriate method. This will
+    free up the commands to call the methods from `BookmarksDatabase`
+    
+The code will look like this:  
 '''
 from abc import ABC, abstractmethod
 
