@@ -3303,7 +3303,7 @@ directly. (with that: the interface shouldnt have any database/ api specific met
     the `PersistanceLayer` abstraction in the `BookmarksDatabase`)
     -Each database centric method call(db.add, for example) from the original commands can be moved to the appropriate method. This will
     free up the commands to call the methods from `BookmarksDatabase`
-    
+
 The code will look like this:  
 '''
 from abc import ABC, abstractmethod
@@ -3356,8 +3356,9 @@ class BookmarkDatabase(PersistenceLayer):
 
 '''
 
-
-
+-The next thing that needs updating is to replace the `db` instance of `DatabaseManager` with persistance( an instance of bookmarkDatabase)
+in the commands module.
+-Also have to go through the rest of the module replacing calls to `DatabaseManager`(`db.select`) methods with those from `PersistenceLayer`(`persistence.list`).
 
 '''
 from persistence import BookmarkDatabase
@@ -3390,7 +3391,10 @@ class EditBookmarkCommand(Command):
         return True, None
 
 '''
-
+-In the end: 
+    -the app is now extensible to new use cases
+    -concerns are well separated (presentation/ business logic/ persistance are now in isolation.)
+    - (we could swap out bookmarksDatabase for perhaps a BookmarksStorageService that sends data via an http api)
 
 
 '''
