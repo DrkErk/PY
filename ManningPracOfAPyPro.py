@@ -3426,9 +3426,9 @@ class EditBookmarkCommand(Command):
 ######    Develop a Plan
 #########
 '''
+-Using a mind map to learn: organizes data in a hierarchical way of viewing notes visually (starting from a central node)
 
-
-
+- (or just make a plan for learning)
 '''
 
 #########
