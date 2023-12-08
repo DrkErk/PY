@@ -3435,8 +3435,10 @@ class EditBookmarkCommand(Command):
 ######    Execute the Plan
 #########
 '''
+-Using the mind map could work well to explore ideas nonlinearly
 
-
+- (NOTE: ITS A PITFALL TO dive too deep into one topic without any context about the rest of the bigger picture.)
+- (too much focus in one spot can lead to solidifying an inaccurate or incomplete understanding that can inhibit future learning)
 
 '''
 
@@ -3444,8 +3446,18 @@ class EditBookmarkCommand(Command):
 ######    Track the Progress
 #########
 '''
+-Learning is subjective, so setting ideas to a state is a good idea. Like the following:
+    1. Want to learn/ need to learn
+    2. Actively learning: explored/ read some resources on that topic (and looking for more)
+    3. Familiar: understand the topic generally, and have some idea on how to apply it
+    4. Comfortable: Applied the concepts from the topic a few times and have a handle on it
+    5. Proficient: Applied the concepts enough to know some of the nuances, and know which resources to reach for when you encounter new
+      problems
 
-
+-Mind mapping software:
+    www.lucidchart.com
+    (www.mindmup.com)
+    (https://draw.io)
 
 '''
 
@@ -3454,8 +3466,23 @@ class EditBookmarkCommand(Command):
 ######    Design Patterns
 #########
 '''
+-All the design patterns are tried and true solutions, and we have ubiquitous language for them. (shared vocabulary for the concepts
+a team needs to understand.)
 
+-The command pattern (like the decoupled code that requests an action from the action itself) has a few common pieces, regardless of 
+the situation in which it's used:
+    1. Receiver: the entity that takes an action. like persisting the data in a database or making an api call.
+    2. Command: the entity that contains the info needed for the receiver to take its action
+    3. Invoker: the entity that triggers the command to alert the receiver
+    4. Client: the entity that assembles the invokers, commands, and receivers to achieve a task
 
+In the app these pieces are as follows:
+    1. The `PersistanceLayer` classes are receivers.| (receive enough information to store/retrieve data (from database `BookmarkDatabase`))
+    2. The `Command` classes are the commands.| They store the info needed to comm with the persistance layer.
+    3. The `Option` instances are the invokers.| They trigger a command to take place when a user chooses an option in the menu.
+    4. The Client module is the client. | It hooks up options to commands properly so that users menu choices lead to desired action.
+
+-UML (Unified modeling language): 
 
 '''
 
