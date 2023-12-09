@@ -3482,7 +3482,8 @@ In the app these pieces are as follows:
     3. The `Option` instances are the invokers.| They trigger a command to take place when a user chooses an option in the menu.
     4. The Client module is the client. | It hooks up options to commands properly so that users menu choices lead to desired action.
 
--UML (Unified modeling language): 
+-UML (Unified modeling language) diagram. (common way to depict relationships between entities in a program.)
+-(Do Due dilligence: https://en.wikipedia.org/wiki/Unified_Modeling_Language)
 
 '''
 
@@ -3491,7 +3492,9 @@ In the app these pieces are as follows:
 ######    Ups and Downs of design patterns in python
 #########
 '''
-
+-Design patterns that should be learned/applied in python are dictated on the context in which many design patterns were developed and
+used
+-
 
 
 '''
