@@ -2,6 +2,17 @@ from multiprocessing import connection
 import re
 import sqlite3
 
+'''
+Good place to start researching terms for design patterns:
+    -Creational design patterns
+    -Factories
+    -Behavioral design patterns
+    -Command pattern
+    -Structural design patterns
+    -Adapter pattern
+
+
+'''
 
 #########
 ######    
@@ -3494,9 +3505,18 @@ In the app these pieces are as follows:
 '''
 -Design patterns that should be learned/applied in python are dictated on the context in which many design patterns were developed and
 used
--
 
+-One of the largest drivers of design patterns is the languages or languages from which they are apart of. (A number of design patterns
+come from java, a statically typed language.)
+-(BECAUSE OF THIS: languages like java are intentionally limited in how they create instances of classes and so on)
 
+-This has lead to a number of design patterns to be creational ones.
+^- (this means that many of those patterns aren't necessary because python is dynamically typed.)
+
+-Design patterns are a tool to get work done at the end of the day. So if the suggested pattern feels forced, it is ok to move ahead
+without it.
+
+-Book to reference:  Design Patterns: Elements of Reusable Object-Oriented Software (Addison-Wesley Professional, 1995).
 '''
 
 
@@ -3504,7 +3524,7 @@ used
 ######    Terms to Start with
 #########
 '''
-Good place to start researching terms:
+Good place to start researching terms for design patterns:
     -Creational design patterns
     -Factories
     -Behavioral design patterns
