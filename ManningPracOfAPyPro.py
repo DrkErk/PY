@@ -3,7 +3,7 @@ import re
 import sqlite3
 
 '''
-Good place to start researching terms for design patterns:
+Good place to start researching TERMS for design patterns:
     -Creational design patterns
     -Factories
     -Behavioral design patterns
@@ -11,8 +11,23 @@ Good place to start researching terms for design patterns:
     -Structural design patterns
     -Adapter pattern
 
+Distributed Systems TERMS:
+    -Fault tolerance
+    -Eventual consistency
+    -Desired state
+    -Concurrency
+    -Message queueing
+
+Pythonic code research term
+    -Pythonic code
+        --Pythonic way to do X
+    -Idiomatic Python
+    -Python anti-patterns
+    -Python linters
+
 
 '''
+
 
 #########
 ######    
@@ -3540,16 +3555,23 @@ Good place to start researching terms for design patterns:
 ######    Distributed Systems
 #########
 '''
+-System: A group of interconnected pieces that make a whole. 
+^- (broken down into:) server to handle http traffic, database to persist data, cache to store frequently accessed data, etc.
 
-
-
+-The pieces are usually located in distinct machines/ separate data centers/ sometimes even diff continents.
+-They would then be distributed systems. (They add layers of value/ complexity/ risk.)
 '''
 
 #########
 ######    Modes of Failure in Distributed Systems
 #########
 '''
+-Issues of just a single machine are systems randomly crashing unexpectedly
+AND programs that expect that expect that program to be running may also crash if they havent accounted for that situation
 
+-Now making all the parts distributed adds a whole new layer of exotic complexity for these issues.
+-Distributed systems techniques seek to withstand and recover from these modes of failure 
+-(using the functional testing from chapter 5 is a good way to look at it.)
 
 
 '''
@@ -3558,8 +3580,17 @@ Good place to start researching terms for design patterns:
 ######    Addressing Application State
 #########
 '''
+-A big question in distributed systems is how to handle a part of the system crashing. (some pieces are vital other are not)
+(some pieces are not time sensitive and can have a backup used and others are critical to ops and bring the system to a halt w/o it)
+^-- Single Points of Failure
 
+-Distributed systems are designed to minimize the single points of failure (FAVORING `Graceful Degradation`) carrying on without
+a particular action or information. 
+-(Tools like Kubernetes augment the approach to processing failure through eventual consistency providing a guarantee that the system
+will eventually reach the defined state)
+-`Eventual Consistency`: which enables you to define the state you want for your system
 
+-PAIRING GRACEFUL DEGRADATION WITH EVENTUAL CONSISTENCY leads to malleable systems that go down less.
 
 '''
 
@@ -3584,8 +3615,9 @@ Distributed Systems:
 ######    Python Code Style
 #########
 '''
-
-
+-Pep 8 is pythons style guide. ( http://www.python.org/dev/peps/pep-0008/ )
+vs
+-Python Black ( https://github.com/psf/black ) allows for free reign of coding style
 
 '''
 
@@ -3593,8 +3625,38 @@ Distributed Systems:
 ######    Language Features are patterns
 #########
 '''
+-`Pythonic` solutions that are elegant, short, clear, and/or readable.
 
+-Knowing what is available to uses and when to use it is important, it is also important to know when not to use it
 
+-Good set of general principles for python code: V V V V V
+_______________________________________________________________________________________
+-The Zen of Python, by Tim Peters
+
+-Beautiful is better than ugly.
+-Explicit is better than implicit.
+-Simple is better than complex.
+-Complex is better than complicated.
+-Flat is better than nested.
+-Sparse is better than dense.
+-Readability counts.
+-Special cases aren’t special enough to break the rules.
+-Although practicality beats purity.
+-Errors should never pass silently.
+-Unless explicitly silenced.
+-In the face of ambiguity, refuse the temptation to guess.
+-There should be one--and preferably only one--obvious way to do it.
+-Although that way may not be obvious at first unless you’re Dutch.
+-Now is better than never.
+-Although never is often better than *right* now.
+-If the implementation is hard to explain, it’s a bad idea.
+-If the implementation is easy to explain, it may be a good idea.
+-Namespaces are one honking great idea--let’s do more of those!
+__________________________________________________________________________-
+
+-Following prominent users of python such as CORE DEVS can often yield info that you didnt know you needed.
+
+For a more in depth guide to the language:( https://docs.python-guide.org/ )
 
 '''
 
@@ -3615,9 +3677,6 @@ Pythonic code research term
 ######    REVIEW
 #########
 '''
-
-
-
 '''
 
 
