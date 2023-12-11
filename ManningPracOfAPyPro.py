@@ -41,13 +41,14 @@ Pythonic code research term
 #########
 
 # Thoughts on thinking: going over who might be using your software allows you to 
-# to identify the qualitites of the software you want to build out.
+# identify the qualitites of the software you want to build out.
 # (with common aspects like, speed, integrity, resources, security/ emphasis on CIA Triad probably)
 # and these can bring out a common outcome like:
-# -Loose Coupling: components aren't intricately dependant on one another
-# -Intuitability: Developers can develop the nature of the sodtware and how it works by reading it
-# -Flexibility: How well developers can adapt the software to relate or similiar tasks
-# -Extensibility: Devs can add/change one aspect of the software without affecting other aspects
+
+#-T: -Loose Coupling: components aren't intricately dependant on one another
+#-T: -Intuitability: Developers can develop the nature of the software and how it works by reading it
+#-T: -Flexibility: How well developers can adapt the software to relate or similiar tasks
+#-T: -Extensibility: Devs can add/change one aspect of the software without affecting other aspects
 
 # Refactoring: the proccess of updating code to reflect your latest/best practices. Difficulty lies in the when should you
 # (a good start on the path to making a workflow more robust is to split it's logical steps up) 
@@ -75,7 +76,18 @@ def get_us_capitals_by_state():
 us_capitals_by_state = {'Alabama': 'Montgomery', 'Alaska': 'Juneau'}
 us_capitals = sorted(us_capitals_by_state.values())
 
-#***CHAPTER 2***
+##############################################################################################################################
+########### Chap 2 Chap 2 Chap 2 Chap 2 Chap 2 Chap 2 Chap 2 Chap 2 Chap 2 Chap 2 Chap 2 Chap 2 Chap 2 Chap 2 Chap 2 #########
+##############################################################################################################################
+###################################################       ####################################################################
+##################################################  ######  ##################################################################
+################################################  ########  ##################################################################
+#########################################################  ###################################################################
+#######################################################  #####################################################################
+#####################################################  #######################################################################
+###################################################  #########################################################################
+#################################################           ##################################################################
+##############################################################################################################################
 
 #Python will explictly create a namespace for your modules you make. where as other languages would need to be
 #done implicity.
@@ -218,7 +230,20 @@ class RPSSim:
 # the hierarchy
 
 
+##############################################################################################################################
+########### Chap 3 Chap 3 Chap 3 Chap 3 Chap 3 Chap 3 Chap 3 Chap 3 Chap 3 Chap 3 Chap 3 Chap 3 Chap 3 Chap 3 Chap 3 #########
+##############################################################################################################################
+###################################################       ####################################################################
+##################################################  ######  ##################################################################
+################################################  ########  ##################################################################
+#########################################################  ###################################################################
+#######################################################  #####################################################################
+#########################################################  ###################################################################
+################################################  ######  ####################################################################
+#################################################        #####################################################################
+##############################################################################################################################
 ################## ***CHAP 3 ABSTRACTION AND ENCAPSULATION*** ##################################################
+
 #Abstraction: process of taking something concrete and stripping it of its specifics
 #Complex code will often benefit from layers of abstraction where as low level utilities will support small behaviors
 # which in turn supports more involved behaviors
@@ -231,15 +256,15 @@ class RPSSim:
 # This is done so that sentance pattern and word pattern doesnt need 2 versions of the same code, pass to a class
 # then its done
 
-#PY TIP:
-#adding additional context to a module/class/method/func using "docstrings"
+################### PY TIP:
+################### adding additional context to a module/class/method/func using "docstrings"
 
 #ENCAPSULATION
 # modules are a form of encapsulation. They group multiple related classes and functions together.
 # The largest encapsulation available in py is package
 
-#for psuedo privacy: if you want methods/variables to be class only, prefix the class with an underscore.
-# ex: _internalFunction
+################### for psuedo privacy: if you want methods/variables to be class only, prefix the class with an underscore.
+################### ex: _internalFunction
 
 #get the date time hour of an object
 import datetime
@@ -294,7 +319,8 @@ def pow(x, power=1):
 square = partial(pow, power=2)
 cube = partial(pow, power=3)
 
-#3.4.3 Declarative programming
+################### 3.4.3 Declarative programming
+
 #Declarative programming: focuses on declaring the parameters of a task without specifying how to accomplish it
 # and the details on how to accomplish the task are abstracted from the developer. (useful when you need to repeat
 # highly parametric task with only slightly varations in the parameters)
@@ -335,6 +361,18 @@ class computer(classNameMixin):
 # Adapter: when you need an abstract an interface of a 3rd party software.
 
 
+##############################################################################################################################
+########### Chap 4 Chap 4 Chap 4 Chap 4 Chap 4 Chap 4 Chap 4 Chap 4 Chap 4 Chap 4 Chap 4 Chap 4 Chap 4 Chap 4 Chap 4 #########
+##############################################################################################################################
+##############################################################################################################################
+##########################################  #######  ##########################################################################
+##########################################  #######  #########################################################################
+##########################################  #######  #########################################################################
+##########################################  #######  #########################################################################
+##########################################           #########################################################################
+###################################################  #########################################################################
+###################################################  #########################################################################
+###################################################  #########################################################################
 ###########################################################(***Chapter 4***)####################################
 
 #asymptotic analysis: observing and determining the bounds of its worst case
@@ -364,28 +402,28 @@ def hasDuplicates(sequence):
 #ideal performance is constant time
 
 #******************************************
-#data types for aiming for constant time:
+# data types for aiming for constant time:
 #           dict and set
 # They both share the behaviors of effciency when adding, removing, or accessing items. They where also similar under the
 # hood, but they dicts map keys and values and sets represent set of unique and individual terms
 #*********************************************
 #*********************************************
-#Data types for aiming for linear time:
-#LISTs are mainly O(n) operations. (such as adding new to location or if it exists in a list)
-#Lists are usefully when items being stored aren't uniquely identifiable
-#Tuples are similar but they can't be changed after they are created
+# Data types for aiming for linear time:
+# LISTs are mainly O(n) operations. (such as adding new to location or if it exists in a list)
+# Lists are usefully when items being stored aren't uniquely identifiable
+# Tuples are similar but they can't be changed after they are created
 #***********************************************
-#iterables or objects that support iteration are almost always going to be 0(n) time complexity,
+# iterables or objects that support iteration are almost always going to be 0(n) time complexity,
 
 
 
 #SPACE COMPLEXITY
 # 
-#USEFUL TOOL: GENERATORS: they are constructors that produce a single value at a time. 
-# -They pause until the next value is requested. (they avoid storing all the values in memory at once)
-# -(range function is a generator)
+#################### USEFUL TOOL: GENERATORS: they are constructors that produce a single value at a time. 
+####################  -They pause until the next value is requested. (they avoid storing all the values in memory at once)
+####################  -(range function is a generator)
 # 
-#Generators make use of the (yield) keyword. Which after producing a value, they yield execution back to the calling 
+# Generators make use of the (yield) keyword. Which after producing a value, they yield execution back to the calling 
 # code. So (yield) yields a value then yields execution.
 #
 #Yield works alot like pythons return statement except you can perform operations after you yield the value. Which means
@@ -408,17 +446,18 @@ def range(*args):
 
 #end sample
 
-#The repeated pattern of generators:
-#1. Perform the main setup required for producing all values
-#2. Create the loop
-#3. Yield a value on each iteration of the loop
-#4. Update the state for the next iteration of the loop
+#################### The repeated pattern of generators:
+#################### 1. Perform the main setup required for producing all values
+#################### 2. Create the loop
+#################### 3. Yield a value on each iteration of the loop
+#################### 4. Update the state for the next iteration of the loop
 
 #from an example
 def squares(items):
     for item in items:
         yield item ** 2
 #end
+
 #This function gets to be very compact and doesnt have to worry about state management
 #
 # You can even pass a generator to the squares, like the range from above and it will only store one item at a time from
