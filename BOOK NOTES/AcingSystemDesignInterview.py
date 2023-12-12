@@ -26,13 +26,39 @@ Acing the system design interview- Manning
 '''
 
 
+'''
+CHAPTER 1: A WALKTHROUGH OF SYSTEM DESIGN CONCEPTS
+CHAPTER 1: A WALKTHROUGH OF SYSTEM DESIGN CONCEPTS
+CHAPTER 1: A WALKTHROUGH OF SYSTEM DESIGN CONCEPTS
+CHAPTER 1: A WALKTHROUGH OF SYSTEM DESIGN CONCEPTS 
+CHAPTER 1: A WALKTHROUGH OF SYSTEM DESIGN CONCEPTS
+CHAPTER 1: A WALKTHROUGH OF SYSTEM DESIGN CONCEPTS
+CHAPTER 1: A WALKTHROUGH OF SYSTEM DESIGN CONCEPTS
+'''
 
+'''
+Section 1.1 It is a discussion about trade offs
+'''
 
+'''
+-- (Performance of a candidate in the system design interview is used to estimate
+    -BREADTH and DEPTH of system design expertise
+    -ABILITY TO COMMUNICATE AND DISCUSS SYSTEM DESIGNS with other engineers)
 
+-- As you move up in seniority, it is assumed that the ability to design and review large scale systems will increase
 
+-- TIP: System design is an art, not a science. Its about tradeoffs/compromises to design a system with given resources and time that
+        most closely suits current/possible future requirements
+'''
 
+'''
+Section 1.2 Should you read this book?
+'''
 
+'''
+-- 
 
+'''
 
 
 
