@@ -56,7 +56,8 @@ Section 1.2 Should you read this book?
 '''
 
 '''
--- 
+-- TIP: remember to show skills like: communication, quick thinking, asking good questions, anxiety.
+        But remember the points the interviewer is expecting
 
 '''
 
