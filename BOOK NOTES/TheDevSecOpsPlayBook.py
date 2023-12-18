@@ -100,11 +100,75 @@ CHAPTER 9: Conclusion
 
 '''
 
+'''
+CHAPTER 1: Introducing DevSecOps
+'''
+
+'''
+1.1: WHY DEVSECOPS? WHY NOW?
+'''
+
+'''
+-- The meta for technology engineers was to balance the speed of delivery with security and performance.
+   THIS HAS CHANGED WITH DEVSECOPS: because we can now deliver at speed without compromising security, privacy or system performance
+
+-- The Goal of DevSecOps: offer the ability to build reliable, secure, and maintainable products without sacrificing speed to market.
+-- This is achieved by (moving away from the older approach of gating) shifting responsibilities earlier in the development pipline
+   (That means collaboration to integrate security across technical applications/ services. Utilizing automation and education)
+'''
+
+'''
+1.2: DevOps OVERVIEW
+'''
+
+'''
+-- REMINDER: The people/process/technology of DevOps advance the way that engineers will build/deploy/manage technical systems.
+          -- This is done by: bridging the gap betweem development and operations teams to get products to market quickly while handling
+             the nonfunctional requirements like scalability and stability.
+
+-- DevOps are based on Lean principles and Collabration (VS the common thought that it's about technology/ies.)
+   -- Commonly thought of as teh intersection of: (Development, Operations, Quality Assurance)             
+'''
+
+'''
+SUBSECTION: The Three Ways of DevOps
+'''
+
+'''
+-- The next section is based on the Three ways.
+
+-- The First way: (focuses on the flow through the entire system) 
+ - Thinking ReFraming: From, what is my job. To, how do we deliver value to customers.
+ - 
 
 
+'''
+
+'''
+1.3: DevSecOps OVERVIEW
+'''
+
+'''
+
+'''
 
 
+'''
+1.4: RUGGED DevOps OVERVIEW
+'''
 
+'''
+
+'''
+
+
+'''
+1.5:DevSecOps BUSINESS RESULTS
+'''
+
+'''
+
+'''
 
 
 
