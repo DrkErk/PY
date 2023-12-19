@@ -139,10 +139,76 @@ SUBSECTION: The Three Ways of DevOps
 
 -- The First way: (focuses on the flow through the entire system) 
  - Thinking ReFraming: From, what is my job. To, how do we deliver value to customers.
- - 
+ 
+ --The following are examples of the First Way of DevOps:
+    1. Shared Goals:
+        -ie: having a same direction for a company to go vs a team focusing on new functionality and another on stability
+    2. Value Stream Mapping:
+        - (Value Stream analysis is a Lean Management technique for analyzing the process for delivering value to the customer)
+        - The goal is to identify potential bottlenecks/ inefficiencies.
+    3. Test Automation:
+        - ITS A KEY ELEMENT: reduces handoffs between development and QA teams
+        - It also eliminates potential bottlenecks
+        - Allows for testing during the phases vs after the software has been fully built. (so at all phases of software dev lifecycle)
 
+-- The Second Way: (about creating feedback loops):
+ - This way focuses on getting input from customers to the people who build the product. (aim for shortening feedback loops)
+
+ --The following are examples of the Second Way of DevOps:
+    1. A/B Testing:
+        - It's the process of comparing and testing hypotheses about a product's performance in a production environment
+    2. Feature Flags:
+        - Feature Flags are methods for turning features on and off.
+        - This would enable companies to push features to production without additional changes to the code in production
+        - (this inturn would allow for companies to push new features to production without affecting timing of marketing launches or other 
+           timing of marketing)
+    3. Continuous Customer Contact:
+        - (One of the best ways to get feedack is to meet directly with customers)
+        - It's always critical to hear input at all stages of the product 
+
+-- The Third Way: (focuses on experimentation and learning)
+ - (This would mean that it is required to build a learning culture that is always reflecting on mistakes/ learning from them/ 
+    and using the learnings to grow and improve )
+
+ --The following are examples of the Third Way of DevOps:
+    1. Chaos Engineering:
+        - (Chaos Engineering is a practice where reandom errors are intentionally inserted into the system to ensure that the system,
+           the processes, and the people are resilient and able to react and respond appropriately.)
+        - They can be like the following: software defects, hardware failures, security misconfigurations, etc
+    2. 20% of the time:
+        - (this refers to reserving 20% of the resources time to do work focused on innovation and experimentation)
+        - In this case, about 1 day a week.
+    3. Hackathons:
+        - (this refers to the practice of designating a set period of time where organizations form teams to do focused work on 
+           building innovative new ideas.) (can be weeklong focused efforts on demonstration of the work created)
+    4. Blameless Culture and Blameless Postmortems
+        - (this refers to providing a safe space to review past incidents without trying to find anyone or any one thing to blame)
+        - These are instead focused on using incidents as learning opportunities
+'''
 
 '''
+SUBSECTION: The Five Ideals
+'''
+
+'''
+-- From the book: the unicorn project gene kim
+-- These are second set of perspective giving characteristics for the team level:
+    -The First Ideal: Locality and Simplicity
+    -The Second Ideal: Focus, Flow, and Joy
+    -The Third Ideal: Improvement of Daily Work
+    -The Fourth Ideal: Psychological Safety
+    -The Fifth Ideal: Customer Focus
+
+'''
+
+'''
+SUBSECTION: The CALMS Framework
+'''
+
+'''
+-- (This is another approach to devops)
+'''
+
 
 '''
 1.3: DevSecOps OVERVIEW
