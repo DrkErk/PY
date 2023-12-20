@@ -207,7 +207,24 @@ SUBSECTION: The CALMS Framework
 
 '''
 -- (This is another approach to devops)
+-- CALMS stands for:
+    -Culture:      Work together to achieve a goal
+    -Automation:   Automation through methods like CD and Infrastructure as code to ensure continuous flow of value to customers.
+    -Lean:         (Lean Management Principles: ie, small batches) (made for manufacturing but works here.) (reason for small batches is
+                    to reduce inventory, backlogs, work in progress while incrementally delivering value to the customer)
+    -Measurement: extraction of key data that provides everyone with constant opportunities to learn/improve
+    -Sharing:     refers to the need for open communication/transparency/collaboration at all levels and stages
+
 '''
+
+'''
+SUBSECTION: DevOps as an Anti-Pattern
+'''
+
+'''
+
+'''
+
 
 
 '''
