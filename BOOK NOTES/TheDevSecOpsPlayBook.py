@@ -222,7 +222,10 @@ SUBSECTION: DevOps as an Anti-Pattern
 '''
 
 '''
+-- DevOps can be seen as an anti-pattern because of its rejection of the idea that operatons and development should be in separate silos
+-- They were orignally both payed for different reasons and had different goals. They could also have been under different companies alltogether
 
+-- (subSubheading:) THE CHANGING RELATIONSHIP BETWEEN DEVELOPMENT AND OPERATIONS --
 '''
 
 
@@ -252,9 +255,6 @@ SUBSECTION: DevOps as an Anti-Pattern
 '''
 
 '''
-
-
-
 
 
 
