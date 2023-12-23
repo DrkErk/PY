@@ -232,10 +232,19 @@ SUBSECTION: Agile and DevOps
 '''
 
 '''
--- 
+-- Agile focuses on development and quality assurance working together to deliver incremental value to customers 
+ - Where as: devops takes these same concepts and extends them to operations
+ - THEY SHARE THAT they both have goals of getting value to customer quicker and rapidly react to changing market demands
 
 '''
 
+'''
+SUBSECTION: DevOps and ITSM
+'''
+
+'''
+
+'''
 
 '''
 1.3: DevSecOps OVERVIEW
