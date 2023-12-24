@@ -253,19 +253,21 @@ SUBSECTION: DevOps and ITSM
 
 '''
 -- As per the graphic, DevSecOps is the overlap of development/ operations/ quality assurance/ cyber-sec
-
--- 
-
-
-
 '''
-
 
 '''
 1.4: RUGGED DevOps OVERVIEW
 '''
 
 '''
+-- Rugged DevOps is based on the Rugged software movement which was started by Joshua Corman/ David Rice/ Jeff Williams in 2010
+ - It focuses on developing software that is highly available/ secure/ resilient.
+
+-- In 2012 Corman/ Rice/ Williams pushed up a Rugged Handbook. These are the core principles:
+    -
+    -
+    -
+    -
 
 '''
 
