@@ -243,7 +243,8 @@ SUBSECTION: DevOps and ITSM
 '''
 
 '''
-
+-- DEFINE: (ITIL) IT Infrastructure Library. (ITSM) IT Service Management
+ - -Main point is that they both are centered around blame free culture and collaboration
 '''
 
 '''
@@ -251,6 +252,11 @@ SUBSECTION: DevOps and ITSM
 '''
 
 '''
+-- As per the graphic, DevSecOps is the overlap of development/ operations/ quality assurance/ cyber-sec
+
+-- 
+
+
 
 '''
 
