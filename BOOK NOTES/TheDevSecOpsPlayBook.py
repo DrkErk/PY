@@ -264,10 +264,10 @@ SUBSECTION: DevOps and ITSM
  - It focuses on developing software that is highly available/ secure/ resilient.
 
 -- In 2012 Corman/ Rice/ Williams pushed up a Rugged Handbook. These are the core principles:
-    -
-    -
-    -
-    -
+    - I am rugged because I refuse to be a source of my vulnerability or weakness
+    - I am rugged because I assure my code will support its mission
+    - I am rugged because because my code can face tgese challenges and persist in spite of them
+    - I am rugged, not because it is easy, but because ot os necessary and i am up for the challange.
 
 '''
 
@@ -277,6 +277,7 @@ SUBSECTION: DevOps and ITSM
 '''
 
 '''
+--
 
 '''
 
