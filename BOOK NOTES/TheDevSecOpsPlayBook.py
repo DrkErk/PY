@@ -277,9 +277,61 @@ SUBSECTION: DevOps and ITSM
 '''
 
 '''
---
+-- Looking at the "why" shows the importance of any sort of transformation. (its important to understand the motivating factor that 
+   justify a costly and time consuming undertaking)
+
+-- Data to justify the WHY:
+   (From (DORA) "DevOps Research and Assessment team" from google (from 2021). Data was from high performing orgs)
+    -High performing devops teams deploy code 973 times more frequently than low performers.
+    -Lead time change 6,570x faster than lower performing teams (Time from commit to deploy)
+    -The high performers had a decrease of failures vs the lower performers (7.5% vs 23%)
+    ^- And when failure did occur, it was restored 6,570x faster than low performing teams
+
+-Keyword meterics: flow time/ lead time, (MTTR) mean time to restore, Employee engagement ****************************************
+'''
 
 '''
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
+
+'''
+
+
+'''
+CHAPTER 2: The Evolution of Cybersecurity (from Perimeter to Zero Trust)
+'''
+
+'''
+2.1: THE EVOLUTION OF THE THREAT LANDSCAPE
+'''
+
+'''
+
+'''
+
+
+'''
+2.2: THE EVOLUTION OF CYBERSECURITY RESPONSE
+'''
+
+'''
+
+'''
+
+
+
+
+
+
+
 
 
 
