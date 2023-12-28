@@ -312,8 +312,26 @@ CHAPTER 2: The Evolution of Cybersecurity (from Perimeter to Zero Trust)
 '''
 2.1: THE EVOLUTION OF THE THREAT LANDSCAPE
 '''
+'''
+SUBSECTION: Evolution of Infrastructure
+'''
 
 '''
+-- Traditional Cyversecurity approaches were orignally only focused on securing the edge of the network (perimeter) (only for physical 
+   on prem)
+-- This changed over time from the on premises model to a cloud based model
+-- (based on the Verizon 2022 data breach Investigation Report) - The main ways in which your business is exposed to the internet is the
+   same way your business is exposed to the bad guys.
+
+-- The cloud based attack vectors got worse with the rise of hybrid work.
+-- It first got worse with BYOD when unsecured/ unmanaged devices where permitted network use.
+
+-- This lead to the simple idea of "A hard outside and a soft inside is no longer viable"
+
+-- Perimeter security is also called castle and moat.
+
+-- This lead to the rise of "Defense in Depth" and "Zero Trust Security" 
+
 
 '''
 
