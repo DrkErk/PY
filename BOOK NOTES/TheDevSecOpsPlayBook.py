@@ -331,6 +331,14 @@ SUBSECTION: Evolution of Infrastructure
 -- Perimeter security is also called castle and moat.
 
 -- This lead to the rise of "Defense in Depth" and "Zero Trust Security" 
+'''
+
+'''
+SUBSECTION: Evolution of Application Delivery
+'''
+
+'''
+--
 
 
 '''
