@@ -344,6 +344,20 @@ SUBSECTION: Evolution of Application Delivery
 -- This allows for SaaS to rise in use where its all held by the company for customer use
 '''
 
+'''
+SUBSECTION: The Evolution of the Threat Landscape
+'''
+
+'''
+-- With time, the attack vector of systems/software has increased tremendously while simultaneously the value of breaches have increased
+-- Viruses also went from mainly being harmless jokes to increasing in damage/threat over time.
+
+-- 1988 was the first DOS attack where Robert Tappan of cornell accidentally created the `morris worm`
+ - he was later convicted of a felony under the computer fraud and abuse act.
+-- THIS LEAD TO: the creation of (CERT) Computer emergency reponse team. (Federally funded reseach center focused on improving the sec
+   of software on the internet)
+
+'''
 
 '''
 2.2: THE EVOLUTION OF CYBERSECURITY RESPONSE
