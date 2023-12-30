@@ -338,9 +338,10 @@ SUBSECTION: Evolution of Application Delivery
 '''
 
 '''
---
-
-
+-- Originally the software that was being sold had to work out of the box because in order to get fixes out, customers would've 
+   had to get another cd, go to a website, or they're out of luck. 
+-- Where as today, you can use waterfall methodology to make and deliver the product as you go. (including update as you go)
+-- This allows for SaaS to rise in use where its all held by the company for customer use
 '''
 
 
