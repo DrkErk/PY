@@ -356,6 +356,7 @@ SUBSECTION: The Evolution of the Threat Landscape
  - he was later convicted of a felony under the computer fraud and abuse act.
 -- THIS LEAD TO: the creation of (CERT) Computer emergency reponse team. (Federally funded reseach center focused on improving the sec
    of software on the internet)
+-- Today: APT/organized crimes are the main driver for exposing existential/ global vulnerabilities
 
 '''
 
