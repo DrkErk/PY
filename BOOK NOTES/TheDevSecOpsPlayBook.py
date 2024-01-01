@@ -358,10 +358,15 @@ SUBSECTION: The Evolution of the Threat Landscape
    of software on the internet)
 -- Today: APT/organized crimes are the main driver for exposing existential/ global vulnerabilities
 
+-- Lateral Movement: Attacks that include complex movement from the breached system to adjacent systems
+-- Supply Chain Attacks: Attacks made at intermediaries to get to the intended targets. (IE: open source products, vendors, products/service)
 '''
 
 '''
 2.2: THE EVOLUTION OF CYBERSECURITY RESPONSE
+'''
+'''
+SUBSECTION: Defense In Depth
 '''
 
 '''
