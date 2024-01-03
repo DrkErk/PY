@@ -370,6 +370,28 @@ SUBSECTION: Defense In Depth
 '''
 
 '''
+-- Defense in Depth: InfoSec strategy integrating people/tech/ops capabilities to establish variable barriers across multiple layers
+   and dimensions of the org
+ - It also recognizes that because the perimeter is deterioratiing and/or non existant, it is necessary to have a defense at every layer.
+ - If a perimeter exists at all, you must assume the attacker has already breached it and ensure that other attack vectors are protected
+   as well
+ - In addition, Defense in depth recognises that sec is not limited to the perimeter but rather extends beyond tech to the people involved
+
+-- A layered approach would work like so:
+    Data          in the center
+    Host          |
+    Application   |
+    Network       |
+    Perimeter     At the edge
+
+-- At each layer, different security measures are then used to protect that layer
+   Like the following:
+
+   - Perimeter Security: (phys/tech boundaries)(deadbolt locks, email sec, Intrusion Detection Systems, etc)
+   - Network Security: (sec related to networks that an org uses to transmit info) (firewalls/DMZ/VPNS, etc)
+   - Application Security: (sec of technical apps/services) (vuln scanners/ software compostion analysis(sca)/ static appsec 
+     testing(SAST)/ dynamic appsec testing (DAST), ETC)
+   - Data Security: (protection of companies digital info) (identity and access management(IAM)/ data classification/ encryption)
 
 '''
 
