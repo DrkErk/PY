@@ -393,7 +393,38 @@ SUBSECTION: Defense In Depth
      testing(SAST)/ dynamic appsec testing (DAST), ETC)
    - Data Security: (protection of companies digital info) (identity and access management(IAM)/ data classification/ encryption)
 
+-- DiD includes operational/governance activities by both people and tech
+
+-- Telemetery: measurement of data collected by the tools/ instrumentation designed to measure a systems performance.
+ - THe USE OF TELEMETERY: Ops teams can provide 24/7/365 support and response when critical issues arise
+
+-- As per a (SLA) Sevice level agreement, a governance team may be responsible for tracking all vulnerabilities reported from various
+   sources and ensuring that they are remediated
+
 '''
+
+'''
+SUBSECTION: Defense In Depth
+'''
+
+'''
+-- `Never Trust, always verify`
+-- Zero Trust:
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
