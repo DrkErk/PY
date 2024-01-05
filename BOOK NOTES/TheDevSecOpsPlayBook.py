@@ -425,11 +425,20 @@ SUBSECTION: Defense In Depth
     -Data: The companies data assets at rest and transit whether its devices/ storage devices/ databases
         -(Zero trust techniques include: tagging and catagorization for tracking purposes/ encryption/ strict access based controls)
 
---        
+-- Products that are sold as Zero trust solutions are usually misleading and that they use the names zero trust/ DiD but dont work as 
+   the concepts suggest. The concepts should be applied hollistically and cannot be solved by any one product/ service
 
 '''
 
+'''
+SUBSECTION: Shift Left
+'''
 
+''' 
+--
+
+
+'''
 
 
 
