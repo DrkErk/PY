@@ -409,7 +409,23 @@ SUBSECTION: Defense In Depth
 
 '''
 -- `Never Trust, always verify`
--- Zero Trust:
+-- Zero Trust: a security concept centered on the belief that orgs shouldnt automatically trust anything inside or outside of its
+   perimeters. Instead needs to verify anything/everything trying to connect to any system before granting access
+
+-- This is broken into 5 pillars:
+    -Identity: Attributes that allow systems to uniquely recognize an entity that is trying to take action. 
+        -(Approaches: Least Privilege/ movement to 2fa/ need to continuously validate and not just when granted)
+    -Device: Any hardware asset that can connect to a network
+        -(Zero Trust maturity model asks for validating the identity of the users and ensuring the security of each device they access)
+    -Network/Environment: medium in which digital communications flow (whether wireless/lan/ or internet)
+        -(secure net design: Segmentation: (Dividing the network down into smaller segments, based on workload)/ Micro-Segmentation: 
+          same as before but even smaller/ encryption/ machine learning based threat protection)
+    -Application Workload: Application and services managed by the company corresponding to the application layer in the DiD approach
+        -(recommended activities for protection: continuous auth/ behavioral analysis/ integrated Sec testing for pipleline deployment)
+    -Data: The companies data assets at rest and transit whether its devices/ storage devices/ databases
+        -(Zero trust techniques include: tagging and catagorization for tracking purposes/ encryption/ strict access based controls)
+
+--        
 
 '''
 
