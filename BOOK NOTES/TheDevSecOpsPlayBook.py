@@ -435,12 +435,35 @@ SUBSECTION: Shift Left
 '''
 
 ''' 
+-- Shift left: is the concept of doing tasks earlierin the development process than they are traditionally done
+-- By testing earlier in the development process, time and effort to address the issues can be significantly reduced (even to security)
+
+-- Shift left testomg approach takes advantage of the fact that, by doing testing earlier in the development process, the cost of 
+   identifying and remediating defects is significantly reduced.
+
+-- Larry Smith introduced the term in sept 2001 in his article of shift left testing. He wrote that `shift left testing is how i refer
+   to a better way of integrating the QA and development parts of a software project. By linking these 2 functions at lower levels of
+   management, you can expand your testing program while reducing manpower and equipment needs-sometimes by as much as an order of 
+   magnitude`
+
+-- By shifting testing earlier in the process, you reduce the time to identify/remediate issues, thus increasing flow of value key to
+   Kims first way of devops
+-- Shifting testing left helps amplify/shorten feedback loops.
+
+-- By doing security testing closer to when the code is actually being produced/ shorten the amount of time between dev and feedback on
+   that work
+
+'''
+
+'''
+SUBSECTION: Benefits of Shift Left
+'''
+
+''' 
 --
 
 
 '''
-
-
 
 
 
