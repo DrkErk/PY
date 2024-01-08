@@ -465,7 +465,21 @@ SUBSECTION: Benefits of Shift Left
 -- Those more familiar with the code will be the ones who can correct it the easiest (But, if they have a long time to be noticed of the
    defects, they can lose the context of their work. It can take significantly more effort to correct.)
 
---
+-- The cost to remediate the issues requires developers who are unfamiliar with the code to go in and determine the cause of the 
+   vulnerabilities.
+-- This may require significant effort to reverse engineer the systems. ON TOP OF the fact that the age/lack of knowledge about the 
+   systems may introduce significant risk to the stability of the system.
+-- Therefore, it is better to be able to address/remediate the risks at the time of the development. (it would be less costly/risky)
+
+-- A study by Walter Baziuk in 1995 showed that the cost of repairing a defect in production could be 880 times as expensive as the cost
+   of fixing the defect in the requirements phase.
+-- A study in 2002 from NIST stated that the cost to fix defects after the product was released was 30x that of the defects found at the
+   requirements phase
+
+-- If you take smiths work and apply it to DEVSECOPS process, you produce secure code while reducing the time to do so.
+-- testing earlier has significant implications for reducing the cost of developing and delivering secure products
+
+-- Challenges arise with the delay of defect removal in addition tothe time to cost and remediate.
 
 '''
 
