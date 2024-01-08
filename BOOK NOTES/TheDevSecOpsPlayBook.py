@@ -460,8 +460,12 @@ SUBSECTION: Benefits of Shift Left
 '''
 
 ''' 
---
+-- It increases speed of feedback to developers and thereby reducing effort required to address those issues
+-- This is because the nearer developers are to the code writing with potential vulnerabilities.
+-- Those more familiar with the code will be the ones who can correct it the easiest (But, if they have a long time to be noticed of the
+   defects, they can lose the context of their work. It can take significantly more effort to correct.)
 
+--
 
 '''
 
