@@ -479,10 +479,30 @@ SUBSECTION: Benefits of Shift Left
 -- If you take smiths work and apply it to DEVSECOPS process, you produce secure code while reducing the time to do so.
 -- testing earlier has significant implications for reducing the cost of developing and delivering secure products
 
--- Challenges arise with the delay of defect removal in addition tothe time to cost and remediate.
+-- Challenges arise with the delay of defect removal in addition to the time to cost and remediate.
+ - This means that people will be needed for testing more frequently and remediation may be significantly reduced once products have 
+   been completed for extended periods of time
+ - Defects found later in the development cycle may also require significant re-architecture/ rework. IN ADDITION, when you look at
+   security defects, the longer they are in the product, the longer your company is at risk
+
+-- Ci/Cd means that there is always something that needs to be tested.
+
+-- (Use SCA/ SAST/ DAST tools to inject security into the ci/cd pipeline)
 
 '''
 
+'''
+SUBSECTION: Smearing left
+'''
+
+''' 
+--
+
+
+
+
+
+'''
 
 
 
