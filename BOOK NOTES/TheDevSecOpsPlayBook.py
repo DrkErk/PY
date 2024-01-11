@@ -496,12 +496,14 @@ SUBSECTION: Smearing left
 '''
 
 ''' 
---
+-- Shifting Left is not just taking the same task and doing it earlier, BUT doing it as early as possible
 
+-- Dave Stanke a google engineer coined the phrase `Smearing left`
+ - He said this: `Shift left doesnt mean shifting the position of a task within a process flow. It also doesnt imply that no testing is
+   done just before a release. It shoukd be seen as spreading the task and its concerns to all stages of the process flow. It about
+   continuous involvement and feedback`
 
-
-
-
+-- Which re-affirms, not all security testing must wait until the product is built
 '''
 
 
