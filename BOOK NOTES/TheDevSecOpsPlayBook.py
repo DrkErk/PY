@@ -506,9 +506,39 @@ SUBSECTION: Smearing left
 -- Which re-affirms, not all security testing must wait until the product is built
 '''
 
+'''
+SUBSECTION: Shift Right
+'''
+
+''' 
+-- Shift right focuses on increasing testing further to the right in the development life cycle and testing in production
+
+-- Siaf Gunja of Dynatracec writes: `Shift Right methods ensure that applications running in production can withstand real user load
+   while ensuring that applications running in production can withstand real user load and ensuring the same high levels of quality`
+ - (To truly test a system and build resiliency. Since it is importent to test in production)
+
+-- Practices like Chaos Testing, (injecting failure conditions into production to ensure that they are resilient to such failures) is
+   something you can use. 
+ - You can also use:
+    -A/B Testing: tests 2 versions of a piece of software at once to see what performs better
+    -Canary Testing: release an updated version of the software to a small portion of the user population and see how it performs before
+     its release to all users
+
+-- Shift right helps to get additional insight in performance of a system under real world conditions
+-- It also allows for a person to exercise instrumentation to ensure that anomalies or anything potentially adverse to the customers
+   are identified
+'''
+
+'''
+SUBSECTION: Shift left For DevSecOps
+'''
+
+''' 
+--
 
 
 
+'''
 
 
 
