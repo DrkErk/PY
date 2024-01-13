@@ -565,8 +565,10 @@ CHAPTER 3: DevSecOps People
 '''
 
 '''
---
+-- (As an over arching idea: People are difficult to change)
 
+-- (In many cases, the safest thing to do is nothing at all. SO it isnt surprising that security community is change resistance)
+ - this explains why there is a large majority which are late/ laggards to new tech
 
 '''
 
@@ -574,6 +576,12 @@ CHAPTER 3: DevSecOps People
 '''
 3.2: COLLABORATION AT THE CORE
 '''
+'''
+--
+
+
+'''
+
 '''
 3.3: DevSecOps CULTURE
 '''
