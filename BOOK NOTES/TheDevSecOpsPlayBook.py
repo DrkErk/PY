@@ -569,7 +569,6 @@ CHAPTER 3: DevSecOps People
 
 -- (In many cases, the safest thing to do is nothing at all. SO it isnt surprising that security community is change resistance)
  - this explains why there is a large majority which are late/ laggards to new tech
-
 '''
 
 
@@ -577,9 +576,14 @@ CHAPTER 3: DevSecOps People
 3.2: COLLABORATION AT THE CORE
 '''
 '''
---
+-- Since you will have you hands in all of the parts of building a product, COLLABORATION is the key underpinning principle.
 
+-- From Security Company Synk wrote: `DevSecOps culture focuses on uniting the normally siloed roles of dev/sec/ops into
+   a collaborative shared responsibility paradigm. It seeks to break down barriers of finger pointing/ deflection. Intstead it aimes
+   to build empathy/ common goals among various disciplines within the org.`
 
+-- `How do you deliver securely without slowing down delivery? - its collaboration.`
+   
 '''
 
 '''
