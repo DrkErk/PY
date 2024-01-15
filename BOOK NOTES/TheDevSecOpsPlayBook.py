@@ -590,6 +590,31 @@ CHAPTER 3: DevSecOps People
 3.3: DevSecOps CULTURE
 '''
 '''
+SUBSECTION: Trust
+'''
+'''
+-- Trust is the ultimate goal if you are going to work within an organization
+-- DevSecOps requires tighter collaboration between teams and this in turn requires trust
+
+-- Geneology of benefits are so: Build team trust, because better trust leads to better collaboration, and better collaboration leads to
+   better business outcomes
+-- But do not assume good intent from you teammates.
+
+-- Sid Dekker, a professor of human factors and flight safety and director of research at the school of aviation, Lund University, Sweden,
+   wrote about human error extensively in his book: The Field Guide to Understanding Human error.
+ - He wrote that the tendency to look for individual blame erodes trust. Which is so essential to building a strong team
+ - He wrote `Getting Rid of Bad Apples tends to send a signal to other people to e more careful with what they do/say/report/disclose.
+             It does not make human errors go away, but instead seems to make the evidence for them go away; Evidence that might have
+             otherwise  have been available to you and your organization so that you could learn and improve`
+
+Some Steps that can be done to increase trust on the team:
+    -
+
+'''
+
+
+
+'''
 3.4: THE SHARED RESPONSIBILITY MODEL
 '''
 '''
