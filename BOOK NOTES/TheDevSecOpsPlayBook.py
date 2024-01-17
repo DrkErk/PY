@@ -608,10 +608,24 @@ SUBSECTION: Trust
              otherwise  have been available to you and your organization so that you could learn and improve`
 
 Some Steps that can be done to increase trust on the team:
-    -
+    - Create opportunities to meet face to face
+    - Be Open and Honest about failure (lack of trust is blame game. High Trust is open comms where stuff went wrong)
+    - Be truthful (Also follow through on promises made)
+    - Be empathetic (personally understand each individual)
+
+-- Many Studies have found a correlation between intra-team trust and performance.
+ - This came from an analysis of 55 different studies on the relationships found that 
+   `Team trust was positively correlated with team performance and higher levels of trust in business teams. They are generally associated
+    with higher levels of team performance`
 
 '''
+'''
+SUBSECTION: Transparency
+'''
+''' 
+--
 
+'''
 
 
 '''
