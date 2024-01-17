@@ -623,14 +623,27 @@ Some Steps that can be done to increase trust on the team:
 SUBSECTION: Transparency
 '''
 ''' 
---
+-- It is important to share data as much as possible without risking of your systems. This applies to transparency of your business plans
+   as well as transparency in your data.
+
+-- you obviously cant be transparent about implementation details of your cyber defenses. (can be used to breach you)
+-- BUT, transparency is seeing positive results even with cyber security
+
+-- A survey by Deloitte of people who received a breach notification found that 34% said that they trusted organization more.
+ - In addition, 73% of this cohort who recieved a privacy breach notification did not trust the org any less following the notification
 
 '''
-
 
 '''
 3.4: THE SHARED RESPONSIBILITY MODEL
 '''
+'''
+--
+
+
+
+'''
+
 '''
 3.5: PSYCHOLOGICAL SAFETY
 '''
