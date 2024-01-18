@@ -638,11 +638,25 @@ SUBSECTION: Transparency
 3.4: THE SHARED RESPONSIBILITY MODEL
 '''
 '''
+-- Since the focus of DecSecOps is on collaboration, there must be a model used of shared responsibilities where everyone is responsible
+   for security.
+ - EVERYONE, not just the security team
+ - The flipside would be that you can't just say `its everyones responsibility now`. That diffusion of responsibilites can lead to a 
+   situation where no one takes ownership/ accountability. 
+
+-- This blurring can make it difficult for people to define what is their specific tasks.
+
+'''
+'''
+SUBSECTION: Ownership
+'''
+''' 
 --
 
 
-
 '''
+
+
 
 '''
 3.5: PSYCHOLOGICAL SAFETY
