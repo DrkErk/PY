@@ -651,11 +651,35 @@ SUBSECTION: Transparency
 SUBSECTION: Ownership
 '''
 ''' 
+-- Ownership tends to be a more complex idea than what is given credit. It requires a lot of care/management/completion of a given task
+
+-- One way to address ambiguities is to use a RACI Matrices, that is, RACI matrices detail every task in a given process and define who
+   is RESPONSIBLE/ACCOUNTABLE/CONSULTED/INFORMED for each one.
+ - this is only to delineate just what ownership means and details all the activities involved in a given process.
+ - and it holds accountability
+
+-- the application team must ultimately be accountable for the security and performance of the system.
+
+-- In a 2022 article in Computer weekly, Mandy Andress wrote, `DevSecOps is a mindset and way of working within the application securty
+   field in which security is a part of everyones job, not just one team... Orgs should consider delegating responsibility for DevSecOps 
+   to engineering teams`
+
+-- In many DevSecOps implementations, the security team may still be accountable for providing the framework/tools/governance for the 
+   rest of the org, but dev teams themselves who are accountable for ensuring the sec of the systems they are building
+
+-- by sharing the responsibility for sec, you ensure that you build sec into everything you do, and get sec closer to the source of the
+   problem, which leads to more secure products/services
+
+'''
+'''
+SUBSECTION: Accountability
+'''
+''' 
 --
 
 
-'''
 
+'''
 
 
 '''
