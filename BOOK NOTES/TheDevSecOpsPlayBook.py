@@ -671,6 +671,7 @@ SUBSECTION: Ownership
    problem, which leads to more secure products/services
 
 '''
+
 '''
 SUBSECTION: Accountability
 '''
@@ -688,6 +689,22 @@ SUBSECTION: Accountability
  - That said, the very fact that people are hesitant to share information openly about their failures may be indicative of culture of 
    fear
 
+-- note: some companies still see security as a cost that needs to get paid without real understanding of criticality 
+
+-- Data breaches will effect everyone:
+ - 2013 data breach of target lead to its ceo losing his job
+ - 2014 breach of sony led to the resignation of the board co-chairman amy pascal
+
+-- A shared responsibility model can be also fostered by building shared goals for the org
+ - goals should include sec att the highest levels of the org and these goals should cascade down throughout the org
+
+'''
+
+'''
+SUBSECTION: The role of the security team
+'''
+''' 
+--
 
 
 '''
