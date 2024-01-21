@@ -675,7 +675,18 @@ SUBSECTION: Ownership
 SUBSECTION: Accountability
 '''
 ''' 
---
+-- You must have trust WITH accountability. Especially with a trust based culture, expectations for accountability should be even higher
+-- The lack of micromanagement and oversight should be based on the assumption that everyone is responsible for delivering on their 
+   promises.
+
+-- If a problem occurs, its very important to be open and honest with the role that person had with the failure
+-- THIS MEANS YOU CAN'T HAVE A BLAME ENVIRONMENT!!!
+ - This will allow for more honesty around the failures
+ - IT WILL ALSO LEAD TO FAILURES BECOMING LEARNING LESSONS
+
+-- Employee engagement surveys and management 360s are useful in understanding the cultural environment
+ - That said, the very fact that people are hesitant to share information openly about their failures may be indicative of culture of 
+   fear
 
 
 
