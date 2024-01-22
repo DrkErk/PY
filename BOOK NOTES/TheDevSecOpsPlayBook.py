@@ -704,15 +704,26 @@ SUBSECTION: Accountability
 SUBSECTION: The role of the security team
 '''
 ''' 
+-- With DevSecOps, the sec team is no longer a policing org responsible for ensuring that everyone is following the rules and punishing 
+   rule breakers. Instead the role of the sec team must shift to gov and guidance
+
+-- The modern sec team shoudl focus on developing the standards and governance around sec and designing systems to automatically 
+   monitor/measure/enforce the rules
+
+-- Sec teams are now partners to development/ ops/ SRE teams, helping them to drive the best practices and deliver secure products 
+
+'''
+
+'''
+3.5: PSYCHOLOGICAL SAFETY
+'''
+'''
 --
 
 
 '''
 
 
-'''
-3.5: PSYCHOLOGICAL SAFETY
-'''
 '''
 3.6: ORGANIZING FOR DevSecOps
 '''
