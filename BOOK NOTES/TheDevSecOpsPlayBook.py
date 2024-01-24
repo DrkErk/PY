@@ -718,7 +718,11 @@ SUBSECTION: The role of the security team
 3.5: PSYCHOLOGICAL SAFETY
 '''
 '''
---
+-- People must have psychological safety
+
+-- The concept first emerged in 1965 in the book Personal and Organizational Change Through Group Methods: The Laboratory Approach
+   by Edgar Schein and Warren Bennis. They talk about `an atmosphere where one can take chances ( which experimentalism implies) without
+   fear and with sufficent protection`
 
 
 '''
