@@ -724,8 +724,33 @@ SUBSECTION: The role of the security team
    by Edgar Schein and Warren Bennis. They talk about `an atmosphere where one can take chances ( which experimentalism implies) without
    fear and with sufficent protection`
 
+-- Harvard Business school professor Dr Amy C Edmonson went further with the concept, describing it as `a belief that one will not be
+   punished or humilated for speaking up with ideas/ questions/ concerns/ mistakes'
+
+-- Psychological safety is the fourth ideal identified in Gene Kims Book The unicorn project. Kim says `No on will take risks, experiment
+   or innovate in a culture of fear, where people are afraid to tell the boss bad news`
+ - When people are focused overly on mistake prevention rather than value creation, they often do the minimal work needed. Reducing 
+   output for the company
+
+-- From a TedX talk called `Building a Psychologically safe workspace` by Amy Edmonson, she suggested 3 things for fostering good 
+   culture for psychological safety:
+   1. Frame the work as a learning problem, not an execution problem
+   2. Acknowledge your own fallibility
+   3. Model Curiosity
+
+-- MAKE THEM FEEL EMPOWERED AND LIKE THEY CAN LEARN
+   
+'''
 
 '''
+SUBSECTION: Empowerment
+'''
+''' 
+--
+
+
+'''
+
 
 
 '''
