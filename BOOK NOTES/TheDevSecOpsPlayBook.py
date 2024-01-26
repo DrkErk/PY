@@ -746,8 +746,11 @@ SUBSECTION: The role of the security team
 SUBSECTION: Empowerment
 '''
 ''' 
---
+-- Engineers are by and large highly educated and highly compensated professions. it is safe to assume that these people ARE doing their
+   best work. If you start by trusting that people are trying their best, it helps you to empower them.
+ - Manage people around this idea.
 
+--
 
 '''
 
