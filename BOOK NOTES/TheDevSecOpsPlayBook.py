@@ -750,10 +750,32 @@ SUBSECTION: Empowerment
    best work. If you start by trusting that people are trying their best, it helps you to empower them.
  - Manage people around this idea.
 
---
+-- Instead of managing engineers such as assembly line workers, it is important to approach them like doctors/lawyers.
+-- Understanding the immense knowledge they have and empowering them to act independently based on that knowledge
+
+-- When leaders micromanage employees or are quick to blame them for error, those employees tend to do less work than they might 
+   otherwise. Examining every piece of work and being quick to criticize creates a culture of fear where people do not strive to do 
+   their best but, instead, try only not to make mistakes.
+
+-- In response to employers forcing employees to return to work: forcing them to come back tells them `We do not trust you to do your
+   jobs unless we are watching you to do your work.`
+ - This begs the question why companies hire people for large sums of money if they can't trust them to do their jos independantly?
+ - Either they have hired the wrong people, or they have not built culture that inspires people to do their best.
+
+-- The end goal about highly skilled workforces is delivery
+
+-- Setting values for human contact/ creating events that require in office bonding needs to be a part of how employees work
+ - WHILE letting employees know they are trusted and choose when and where to work goes a long way to empower
 
 '''
 
+'''
+SUBSECTION: Learning Culture
+'''
+''' 
+--
+
+'''
 
 
 '''
