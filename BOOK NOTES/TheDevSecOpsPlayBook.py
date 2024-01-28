@@ -776,12 +776,27 @@ SUBSECTION: Learning Culture
 -- Learning culture is open to continually learning
 
 -- You can build a learning culture in daily life using these activities
-   -
-   -
-   -
-   -
-   -
-   -
+   - Incident Post Mortems: review an incident after it has been resolved
+   - Tabletop Exercises: Walk through theoretical cybersec incidents and discuss parties actions in response
+   - Game days: simulate cyber sec event such as an attack or breach to practice the teams response and learn and improve
+   - Phising Campaigns: they are tools for sending phising emails to a company's employees to test the ability to identify and respond
+   - Training: Use trainings to continuously increase sec knowledge throught the org. The training required should be based on the role 
+   - Cross Training: Training that are outside of their own area
+
+-- Part of learning culture is embracing failure as a learning opportunity
+-- In The Unicorn Project, Gene kims says: `The corrosive effects that a culture of fear creates, where mistakes are routinely punished
+   and scapegoats are fired. Punishing failures and shooting the messenger only cause people to hide their mistakes, and eventually, all
+   desire to innovate is completely extinguished`
+
+-- The most successful engineers are the ones that make the most mistakes. (This is because they are working on the hardest tasks,
+   driving innovation, and taking risks)
+
+-- It is important to look at the system as a whole and search for opportunites to improve in all areas when looking for errors/mistakes.
+
+-- It important to not seek out individuals responsible and to punish but rather understand all of the elements that contributed to the
+   failure
+
+-- When a mistake happens, The org must learn.
 
 '''
 
