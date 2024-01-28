@@ -767,13 +767,21 @@ SUBSECTION: Empowerment
 -- Setting values for human contact/ creating events that require in office bonding needs to be a part of how employees work
  - WHILE letting employees know they are trusted and choose when and where to work goes a long way to empower
 
-'''
+'''   
 
 '''
 SUBSECTION: Learning Culture
 '''
 ''' 
---
+-- Learning culture is open to continually learning
+
+-- You can build a learning culture in daily life using these activities
+   -
+   -
+   -
+   -
+   -
+   -
 
 '''
 
