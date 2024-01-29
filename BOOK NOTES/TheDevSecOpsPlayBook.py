@@ -800,10 +800,40 @@ SUBSECTION: Learning Culture
 
 '''
 
+'''
+SUBSECTION: Security Training programs
+''' 
+''' 
+-- Training should be catered to the people who are responsible for the training
+
+-- The first step in making a good cybersecurity plan is to asses the key threats to the organization as compliance requirements
+
+-- Training Programs can include: new hire training, annual complience training for any in scope complience requirements like (PCI)
+   Payment Card Industry for those companies accepting credit cards or (SOX) Sarbanes-Oxley for companies in the public domain, and 
+   ongoing knowledge tests such as phishing tests.
+
+--Specific groups of users may require specialized or additional training, such as executives who may be at a heightend risk because
+  of their elevated position within the company
+
+-- Based on the 2022 Verizon Data Breach Investigation Report, phising is the 2nd highest risk entry path to exploiting a companies
+   environment
+-- By Running phising tests and tests of all kinds, you can ensure that there is a constant awareness of the security threats present in
+   email
+
+-- Its important to develop training that is interactive and engaging. To that end, make sure that the training is relevant to the 
+   audience you are targeting
+
+'''
 
 '''
 3.6: ORGANIZING FOR DevSecOps
 '''
+'''
+--
+
+
+'''
+
 '''
 3.7: BUILDING A DevSecOps CULTURE
 '''
