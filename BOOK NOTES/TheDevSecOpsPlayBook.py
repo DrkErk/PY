@@ -829,8 +829,28 @@ SUBSECTION: Security Training programs
 3.6: ORGANIZING FOR DevSecOps
 '''
 '''
---
+-- There is no right/ best way to organize DevSecOps
+-- If collaboration is built into your culture, many different organizational structures can help build om that collaboration.
+ - The reverse is true also, if a culture of collaboration is not there, organizational structure alone will not fix that.
 
+-- `DevOps Topologies` by Matthew Skelton and Manuel Pais discussed many of the diff org patterns and anti-patterns for devOps in which
+   they state, `the DevOps topologies reflect 2 key ideas: 
+   (1) There is no 1 size fits all approach to structuring teams for DevOps success. The suitability and effectiveness of any given 
+       topology depends on the organizations context. 
+   (2) There are several topologies known to be deterimental (antipatterns) to devOps success, as they overlok or go against core tenets
+       of devops`
+
+-- Skelton and Pais go on to say that `Orgs must design teams intentionally by asking these questions:
+   -Given our skills/ constraints/ culture/ engineering maturity/ desired software architecture/ and business goals/ which team topology
+   will help us deliver results faster and safer?
+   -How can we reduce/ avoid handovers between teams in the main flow of change?
+   -Where should the boundaries be in the software system in order to preserve system viability and encourage rapid flow?
+   -How can our teams align that?`
+
+-- The anti-patterns or organizational patterns that deter collaboration may be more impactful
+
+-- The devOps handbook, Gene, Humble, Debois, and Willis write `When infosec is organized as a silo outside of development and operations,
+   many problems arise`
 
 '''
 
