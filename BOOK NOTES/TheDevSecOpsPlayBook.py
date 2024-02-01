@@ -874,8 +874,31 @@ SUBSECTION: Security Training programs
 3.7: BUILDING A DevSecOps CULTURE
 '''
 '''
---
+SUBSECTION: Security Champions
+''' 
+'''
+-- Security Champions program empowers SREs/ Dev/ and quality engineers to become champions of their teams. This person can help bridge
+   the gap by evangelizing/ managing/ enforcing the security posture while acting as an exteneded member of the sec team.
 
+-- Sec Champions should be Voluntary and be people who desire to learn more cybersec
+ - They become a point of contact for sec-related questions/ concerns w/in their respective application team.
+ - They provide an opportunity for people who are interested in sec to learn valuable new skills.
+ - In addition, sec champs build valuable cross-team and cross-org relationships which inc their value to the company while building 
+   DevSecOps culture.
+
+-- Sec Champs can form a group that spans the comany to enable continues learning and best practices sharing. Reg Sec Champ meetings
+   help build collab and continual learning throughout the company.
+ - Sec Champs programs also func as a way to drive standards and best practices across the org.
+
+-- Sec Champs help embed sec into every team. This in turn emphasizes the idea that sec is everyones responsibility and not just domain
+   of separate sec team.
+
+'''
+'''
+SUBSECTION: Internal Bug Bounties
+''' 
+''' 
+--
 
 
 '''
