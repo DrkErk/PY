@@ -852,11 +852,34 @@ SUBSECTION: Security Training programs
 -- The devOps handbook, Gene, Humble, Debois, and Willis write `When infosec is organized as a silo outside of development and operations,
    many problems arise`
 
+-- The reality is that any tech team small enough to be fully self-contained is, by its nature, doing DecSecOps insomuch as they are working
+   together to do all the parts of the product development/ sec/ ops.
+ - It is only at scale tha tyou really start to see specialization working in. Which in turn, needs to be broken down.
+
+-- The concept of site reliability engineering originated at google in 2003 with the idea that teams needed a role to focus efforts on
+   the reliability of the system.
+
+-- Google, there is a core site reliability engineering team, which provides guidance/ gov/ frameworks/ standards/ shared tooling.
+   In addition, there is another part of the team of SREs embedded within other teams.
+
+-- Embedded Site reliability engineers focus on a deep understanding of reliability engineering as it applies to the specific product 
+   or service of the team in which they are working
+
+-- With this model, a core team provides sec standards and direction to other groups looking for help.
+ - In addition, sec engis/ sec champoins are embedded w/in the app teams.
+
 '''
 
 '''
 3.7: BUILDING A DevSecOps CULTURE
 '''
+'''
+--
+
+
+
+'''
+
 '''
 3.8: THE EVOLUTION OF THE EMPLOYEE (T‐SHAPED PEOPLE)
 '''
