@@ -878,7 +878,7 @@ SUBSECTION: Security Champions
 ''' 
 '''
 -- Security Champions program empowers SREs/ Dev/ and quality engineers to become champions of their teams. This person can help bridge
-   the gap by evangelizing/ managing/ enforcing the security posture while acting as an exteneded member of the sec team.
+   the gap by evangelizing/ managing/ enforcing the security posture while acting as an exteneded member of the sec tweam.
 
 -- Sec Champions should be Voluntary and be people who desire to learn more cybersec
  - They become a point of contact for sec-related questions/ concerns w/in their respective application team.
@@ -898,8 +898,12 @@ SUBSECTION: Security Champions
 SUBSECTION: Internal Bug Bounties
 ''' 
 ''' 
---
+-- These programs offer a reward for anyone who can identify sec vulns in existing products.
+ - They help build sec awareness while helping ensure the sec of the products. 
+ - (incentives can come in the form of recognition or even monetary comp)
 
+ -- Not only do sec-related bug bounties help identify potential sec issues w/in the companys product, but they also encourage employees
+    to better understand the avenues an adversay might exploit and therefore become more knowledgable about pitfalls to be avoided.
 
 '''
 
