@@ -911,7 +911,33 @@ SUBSECTION: Internal Bug Bounties
 3.8: THE EVOLUTION OF THE EMPLOYEE (T‐SHAPED PEOPLE)
 '''
 '''
+-- As people must understand not only their individual domains but also the broader technical enviroment in which they are operating.
+ - in addition, they must understand the broader business context within which they are operating.
+
+-- Developers must not only understand the programming language in which they are developing, they must have the breadth of knowledge
+   extending to the infrastructure they are operating on as well as the security requirements for their application
+
+-- Expanding the breadth of developers knowledge to security/infrastructure is aided by abstraction/ automation of these elements.
+ - ie: using AWS means that developers do not know the details of router configuration, but they must, still understand how to implement
+   their services via AWS services
+
+-- You cannot expect every engineer to also be a sec engineer, but you can expect them to be sec conscious.
+ - By doing things like automating deployment of end point sec (and embedding it into AWS image in this case), you provide the automation
+   to easily enable sec best practices and enable T-shaped employees to succeed.
+
+-- However, it does mean that every engineer needs to be aware of broad spectrum of operational/ sec requirements in which their systems
+   are going to operate, they must be able capable of building their systems and ensuring they continue to run in a secure way.
+
+'''
+
+'''
 3.9: HIRING FOR DevSecOps
+'''
+'''
+--
+
+
+
 '''
 
 
