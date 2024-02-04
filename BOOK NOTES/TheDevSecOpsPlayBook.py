@@ -934,14 +934,88 @@ SUBSECTION: Internal Bug Bounties
 3.9: HIRING FOR DevSecOps
 '''
 '''
---
+-- Hiring for DevSecOps engineeers means finding people who are not only good technically, but more importantly, who are good collaborators
+ - A very importent characteristic of a good engineer will be the soft skills
 
+-- Those key characteristics include:
+   -Creative problem solving
+   -Communication
+   -Collaboration
+   -Curiosity
+
+The following questions would be able to illuminate practical teamwork skills:
+   - Tell me a time when your team had a conflict and what you did to resolve it
+   - Tell me about a time when you had a conflict with you supervisor and what you did to resolve it
+   - Tell me about a time a project you were working on was not going in the right direction and what you did to resolve it
+
+-- If a comoany has long delays in the hiring process or is not well organized, you can miss on the best talent.
+
+'''
+'''
+--End of chapter note:
+   -Trust breeds empowerment
+   -Trust encourage transparency
+   -Trust with Transparency enables a learning culture.
+'''
+
+'''
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
+
+'''
+
+'''
+CHAPTER 4: DevSecOps Process
+'''
+'''
+4.1: INTRODUCTION
+'''
+'''
+--
 
 
 '''
 
 
+'''
+4.2: UNDERSTANDING PROCESSES AT SCALE
+'''
 
+'''
+4.3: DevSecOps FOR IT SERVICE MANAGEMENT
+'''
+
+'''
+4.4: SECURITY INCIDENT MANAGEMENT
+'''
+
+'''
+4.5: CHANGE MANAGEMENT
+'''
+
+'''
+4.6: PROBLEM MANAGEMENT
+'''
+
+'''
+4.7: RELEASE MANAGEMENT
+'''
+
+'''
+4.8: A DevOps APPROACH TO SECURITY PROCESSES
+'''
+
+'''
+4.9: CHAOS ENGINEERING
+'''
 
 
 
