@@ -979,14 +979,25 @@ CHAPTER 4: DevSecOps Process
 4.1: INTRODUCTION
 '''
 '''
+-- Fundamentally, DevSecOps proccesses are:
+   - Lightweight
+   - Automated
+   - Trustful
+   - Measured
+   - Driving Ownership and accountability
+   - Transparent
+   - Empowering
+   - Engendering of psychological safety
+   - Focused on developing a learning culture
+
+'''
+'''
+4.2: UNDERSTANDING PROCESSES AT SCALE
+'''
+'''
 --
 
 
-'''
-
-
-'''
-4.2: UNDERSTANDING PROCESSES AT SCALE
 '''
 
 '''
