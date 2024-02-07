@@ -995,13 +995,24 @@ CHAPTER 4: DevSecOps Process
 4.2: UNDERSTANDING PROCESSES AT SCALE
 '''
 '''
---
+-- When an enterprise is moving faster, they need to have the process framework in place to ensure smooth/ consistent execution
 
+-- As companies grow, it becomes imperative that they have the process to track activities and react when problems arise
+
+-- when companies are performing tens/ hundereds of release a day, they need to have a record of releases. So when something breaks, 
+   they can easily find what changed and quickly fix it.
+-- For midsize/ large companies, you need to know what is changing/ what the process is/ who needs to get involved to engage the right
+   people and respond quickly to get services restored during major incidents.
 
 '''
 
 '''
 4.3: DevSecOps FOR IT SERVICE MANAGEMENT
+'''
+'''
+--
+
+
 '''
 
 '''
