@@ -1004,13 +1004,22 @@ CHAPTER 4: DevSecOps Process
 -- For midsize/ large companies, you need to know what is changing/ what the process is/ who needs to get involved to engage the right
    people and respond quickly to get services restored during major incidents.
 
-'''
+''' 
 
 '''
 4.3: DevSecOps FOR IT SERVICE MANAGEMENT
 '''
 '''
---
+--(ITSM) IT Service Management is the processes a company uses to manage its tech products/services.
+ - (ITIL) Info Tech Infrastructure Library is a framework for ITSM. It provides a process framework for the management of tech and
+   alignment with delivery of value to the customer.
+ - ITIL includes processes such as Incident Management/ Problem Management/ Change Management
+ - ITIL is a framework from which you can take/leave portions you like, it provides many useful processes for DevOps.
+
+-- Integrating process frameworks such as ITIL w/ DevSecOps Principles becomes increasingly critical at scale:
+   - Incident management:
+   - Problems management:
+   - Change managment:
 
 
 '''
