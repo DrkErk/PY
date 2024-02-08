@@ -1017,9 +1017,18 @@ CHAPTER 4: DevSecOps Process
  - ITIL is a framework from which you can take/leave portions you like, it provides many useful processes for DevOps.
 
 -- Integrating process frameworks such as ITIL w/ DevSecOps Principles becomes increasingly critical at scale:
-   - Incident management:
-   - Problems management:
-   - Change managment:
+   - Incident management: When you have millions of moving pieces and hundreds of gloablly distributed teams, it is significantly more
+                          important that you have a framework for responding appropriately when something goes wrong.
+                          At a small scale everyone knows who wrote the code. It may even be the same engineer who set up the server
+                          the code runs on. (means diag/ responding requires lower coordination.)
+   - Problems management: Focuses on understanding and remediating the root cause of incidents.
+                          The best practice here is to not just be reacting when incidents occur, but instead be proactive and making
+                          sure that they dont occur in the first place
+   - Change managment: Enables rapid releases/ encourage devops practices/ improve stability
+
+-- One way to do this the above is by taking an adaptive approach to change management. To balance the risk with business agility.
+ - That approach can account for the level of automation/ resilience built into the software/ release process to allow for rapid 
+   releases while automatically tracking all changes in the system.
 
 
 '''
