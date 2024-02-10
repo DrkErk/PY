@@ -1036,6 +1036,13 @@ CHAPTER 4: DevSecOps Process
 '''
 4.4: SECURITY INCIDENT MANAGEMENT
 '''
+'''
+--
+
+
+
+
+'''
 
 '''
 4.5: CHANGE MANAGEMENT
