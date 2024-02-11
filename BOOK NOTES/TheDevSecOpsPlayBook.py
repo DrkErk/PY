@@ -1071,9 +1071,15 @@ CHAPTER 4: DevSecOps Process
 4.5: CHANGE MANAGEMENT
 '''
 '''
+-- Change management is the IT serviec management process of focusing on managing changes to the technical environment to ensure that 
+   the new changes are successfully made while minimizing negative impact. Change management can be particularly important for security
+   as appropriate change management can help enusre that changes adhere to an orgs sec policies
+
+-- The Implemenetation usually goes against the way devops works because change management requires layers of approval for every change
+   and inserting significant slow downs and almost guaranteeing longer release cycles and delays in getting value to the customer
+ - (DevOps fundamentals focuses on short release cycles and rapid delivery of value to customers)
+
 --
-
-
 
 
 '''
