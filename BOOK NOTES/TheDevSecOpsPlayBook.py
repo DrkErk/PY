@@ -1037,15 +1037,45 @@ CHAPTER 4: DevSecOps Process
 4.4: SECURITY INCIDENT MANAGEMENT
 '''
 '''
+-- Service Management process of incident management is focused on the resolution of issues impacting tech services
+ - Tools such as enterprise chat/ notification systems can help ensure that the right people are engaged at the right team.
+
+-- DevSecOps focuses a lot on system telemetry, which is the data you collect about how your systems and services are performing.
+ - If you can instrument your systems properly, you can find issues before they imoact customers and prevent minor incidents from
+   becoming major incidents.
+ - In addition, if systems are properly instrumented, you can begin to apply machine learning/ predictive analysis to anticipate 
+   incidents before they happen
+
+-- DevOps has a its roots in Lean manufacturing.
+ - One of the processes that was borrowed from lean was the andon cord. The cord is used to shut down an assembly line when something
+   goes wrong
+ - You can apply a similar concept to incident management by allowing anyone to declare an incident when there is a system error
+ - With that, you can bring all resources to bear on an issue w/ the concept called swarming
+
+-- Full Stack engineers focus on the system as a whole rather than individual vertical slices, while functional teams focus on isolated
+   functionality, which can be developed w/o dependence on other teams.
+ - This leads to engineers can take full responsibility for resolving issues w/in their domains rather than needing to `throw them over
+   the wall` to another team that might have shared responsibility
+
+-- For modern devops, maintaining the state is no longer important, so incident responders can easily restart the systems on which 
+   applications run. (in some cases, you can kill the whole app/service)
+
+-- For services with short lived/non existent infrastructure, the resolution process changes from investigate and diagnose to rapid 
+   restart/ restore procedures, leading to significant improvments to resolution times.
+ - You still can't ignore the diagnosis, but it's important to capture important info such as application/ system logs so that diagnosis
+   can happen at a later time.
+ - Without further investigation or post incident reviews, you cannot build a learning culture nor can you prevent repeat incidents from
+   occuring
+'''
+'''
+4.5: CHANGE MANAGEMENT
+'''
+'''
 --
 
 
 
 
-'''
-
-'''
-4.5: CHANGE MANAGEMENT
 '''
 
 '''
