@@ -1079,7 +1079,27 @@ CHAPTER 4: DevSecOps Process
    and inserting significant slow downs and almost guaranteeing longer release cycles and delays in getting value to the customer
  - (DevOps fundamentals focuses on short release cycles and rapid delivery of value to customers)
 
+-- Tracking changes in technical environment can be highly valuable.
+ - This is especially true for large environments with small batch deployment where many diff changes are occuring at the same time.
+   It is critical to have visibility into what is changing and how those changes might impact one another and the end customer
+
+-- Instead of using change  management as a gate to prevent change, use it as a process to enable change to get to your customers quickly
+   and securely
+
+-- The DevOps approach to change management is that you shift the focus from that nearsighted focus of security/stability to the broader
+   perspective that change management itself enables security/ agility while ensuring stability
+
+-- To do change management at a pace of hundreds a day, you must automate your change management process
+ - ITSM workflow tools like service now expose APIs which define and allow for other apps to interface with them on a programmatic basis
+
+'''
+
+'''
+SUBSECTION: Adaptive change management
+''' 
+''' 
 --
+
 
 
 '''
