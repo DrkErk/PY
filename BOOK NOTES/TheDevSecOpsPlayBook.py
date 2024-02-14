@@ -1115,7 +1115,17 @@ SUBSECTION: Adaptive change management
 SUBSECTION: Change Risk Calculation
 ''' 
 ''' 
+-- Risk calculation can have its probability to reflect the likelihood that a given risk will occur, while impact reflects the impact 
+   on the business if a risk occurs regardless of the propbability.
+
+-- For trust, it is important to allow your team to assess their own risk.
+'''
+'''
+SUBSECTION: Guiding principles for change review and approval
+''' 
+''' 
 --
+
 
 
 '''
