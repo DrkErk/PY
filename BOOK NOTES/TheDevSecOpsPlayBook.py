@@ -1098,8 +1098,24 @@ CHAPTER 4: DevSecOps Process
 SUBSECTION: Adaptive change management
 ''' 
 ''' 
---
+-- The goal of adaptive change management is to implement lightweight/ scalable/ agile processes to improve stability while keeping 
+   a high pace of delivery velocity
+-- This process takes into account risk of a change, which leads to ensuring that appropriate amount of attention is paid to high risk
+   changes without slowing down low risk changes
 
+-- In this approach of change management, every change is assigned a risk based on a risk calculation by the team implementing the change
+-- Approval and oversight levels are then dynamically adjusted based on the risk of given change. In addition, release times can be 
+   adjusted in accordance with risk levels
+
+-- CI/CD and deploying small updates to a small subset of users (A/B testing) lower the risk of a given change. With adaptive change
+   management, low risk changes with w/fully automated CI/CD and A/B deployments are released w/o any approvals. 
+
+'''
+'''
+SUBSECTION: Change Risk Calculation
+''' 
+''' 
+--
 
 
 '''
