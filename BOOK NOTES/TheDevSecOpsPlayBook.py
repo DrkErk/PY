@@ -1124,11 +1124,30 @@ SUBSECTION: Change Risk Calculation
 SUBSECTION: Guiding principles for change review and approval
 ''' 
 ''' 
+-- Low-Risk changes may require review from managers.
+ - High Risk changes may require coordnation w/other teams when there are cross dependencies and sometimes may benefit from a review by
+   a change advisory board (CAB)
+
+-- When aligning approval witg risk, keep in mind the following:
+   - The closer the change reviewer is to the technical details of the code, the better. (they will have a much better idea of the 
+     impact that the code change will have.)
+   - While high trust is critical, an audit should require that there be another set of eyes reviewing changes to prevent people from
+     making illicit or damaging changes when they have malicious intent
+   - The CAB, if one is needed, should act as flight control, coordinating between different teams and business needs. (NOT a bureaucratic
+     body designed to stop changes)
+   - Small incremental changes are safer.
+   - the easier you make it to submit a change, the more likely people are to follow the process
+'''
+
+'''
+SUBSECTION: Standard Changes and change freezes
+''' 
+''' 
 --
 
 
-
 '''
+
 
 '''
 4.6: PROBLEM MANAGEMENT
