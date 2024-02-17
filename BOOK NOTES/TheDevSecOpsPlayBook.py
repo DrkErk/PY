@@ -1143,8 +1143,23 @@ SUBSECTION: Guiding principles for change review and approval
 SUBSECTION: Standard Changes and change freezes
 ''' 
 ''' 
---
+-- There are also standard changes that do not require approval. This is the ideal state for changes in a DevSecOps world.
 
+-- Standard changes are pre-approved changes that are extremely low risk, relatively common and follow a set process.
+ - With that, you can automate deployment with ci/cd, which includes  best practices like continuous testing/ automated rollbacl/ feature
+   flags and the like.
+
+-- For the change to qualify as a standar change, it must be a low risk and have a history of successful performance.
+ - Once approved, these standard changes can be deployed w/o any approval other than code review. (this is ideal for an org that wants
+   to move quickly)
+
+-- note: The evidence indicates that change freezes do not work.
+ - Change freezes are common practice in many businesses where, during critical business periods no changes are allowed.
+ - There are many reasons why this doesnt work:
+   - First of which is that even during high risk times business/ tech must continue to move forward. 
+   - With that, there are almost always exceptions to change freezes. (they are called change slushies.)
+
+--
 
 '''
 
