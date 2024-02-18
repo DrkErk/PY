@@ -1159,6 +1159,16 @@ SUBSECTION: Standard Changes and change freezes
    - First of which is that even during high risk times business/ tech must continue to move forward. 
    - With that, there are almost always exceptions to change freezes. (they are called change slushies.)
 
+-- change freezes often cause a huge influx of changes directly before the freeze. (So, teams will cram in all their critical features
+   directly before a high risk, leading to significant instability during the period of time that the business is trying to protect)
+ - On top of that, there will be a flood of releases DIRECTLY after the change period.
+
+-- Another problem w/ change freeze periods is that they treat low risk changes the same way they treat high-risk changes.
+ - (A way to adaptively approach it is that we could just raise all of the risks of any of the changes)
+
+-- Emphasis: ALL TESTING, from unity level to integration to vulnerability testing. The key is to automate wherever possible and to 
+   build this automation into your dev pipeline
+
 --
 
 '''
