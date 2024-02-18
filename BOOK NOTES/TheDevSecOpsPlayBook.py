@@ -1169,13 +1169,25 @@ SUBSECTION: Standard Changes and change freezes
 -- Emphasis: ALL TESTING, from unity level to integration to vulnerability testing. The key is to automate wherever possible and to 
    build this automation into your dev pipeline
 
---
+-- Balance to maintain: time perspective. Tests need to test full system functionality and also be fast if they are going to be used in
+   in a rapidly deploying pipeline.
+-- The reason you want the tests to be fast is so that the developers wouldnt be tempted to skip testing or do less frequent releases
+ - It is ultimately up to the responsibility of the team developing the code to determine the balance
+
+-- To accomodate rapid change, it is often important to allow verbal approval for emergancy circumstances. It is often also appropriate
+   to delay the filings of any change forms until after the emergancy situation has been remediated.
 
 '''
-
 
 '''
 4.6: PROBLEM MANAGEMENT
+'''
+'''
+--
+
+
+
+
 '''
 
 '''
