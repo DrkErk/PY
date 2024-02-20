@@ -1183,10 +1183,15 @@ SUBSECTION: Standard Changes and change freezes
 4.6: PROBLEM MANAGEMENT
 '''
 '''
---
+-- Problem management looks at and attempts to address, the underlying causes of incidents
 
+-- `The primary objectives of this ITIL process are to prevent incidents from happening, and to minimize the impact of incidents that
+   cannot be prevented.`
 
-
+-- The first step in the problem management process is the identificationof the problem. 
+-- IMPORTANT: problem management should not be reserved only for major incidents.
+ - (often it is only the minor incidents that are the most insidious because it is the risk of the death by 1000 paper cuts.) where as
+   enough small problems build up to a big one that takes down the systems.
 
 '''
 
