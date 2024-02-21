@@ -1192,6 +1192,21 @@ SUBSECTION: Standard Changes and change freezes
 -- IMPORTANT: problem management should not be reserved only for major incidents.
  - (often it is only the minor incidents that are the most insidious because it is the risk of the death by 1000 paper cuts.) where as
    enough small problems build up to a big one that takes down the systems.
+-- This approach may incur additional cost of availablity managers, but the cost outweighs the detreimental impact of ouatages/ performance
+   degradation
+
+-- (PIR) post incident review/ incident postmordem: the first step of problem management/ and an excellent opportunity to insitll 
+   insitutional learning for an org. (during this, the underlying cause may be determined/ or a temp fix applied)
+ - 
+
+'''
+
+'''
+SUBSECTION: The Problem Manager Role
+''' 
+''' 
+-- 
+
 
 '''
 
