@@ -1197,15 +1197,23 @@ SUBSECTION: Standard Changes and change freezes
 
 -- (PIR) post incident review/ incident postmordem: the first step of problem management/ and an excellent opportunity to insitll 
    insitutional learning for an org. (during this, the underlying cause may be determined/ or a temp fix applied)
- - 
-
 '''
 
 '''
 SUBSECTION: The Problem Manager Role
 ''' 
 ''' 
--- 
+-- More commonly, companies use incident managers as dual roles with problem managers.
+ - (issue with that is that this will decrease the effort/ energy that would go to problem resolution)
+ - if incident managers are taking too much time fighting fires, they cannot build a better mode of fighting them.
+
+-- (important to have someone whose job it is to identify and drive the resolution of problems)
+'''
+'''
+SUBSECTION: Blameless postmortems
+''' 
+''' 
+--
 
 
 '''
