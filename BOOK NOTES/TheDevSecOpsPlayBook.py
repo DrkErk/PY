@@ -1213,8 +1213,19 @@ SUBSECTION: The Problem Manager Role
 SUBSECTION: Blameless postmortems
 ''' 
 ''' 
---
+-- Blameless postmortems very good for learning and rather than blame.
+-- Key goal of post mortems: (not to just solve a problem/ find a root cause, but to ensure the org gets a learning experience)
 
+-- If everyone leacing the postmortem has learned something, then the postmortem should be considered a success even if no other action
+   is taken
+
+-- From The Unicorn Project, at the beginning of the post mortems meetings, one of the qa managers states `The spirit and intent of these
+   sessions are to learn from them, chronicling what happend before the memory fades. Prevention requires honesty, and honesty requires
+   the absence of fear.`
+
+-- From Etsys Code as Craft blog post, `blameless postmortems and a just culture, a funny thing happens when engineers make mistakes and
+   feel safe about it. They are not only willing to be held accountable, they are also enthusiastic in helping the rest of the company
+   avoid the same error in the future.`
 
 '''
 
