@@ -1232,10 +1232,26 @@ SUBSECTION: Blameless postmortems
 '''
 4.7: RELEASE MANAGEMENT
 '''
+'''
+-- (A deployment tools such as Jenkins can be used CI/CD in a fully automated manner.)
+ - These tools enables the small incremental releases which is, at the core of DevOps.
+ - These tools allow for rapid deployment of software/ infrastructure that can enable automated testing and sec scanning
+
+-- By adding sec tooling into the deployment pipeline, you can ensure that all releases follow org sec standards.
+'''
 
 '''
 4.8: A DevOps APPROACH TO SECURITY PROCESSES
 '''
+'''
+SUBSECTION: Table top exercises
+''' 
+''' 
+--
+
+
+'''
+
 
 '''
 4.9: CHAOS ENGINEERING
