@@ -1247,11 +1247,24 @@ SUBSECTION: Blameless postmortems
 SUBSECTION: Table top exercises
 ''' 
 ''' 
+-- A tatble tops is simulate a cyber attack and cross functional team responses.
+-- Benefits of table tops:
+   - Increased awareness of threats across teams within a business
+   - Opportunities to eval incident preparedness
+   - Find gaps in IR plan
+   - Clarify the roles/ responsibilites as well as decision making
+   - Identify possible capability gaps
+
+'''
+'''
+SUBSECTION: Attack Simulation: Red Team, Blue Team, Purple Team
+''' 
+'''
 --
 
 
-'''
 
+'''
 
 '''
 4.9: CHAOS ENGINEERING
