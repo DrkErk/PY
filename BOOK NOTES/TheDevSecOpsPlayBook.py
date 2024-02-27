@@ -1260,16 +1260,29 @@ SUBSECTION: Table top exercises
 SUBSECTION: Attack Simulation: Red Team, Blue Team, Purple Team
 ''' 
 '''
---
-
-
+-- Attack simulation: groups either attack or defend an almost live system (the goal is to breach sec)
+ - Usually using hands on systems.
+ - Make the process regular and repeated
+ - (IE: find a regular cadence to repeat these events)
 
 '''
 
 '''
 4.9: CHAOS ENGINEERING
 '''
+'''
+--
 
+
+'''
+
+'''
+SUBSECTION: 
+''' 
+''' 
+--
+
+'''
 
 
 
