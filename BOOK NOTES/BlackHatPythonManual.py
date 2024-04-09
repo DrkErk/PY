@@ -86,13 +86,9 @@ Black Hat python - Totally not a haxor
    (an example of intermediate usage: COMPLEX CONJUGATE, conjugate z = a + bj would be another complex number z* which would change the
     sign of the #j. so z = a - bj (use .conjugate()) ) 
    (get magnitude of complex by using abs(complex#) )
-
 -- (set): set data type: {1,2,3} (MUST BE ints)
-
 -- (frozenset): immutable set 
-
 -- (bool): bool (0's and 1's can be converted to bools)
-
 -- (bytes): immutable sequence of bytes (binary data type) (ex usage: bytes([65,66,67]) is also b'ABC' which is the way to use bytes w/o
     using bytes() )
 -- (Bytearray): mutable sequence of bytes (binary data type)
@@ -107,9 +103,7 @@ Black Hat python - Totally not a haxor
    (string representation: print(diction["StringKeyInDict"]))
    (method call from map: diction["Keypress@f"]() )
    (BECAUSE PY ALLOWS DICTS TO BE ANY TYPE, you can easily embed methods and directly call them to map)
-
 -- (None): similar to null
-
 -- (list): python's array 
    (getting elements from 1 to 2 listObj[1:2] or,
     index the list until 3 would be listObj[:3] or,
@@ -117,12 +111,21 @@ Black Hat python - Totally not a haxor
     for val in listObj:
         print(val)
    )
-
 -- (tuple): ex: (1,2,3)
 
 '''
 
+'''
+########           Operators: (justa reminder)                               ####################################
+- +
+- -
+- *
+- /
+- // (floor division)
+- % (MOD)
+- ** (Power)
 
+'''
 
 
 
