@@ -125,9 +125,37 @@ Black Hat python - Totally not a haxor
 - % (MOD)
 - ** (Power)
 
+-can do most symbols ahead of = to apply equals to get assignnment operators. 
+
+########           Logical Operators: (justa reminder)                         ####################################
+- and
+- or
+- not
+
+########           EX Short Circuit evaluation                               ####################################
+- Short Circuit evaluation means that it will only evaluate the second operand if it necessary to determine the final result
+- with the example:
+
+a = True
+b = false
+result = a or (b / 0)
+
+- the above should throw a divide a zero error but since the a is true, it doesn't evaluate the b/0
+
+########           Ternary conditional expression                               ####################################
+-Allows for compact if else statements in a single line, like:
+A = 10
+B = 5
+
+print ("a is greater than b" if a > b
+        else "b is greater than a")
 '''
 
+'''
+########           Bitwise Operators                                         ####################################
 
+
+'''
 
 
 
