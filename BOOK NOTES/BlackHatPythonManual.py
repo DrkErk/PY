@@ -153,11 +153,20 @@ print ("a is greater than b" if a > b
 
 '''
 ########           Bitwise Operators                                         ####################################
-
-
+- &: (takes 2 ints and performs a bitwise and) (sets corresponding output bit to 1 only if both input bits are 1 otherwise they are set to 0)
+- |: (takes 2 ints and does a bitwise or of the binary representation)(cmps each bit of 2 ints and sets the output bit to 1 if at least one of the input bits is 1
+- ^: (takes 2 ints and does a bitwise exclusive or/ XOR)(cmps each bit of the 2 ints ad then set the corresponding output bit to 1 only if one of the inputs is 1
+- ~: (takes 1 int and does a bitwise NOT)(Flips bits from 0 to 1 and 1 to 0)
+- <<:(takes 2 ints and bitwise lefts them)(shifts bits by specified number of the second int)(effectively multiplies the first int by two raised to the power of the second int.)
+- >>:(takes 2 ints and bitwise rights them)(shifts bits by specified number of the second int)(effectively divide the first int by 2 raised to the power of the second int/int on the right)
 '''
 
 
+'''
+########           Membership/ identity operators                              ####################################
+
+
+'''
 
 
 
