@@ -76,42 +76,79 @@ Black Hat python - Totally not a haxor
 '''
 
 '''
-########           Python Data Types:                               ####################################
--- (str): string data type
--- (int): int type (backend converts converts to integer64 in C) (signed 64 bit intger data type from (2**63 - 1) to (-2**63))
+########           Python Data Types w/ methods and supported operators:            ####################################
+-- (str): string data type 
+   (Supported Operators: Concatenation (+), Repetition (*), Indexing ([]), Slicing ([:]), Membership (in))
+^^^(Supported Methods: .capitalize(), 
+                       .casefold(): Like lower but VERY aggressive. esp for non ascii characters 
+                       .center(width,"fillchar"): returns a centered string with a specified width
+                       .count(): count the amount a substring will appear w/in the string/ value.
+                       .encode(): encoding type of the text or string will that is being outputted it formatted. (Default 
+                                  is utf-8 
+                       .endswith(): returns a bool
+                       .expandtabs(): set tab size of string based on the escape sequence position.
+                       .find(): if found, return the output position, else return -1.
+                       .format(): ex:
+                       _____
+                       
+                       _____
+                       
+   
+-- (int): int type (backend converts converts to integer64 in C) (signed 64 bit intger data type from (2**63 - 1) to      (-2**63)) 
+   (Supported Operators: +, -, *, /, //, **, +=, -=, *=, /=,//=, %=)
+
 -- (float): float type (backend converts to float64 in C due to its max hold being 1.7976931348623157 * 10^308)
-   (an issue to watch for something like this: (x = 0.1 + 0.1 + 0.1) and (y = 0.3) so that (x == y) would actually be false due to the 
-    nature of floating point arithmetic)
+   (an issue to watch for something like this: (x = 0.1 + 0.1 + 0.1) and (y = 0.3) so that (x == y) would actually be false due to the systems handling of floating point arithmetic) 
+   (Supported Operators: SAME AS INT but ADD, +=, -=, *=, /=)
+
 -- (complex): complex data type: (eg: 2 + 3j) (usage: x = complex(3, 4) would be (3 + 4j) or (x = 2 + 5j) would be a direct def)
-   (an example of intermediate usage: COMPLEX CONJUGATE, conjugate z = a + bj would be another complex number z* which would change the
-    sign of the #j. so z = a - bj (use .conjugate()) ) 
+   (an example of intermediate usage: COMPLEX CONJUGATE, conjugate z = a + bj would be another complex number z* which would change the sign of the #j. so z = a - bj (use .conjugate()) ) 
    (get magnitude of complex by using abs(complex#) )
--- (set): set data type: {1,2,3} (MUST BE ints)
+   (Supported Operators: +, -, *, /, **)
+
+-- (set): set data type: {1,2,3} (MUST BE ints) (Mutable unordered collection of unique elements) 
+   (Supported Operators: Membership (in))
+
 -- (frozenset): immutable set 
+   (Supported Operators: Membership (in))
+
 -- (bool): bool (0's and 1's can be converted to bools)
--- (bytes): immutable sequence of bytes (binary data type) (ex usage: bytes([65,66,67]) is also b'ABC' which is the way to use bytes w/o
-    using bytes() )
+   (Supported Operators: Logical operators( and/ or/ not) Comparison( ==, !=, <, >, <=, >=)
+
+-- (bytes): immutable sequence of bytes (binary data type) (ex usage: bytes([65,66,67]) is also b'ABC' which is the way to use bytes w/o using bytes() )
+   (Supported Operators: )
+
 -- (Bytearray): mutable sequence of bytes (binary data type)
    (ex: 
    data = bytearray(b'Hello')
    view = memoryview(data)
    print(view[0]) #which is 72 which is 'H'
    )
+   (Supported Operators: )
+
 -- (memoryview): memory view of an obj (binary data type) (view obj data in raw memory representation. Good for manipulating large amounts
     of data w/o copying the data.)
+   (Supported Operators: )
+
 -- (dict): dictionary (essentially a map w/o a specific data types to be static as input or key and output or value data)
    (string representation: print(diction["StringKeyInDict"]))
    (method call from map: diction["Keypress@f"]() )
    (BECAUSE PY ALLOWS DICTS TO BE ANY TYPE, you can easily embed methods and directly call them to map)
+   (Supported Operators: Indexing([key]), Membership (in))
+
 -- (None): similar to null
--- (list): python's array 
+
+-- (list): python's array (mutable ordered sequence)
    (getting elements from 1 to 2 listObj[1:2] or,
     index the list until 3 would be listObj[:3] or,
     -basic iteration:
     for val in listObj:
         print(val)
    )
--- (tuple): ex: (1,2,3)
+   (Supported Operators: Concatenation (+), Repetition (*), Indexing ([]), Slicing ([:]), Membership (in))
+
+-- (tuple): ex: (1,2,3) (immutable ordered sequence)
+   (Supported Operators: Concatenation (+), Repetition (*), Indexing ([]), Slicing ([:]), Membership (in))
 
 '''
 
@@ -163,8 +200,14 @@ print ("a is greater than b" if a > b
 
 
 '''
-########           Membership/ identity operators                              ####################################
-
+########           Membership and identity operators                              ####################################
+- both return bools based on results
+- Membership operation: test whether or not an value is in a sequence
+- Identity Operations: test whether 2 objects refer to the same memory location. (indicates same obj/type)
+- in: (Membership Operator)
+- not in: (Membership Operator)
+- is: (Identity Operator)
+- not is: (Identity Operator)
 
 '''
 
