@@ -122,10 +122,30 @@ Black Hat python - Totally not a haxor
                           t= "this string"
                           translated = t.translate(table)
                           print(translated)
-                       .partition()
-                        
+                       .partition(): breaks a string into three parts based on separator 
+                        (rets a tuple)
+                       .replace() (find string, replace with) (2 args)
+                       .rfind(): search entire string for substring and return the last position it was found.
+                        (ex usage:
+                         text= "An apple, An orange"
+                         print( text[text.rfind("An"):] # outputs from last pos of "an" to end of str
+                       .rindex() Like rfind, but return the position excluding the search string (so for the example 
+                         aboce, it would only return " orange"
+                       .rjust(): like ljust but going right
+                       .rpartition(): same as partition() but will do the last example in the string.
+                       .rsplit(): splits a string at specified separator, but will start right and return a list of 
+                         all the split vals
+                       .rstrip(): returns a right-trimmed version of the string but also removes trailing chars
+                       .split(): splits a string by a char/ breakpoint and returns a list of the broken string
+                       .splitlines(): splits a string w/o input. (breaks at line breaks/escape sequences)
+                       .startswith(): (rets bool) check if string starts with specific inputs
+                       .swapcase(): swaps cases. upper to lower/ lower to upper
+                       .strip(): removes leading/trailing chars. (ex:"+-" would remove all of those chars from head/end)
+                       .title(): converts string to title standards (first letter of each word is capitalized)
+                       .upper(): convert string to upper
+                       .zfill(): add number of leading zeros to a string
+                       .isidentifier(): will check if a specific type or classor set of data is an identifier
                        _____
-                       
                        _____
                        
    
@@ -181,6 +201,9 @@ Black Hat python - Totally not a haxor
         print(val)
    )
    (Supported Operators: Concatenation (+), Repetition (*), Indexing ([]), Slicing ([:]), Membership (in))
+^^^(Supported Methods: .append()
+
+)
 
 -- (tuple): ex: (1,2,3) (immutable ordered sequence)
    (Supported Operators: Concatenation (+), Repetition (*), Indexing ([]), Slicing ([:]), Membership (in))
