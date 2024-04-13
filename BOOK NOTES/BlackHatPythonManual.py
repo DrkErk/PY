@@ -88,7 +88,42 @@ Black Hat python - Totally not a haxor
                        .endswith(): returns a bool
                        .expandtabs(): set tab size of string based on the escape sequence position.
                        .find(): if found, return the output position, else return -1.
-                       .format(): ex:
+                       .format(): (if you dont want to f char before every string) 
+                        ex usage: x = "This is {}"
+                                  print( x.format("a test.") )
+                       .index(): will get the index of a char w/in a string (first instance only) returns -1 if none found
+                       .isalnum(): is alpha numeric number. (ret bool)
+                       .isalpha(): is it only letters from the alphabet. (ret bool)
+                       .isascii(): checks if ascii. (ret bool)
+                       .isdecimal(): is string a decimal number (ret bool)
+                       .isdigit(): is string all digits (ret bool)
+                       .islower(): is all the characters lowercase (ret bool)
+                       .isnumeric(): is all characters a number (ret bool)
+                       .isprintable(): is the string printable (not fillied with inv spaces/ weird chars that may 
+                        break or malform the output (ret bool)
+                       .isspace(): is the string spaces or not (ret bool)
+                       .istitle(): Does the string follows the rules for a title. (capitals, punc) (ret bool) 
+                       .isupper(): is string upper (ret bool)
+                       .join() takes a list or elements of an iterable and will join together by string itself
+                        (ex usage print( "-".join(x)) where x = ["1","2","3"]
+                       .ljust() justifies string left
+                        (ex usage: t = "thisString"
+                                   print(t.ljust(len(t)+10), "+") # justified by 10 more pos
+                       .lower() ...
+                       .lstrip(): strips left. ( by a specific set of chars or a single char.)
+                       .maketrans(): make a translation table.
+                        (that is: translation table/ translation mapping is a data structure that is used to map chars in
+                        one form to their corresponding character in another form.)
+                        (In the case of python: a translation table is represented as a mapping between unicode ordials
+                        , which are int representations of chars, to their unique replacements.)
+                       .translate() applies the .maketrans()
+                        (THIS IS APPLIED OF THE LAST 2:
+                          table = str.maketrans('', '', 'aeiou')
+                          t= "this string"
+                          translated = t.translate(table)
+                          print(translated)
+                       .partition()
+                        
                        _____
                        
                        _____
