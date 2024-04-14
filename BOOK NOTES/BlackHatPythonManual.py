@@ -190,6 +190,9 @@ Black Hat python - Totally not a haxor
    (method call from map: diction["Keypress@f"]() )
    (BECAUSE PY ALLOWS DICTS TO BE ANY TYPE, you can easily embed methods and directly call them to map)
    (Supported Operators: Indexing([key]), Membership (in))
+^^^(Supported Methods: .
+
+)
 
 -- (None): similar to null
 
@@ -201,8 +204,18 @@ Black Hat python - Totally not a haxor
         print(val)
    )
    (Supported Operators: Concatenation (+), Repetition (*), Indexing ([]), Slicing ([:]), Membership (in))
-^^^(Supported Methods: .append()
-
+^^^(Supported Methods: .append(): add to the end of the list
+	.clear(): clears list
+	.copy(): copy then return the list
+	.count(): count the number of times an item is in a list
+	.extend(): will extend the list using another iterable data type such as dict/tuple/etc. (if you merge data that
+	  you already merged or if the data already exists. py will not throw an error)
+	.index(): returns an indexable position of the value that you index. (error will be thrown if it doesn't exist)
+	.insert(): (element, position).
+	.pop(): empty pop takes out last element from array, otherwise pops specified pos
+	.remove(): remove element from array
+	.reverse(): reverse the list
+	.sort(): sorts list in acending order unless reverse = True
 )
 
 -- (tuple): ex: (1,2,3) (immutable ordered sequence)
