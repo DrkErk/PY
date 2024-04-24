@@ -163,6 +163,26 @@ Black Hat python - Totally not a haxor
 
 -- (set): set data type: {1,2,3} (MUST BE ints) (Mutable unordered collection of unique elements) 
    (Supported Operators: Membership (in))
+^^^(Supported Methods: .update(): will update the set with another set or any other iterable type
+                       .union(): rets a set containing the union of sets
+                       .symmeteric_difference_update): will update the symmetric diffs from one set to another set.
+                        (the sym diff refers to the elements that are unique to each set, excluding the elements that are common btwn them)
+                       .symmetric_difference: ret a set w/ the sym diff of 2 sets
+                       .issubset(): rets whether another set contains this set or not
+                       .isdisjoint(): ret a bool if 2 sets have an intersection or not
+                       .discard(): rms specified element from the set if it is present
+                       .difference_update(): will rm the items in the set that are also included in one or more specified sets
+                       .difference(): rets the set containing the diff betweem one set and the other set given
+                       .copy(): rets a copy of the set
+                       .add(): add an element to a set
+                       .clear(): remove everything from the set
+                       .intersection(): ret a set that is the intersection of curr set being interected w/and one other set
+                       .intersection_update(): this will basically rm the items in the set that are not present in one or more other 
+                        specfied sets
+                       .issuperset(): current set contains another set or not
+                       .pop(): remove then ret an arb element from set
+                       .remove(): rm a specified element from set (if element is not found/ keyerror will be raised)
+)
 
 -- (frozenset): immutable set 
    (Supported Operators: Membership (in))
@@ -190,7 +210,18 @@ Black Hat python - Totally not a haxor
    (method call from map: diction["Keypress@f"]() )
    (BECAUSE PY ALLOWS DICTS TO BE ANY TYPE, you can easily embed methods and directly call them to map)
    (Supported Operators: Indexing([key]), Membership (in))
-^^^(Supported Methods: .
+^^^(Supported Methods: .clear(): remove all elements from dict
+                       .values(): dump all values in the dict
+                       .keys(): will dump all keys
+                       .pop(): will remove a key and ret its associated val (if no key found, rets default val or error if no default)
+                       .popitem(): ret arbitrary key/val pair from the dict. (RETS A TUPLE)
+                       .setdefault(): will ret a val for a specified key. (if key not found, inserts the key with 'default' val)
+                       .items(): rets a view obj called dict_items which has key-value pairs of the dict as tuples.
+                       .get(): ret the val for a specfic key. (If key not found, ret default val or none if default isnt there)
+                       .fromkeys(): rets a new dict with specific keys and the specified val for ea key.
+                       .copy(): ret a copy of the dict
+                       .update(): will update the dict w/a specified key-val pair
+
 
 )
 
@@ -220,6 +251,9 @@ Black Hat python - Totally not a haxor
 
 -- (tuple): ex: (1,2,3) (immutable ordered sequence)
    (Supported Operators: Concatenation (+), Repetition (*), Indexing ([]), Slicing ([:]), Membership (in))
+^^^(Supported Methods:  .index(): ret the index of spec val in tuples
+                        .count(): count how many times a val appears in a tuple
+)
 
 '''
 
@@ -282,7 +316,114 @@ print ("a is greater than b" if a > b
 
 '''
 
+'''
+##################                       Conditionals                             ####################################
+-(PEP 622)
+- *** SKIPPING SIMPLE ONES ***
+- Dictionary based switching (dict as switch): can create own version of a switch case like so:
+________________________________________________________________________________________
+def f_1():
+   print("func 1")
+
+def f_2():
+   print("func 1")
+
+switch = {1: f_1, 2: f_2}
+
+num = 1
+
+switch.get(num, lambda: print("invalid case"))()
+# output: func 1
+________________________________________________________________________________________
+
+-ternary operator: short in line if else. ex:
+________________________________________________________________________________________
+
+x = 10
+result = "greater or equal" x >= 10 else "less"
+print(result)
+#output: greater or equal
+________________________________________________________________________________________
+
+-match case: (sim to switch case) but have no fail through behavior/ support pattern matching/ have much more diff evals where the first
+ case that is matched will release the execution step to execute only the corresponding block of code.
+-- (PY 3.10 and NEWER ONLY!)
+-- (possibly vgood for specific scenarios only???)
+-- Ex:
+________________________________________________________________________________________
+def checker(x):
+   match x:
+      case 1:
+         print("one")
+      case 2:
+         print("two")
+      case _:
+         print("other")
+
+checker(1)
+#output: one
+________________________________________________________________________________________
+
+-(any and all) keywords
+-- EX usage:
+x = [10, 20, 30, 40]
+
+if any(number > 30 for number in x):
+   print("numbers above 30 exist")
+
+if all( number >= 10 for number in x):
+   print("all numbs above/equal 10")
+
+
+'''
+
+'''
+##################                       for loops                             ####################################
+-basic for loops: (ex: take a list, use it for loop then followed by var name/ followed by in keyword/ then variable to loop over)
+-- ex usage:
+___________________________________________________
+num = [1,2,3,4,5]
+
+for number in num:
+   print (str(number))
+___________________________________________________
+
+-for loop with range:
+-- (for var in range(#))
+
+-Enumerate function usage:
+-- enumerate: iterate over a specific iterable such as a list while also keeping track of the index or position each element w/in that 
+   iterable object
+-- (enumerate rets a tuple so it cant be read only and not changed)
+-- EX USAGE:
+___________________________________________________
+x = ["data1", "data2", "data3"]
+
+for index, value in enumerate(x):
+   print(str(index) + "has val of: " + str(value))
+# Output: 0 has val of: data1
+# etc
+___________________________________________________
+
+-list comprehension: (you cam execute an operation/ technique known as list comprehension, this allows you to create a list from another list)
+-- ex usage:
+___________________________________________________
+square = [x**2 for x in range(5)]
+
+print(square)
+___________________________________________________
+
+-using else w/in loops:
 
 
 
+'''
 
+
+
+'''
+##################                       Conditionals                             ####################################
+
+
+
+'''
