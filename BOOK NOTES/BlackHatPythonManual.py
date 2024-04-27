@@ -488,7 +488,17 @@ else:
    quit()
 --------------------------------------------------------
 
--Dynamic Importing:
+-Dynamic Importing: you can either format text or __import__
+-- the second isnt preferred since it should only be used in cases where you need to directly interface with the import call
+-- EX:
+-----------------------------------------------------------------------------------------------
+module_name2 = "math"
+olderImport = __import__(module_name2)
+
+print(olderImport.tan(1.5))
+-----------------------------------------------------------------------------------------------
+
+-using import hooks:
 
 '''
 
