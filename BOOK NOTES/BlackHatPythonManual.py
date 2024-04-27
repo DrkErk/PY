@@ -414,10 +414,89 @@ print(square)
 ___________________________________________________
 
 -using else w/in loops:
+-- The point of using an else in a for loop is to ensure that another statement or block is executed directly after the for loop is 
+   executed or when a break statement happens w/in the loop as well
+-- else statements can also be used to also check for errors after the iteration rather than just continuing the execution of the
+   program directly
 
+-parallel iteration:
+-- you can iterate over two or more iterables/ sequences simultaneously allowing you to process their corresponding elements all together
+-- code snippet with zip and enumerate to demonstrate this:
+
+user = ["A", "B", "C"]
+number = [10, 20, 30]
+
+for idx, (name, num) in enumerate(zip(user, number)):
+   print(f"Person {idx+1}: {name}, {num} points.")
+# output: Person 1: A, 10 points.
+
+'''
+
+'''
+##################                    While Loops                             ####################################
+- else while: if the condition is false then execute this code. (when the loop is done executing, execute/eval the next block)
+- `Continue` / `break` with while loops:
+- `Try` and `except` with while loops: these keywords are to tell py to to make an attempt to execute a specific block of code under the try
+   and if something happens, go to the except and except the error and handle it under that block
+   EX:
+------------------------------------
+name = ""
+
+while name == "":
+   try:
+      name = input("Name? ")
+   except: ValueError:
+      print("input error")
+else:
+   print("The name is:", name)
+-------------------------------------
+- complex conditions with while: that us AND or OR in it. (while x <= 10 and y <= 5)
+
+'''
 
 
 '''
+################################           importing modules                        ####################################
+- import package (generic import)
+- import function from package (import from. allows to save on performance)
+
+-import externally: before the script is run we can include the modules before it is run.
+--ex:
+--------------------------------------------------------
+def greet(name):
+   print(f"This is, {name}.)
+
+if __name__ == "__main__":
+   import sys
+   if len(sys.argv) > 1:
+      name = sys.argv[1]
+      greet(name)
+   else:
+      print("needs args")
+#input ex: python3 -m bools Me
+# output This is, Me.
+--------------------------------------------------------
+
+- Conditional importing: (case: that building framework and need imports based on reqs or specific conditions)
+--------------------------------------------------------
+import importlib.util
+
+if importlib.util.find_spec("math"):
+   import math
+else:
+   print("Not found")
+   quit()
+--------------------------------------------------------
+
+-Dynamic Importing:
+
+'''
+
+
+
+
+
+
 
 
 
