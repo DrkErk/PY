@@ -499,6 +499,11 @@ print(olderImport.tan(1.5))
 -----------------------------------------------------------------------------------------------
 
 -using import hooks:
+-- is a mechanism to customize the behavior or an import statement and gives you the ability to intercept/mod  the process of 
+   importing those modules
+-- V useful when loading modules from nonstandard locations or  even perform custom actions during those imports
+
+- Module caching and reloading:
 
 '''
 
