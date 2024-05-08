@@ -503,10 +503,52 @@ print(olderImport.tan(1.5))
    importing those modules
 -- V useful when loading modules from nonstandard locations or  even perform custom actions during those imports
 
-- Module caching and reloading:
+- Module caching and reloading: 
+-- When importing modules, py will cache the module to avoid the unnecessary reimporting of  that module. (for various reasons like avoiding conflicts/ bloat)
+-- (but if you want to force reload/ reimport of a module, you can use `reload()` func from  `importlib` standard library)
+-----------------------------------------------------------------------------------------------
+import math
+import importlib
 
+importlib.reload(math)
+-----------------------------------------------------------------------------------------------
+
+-abs vs relative importing:
+-- `absolute` is the full pathfrom the project root of the mod
+-- `relative` to current module
 '''
 
+'''
+##################             Import hooking / modification                    ####################################
+
+-Pys step by step system to find/ load moduels when an import statement is being parsed or executed
+--1. Search for module built in: (to make sure that py module you want to import is not related or exactly a std imp)
+--2. check if module being imported/ read is in the module cache. (used to avoid redundant imports)
+--3. if module was no found in cach. py will check if the directory was listed in sys.path directory
+
+--^^^-- after the 3 steps: py will then load the module and execute its code to define its contents then return to the execution of the 
+        program
+--(the point of an import hook) is to intervene at specific points during the import process and then customize the way modules are 
+  loaded/ executed/ searched for/ located/ read.
+
+- (TYPES OF IMPORT HOOKING):
+-- Meta Path Hooking: allow you to customize the way py will search for modules and add new directories/ archives to import path
+                      (comes in handy when you need to change where importer is working)
+-- Path Entry Hooking: more fine grain control over the modular seaching process. (allowed to customize the way directories are searched
+                       for/ modules using diff algorithms or even using own search methods.) (Can speed up import process alot)
+-- Loader Hooking: allows for user to customize the way the modules are loaded which can help when user who want to define custom loader
+                   to load the modules code from non standard locations and perform custom transformations
+-- Bytecode Hooking: allows users to load pre compiled py bytecode/ is another sub-type of loader hooking
+
+- (Sys and OS modules):
+-- system and os give users access to functions that can work directly w/ system such:
+^^- path manipulators/ sys args/ sys funcs/ execution/ readers/ more.
+-- sys modules also allows us to interact w/ py interpreter/env which sys gives access to.
+
+-(importlib):
+-- used for low level manipulation of import process. Used to interact/intercept specific parts of the import process w/in py.
+
+'''
 
 
 
