@@ -548,6 +548,23 @@ importlib.reload(math)
 -(importlib):
 -- used for low level manipulation of import process. Used to interact/intercept specific parts of the import process w/in py.
 
+- then follows idea of layout for loader:
+	project:
+	-importer.py
+	-main.py
+	-modules
+	 ^-module1.py
+	 
+-- file 1: module1.py:
+	--nothing fancy but has a greet function
+	_______________________________________
+	def greet(name="world")
+		return f"Hello, {name}!"
+	_______________________________________
+	
+- file 2: importer:
+	--
+
 '''
 
 
