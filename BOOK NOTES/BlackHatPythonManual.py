@@ -559,11 +559,54 @@ importlib.reload(math)
 	--nothing fancy but has a greet function
 	_______________________________________
 	def greet(name="world")
-		return f"Hello, {name}!"
+	    return f"Hello, {name}!"
 	_______________________________________
 	
 - file 2: importer:
-	--
+	--It goes like this:
+	  -Start by importing the neccessary parts of importlib that we need
+	  
+	  
+	  It looks like this:
+	____________________________________________________________
+	import importlib.abc, importlib.util, os, sys
+	
+	class MetaPathHook(importlib.abc.MetaPathFinder, importlib.abc.Loader):
+	    def __init__(self, path):
+	    	self.path = path
+	    
+	    def find_spec(self, fullname, path=None, target=None):
+	    	if self.path not in sys.path:
+	    	    sys.path.append(self.path)
+	    	
+	    	module_path = os.path.join(
+	    		self.path,
+	    		fullname.replace(".", os.sep)
+	    		+
+	    		".py"
+	    	)
+	    	
+	    	if os.path.exists(module_path):
+	    	    return importlib.util.spec_from_file_location(
+	    	    fullname,
+	    	    module_path,
+	    	    loader=self
+	    	    )
+	    	
+	    	def exec_module(self, module):
+	    	    with open(module.__file__, "rb") as file:
+	    	        code = compile(
+	    	            file.read(),
+	    	            module.__file__,
+	    	            "exec"
+	    	        )
+	    	        
+	    	        exec(code, module.__dict__)
+	    	       
+	   def installModule(path):
+	       Hook = MetaPathHook(path)
+	       sys.meta_path.insert(0, Hook)
+	____________________________________________________________
 
 '''
 
