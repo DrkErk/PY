@@ -1271,8 +1271,28 @@ SUBSECTION: Attack Simulation: Red Team, Blue Team, Purple Team
 4.9: CHAOS ENGINEERING
 '''
 '''
---
+-- Helps build sys resilience by intentionally injecting errors, (ie: server shutdowns/ latency incrs/ resource exhaustion), into the system
+-- (Casey Rosenthal) built Chaos engineering team at Netflix. It is defined as: 'the discipline of experimenting on a distributed system in order to build confidence
+   in the systems capability to withstand turbulent conditions in production.'
 
+-- 'With any highly complex system, failure is inevitable, so you need to prepare for failure rather than just try to prevent it.'
+-- Not only will systems fail, but as they become more complex, there will be more components to fail/ more opportunities for failure.
+
+-- Chaos Testing is importent because it allows you to learn while not in the middle of an incident.
+
+-- testers should begin with a hypothesis and then develop an automated way of testing that hypothesis.
+
+-- Other failures scenarios might include: catching AWS instances deployed with default perms/ introducing code or infrastructure with critcal vulnerabilites that should
+   be caught/ blocked.
+'''
+'''
+CHAPTER 5: DevSecOps Technology
+'''
+'''
+5.1: INTRODUCTION
+'''
+'''
+--
 
 '''
 
