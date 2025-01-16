@@ -1292,9 +1292,94 @@ CHAPTER 5: DevSecOps Technology
 5.1: INTRODUCTION
 '''
 '''
+-- When thinking of if a tool is a 'DevSecOps', it should be be following 'DevSecOps Principles'. Such as:
+   -Collaboration: 
+   -Flow of value from left to right: CI/CD tools such as `jenkins` and `circleCI` are the key to Gene kims first way of DevOps. (value more for the customers)
+   -Empowerment: 
+   -Fast Feedback and Continuous Learning: 
+   -Shift Left: 
+
+'''
+
+'''
+SUBSECTION: DevSecOps CI/CD
+''' 
+''' 
+-- CI/CD is the cornerstone of of DevOps Principles
+-- The CI/CD process includes all the steps to take changes to code from the developer and get them built deployed to the customer. They are:
+   1. Pushing code from source code repository
+   2. Integrating it into the rest of the application
+   3. Building a complete application
+   4. Testing the application
+   5. Deploying the app to prod all through automation
+
+-- It should be noted that CD does not mean that apps are always deployed to customer. Only that the application is always in a deployable state.
+
+-- Tools for each Section of the pipeline:
+   1. Commit
+      -SAST (static application security testing)
+         -SonarQube
+         -Veracode
+         -Mend
+         -Checkmarx
+         -Snyk
+
+   2. Build
+      -SCA (Source Composition Analysis)
+         -Github
+         -Gitlab
+         -Snyk
+         -FOSSA
+
+      -IaC Scanning (Infrastructure as Code)
+         -TFLint
+         -Gitlab
+         -Snyk
+
+   3. Test
+      -SAST (static application security testing)
+         -SonarQube
+         -Veracode
+         -Mend
+         -CheckMarx
+         -Synk
+
+      -DAST (Dynamic application security testing)
+         -Checkmarx
+         -Rapid 7
+         -HCL appscan
+      
+      -IAST (Interactive application security testing)
+         -Contrast Security
+         -Invicti
+         -Checkmarx
+         -Veracode
+         
+
+   4. Deploy
+      -DAST (Dynamic application security testing)
+         -Checkmarx
+         -Rapid7
+         -HCL appscan
+
+      -RASP (Runtime Application Self Protection)
+         -Dynatrace
+         -Signal Science
+         -JSDefender
+         -Imperva
+         -OpenRASP
+         -Veracode
+         -Rapid7
+
+'''
+'''
+SUBSECTION: The commit stage 
+''' 
+''' 
 --
 
 '''
+
 
 '''
 SUBSECTION: 
